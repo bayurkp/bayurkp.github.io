@@ -1,12 +1,11 @@
 ---
-degree: "Bachelor of Science in Computer Science"
-institution: "State University"
-location: "Boston, MA"
-startDate: "2016-09"
-endDate: "2020-05"
-description: "Focused on web development and software engineering. Graduated with honors."
+degree: "Bachelor of Computer Science"
+institution: "Udayana University"
+location: "Jimbaran, Bali"
+startDate: "Aug 2022"
+endDate: "Aug 2026"
+current: true
+description: "Major in Information Technology. Cumulative GPA: 3.93/4.0"
 ---
 
-- Dean's List for 6 semesters
-- President of Computer Science Club
-- Senior thesis on distributed systems
+Relevant Coursework: Algorithm and Programming, Database Concept, Computer Network, OOP, UI/UX, Linear Algebra, Data Warehouse, Internet Programming, Software Engineering
