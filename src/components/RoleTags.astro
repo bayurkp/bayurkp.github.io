@@ -11,15 +11,27 @@ const works = [
   'Technical Mentoring',
   'Competitive Programming'
 ];
+
+const separator = '/';
 ---
 
 <div class="overflow-hidden border-b-2 border-black dark:border-white bg-accent py-4">
   <div class="animate-scroll flex whitespace-nowrap">
-    {[...works, ...works].map((work) => (
-      <span class="mx-8 text-xl md:text-2xl font-heading font-bold text-black">
-        {work}
-        <span class="mx-8 text-black/30">/</span>
-      </span>
+    {works.map((work, i) => (
+      <>
+        <span class="text-xl md:text-2xl font-heading font-bold text-black px-4">{work}</span>
+        {i < works.length - 1 && (
+          <span class="text-xl md:text-2xl font-heading font-bold text-black/30 px-2">{separator}</span>
+        )}
+      </>
+    ))}
+    {works.map((work, i) => (
+      <>
+        <span class="text-xl md:text-2xl font-heading font-bold text-black px-4">{work}</span>
+        {i < works.length - 1 && (
+          <span class="text-xl md:text-2xl font-heading font-bold text-black/30 px-2">{separator}</span>
+        )}
+      </>
     ))}
   </div>
 </div>
@@ -30,6 +42,6 @@ const works = [
     to { transform: translateX(-50%); }
   }
   .animate-scroll {
-    animation: scroll 25s linear infinite;
+    animation: scroll 30s linear infinite;
   }
 </style>
