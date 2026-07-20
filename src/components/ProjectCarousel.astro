@@ -19,70 +19,81 @@ interface Props {
 const { projects } = Astro.props;
 ---
 
-<div class="relative overflow-hidden">
-  <div class="flex gap-6" id="carousel-track">
-    {
-      [...projects, ...projects, ...projects].map((project, i) => (
-        <div class="flex-shrink-0 w-[300px] md:w-[350px] border-2 border-black dark:border-white bg-white dark:bg-neutral-900 shadow-neo dark:shadow-neo-dark">
-          <div class="aspect-video bg-gray-100 dark:bg-neutral-800 border-b-2 border-black dark:border-white overflow-hidden">
-            {project.data.thumbnail ? (
-              <img
-                src={project.data.thumbnail}
-                alt={project.data.title}
-                class="w-full h-full object-cover"
-              />
-            ) : (
-              <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-accent/20 to-transparent">
-                <span class="font-heading font-bold text-4xl text-accent/50">
-                  {project.data.title.charAt(0)}
-                </span>
+<div class="relative py-2 px-1">
+  <div class="embla overflow-hidden" id="project-carousel">
+    <div class="embla__container flex">
+      {
+        projects.map((project) => (
+          <div class="embla__slide flex-[0_0_auto] min-w-0 w-[316px] md:w-[366px] mr-0 md:mr-2 py-2 px-2 pb-6">
+            <div class="h-full border-2 border-black dark:border-white bg-white dark:bg-neutral-900 shadow-neo dark:shadow-neo-dark hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 flex flex-col cursor-grab active:cursor-grabbing">
+              <div class="aspect-video bg-gray-100 dark:bg-neutral-800 border-b-2 border-black dark:border-white overflow-hidden group flex-shrink-0">
+                {project.data.thumbnail ? (
+                  <img
+                    src={project.data.thumbnail}
+                    alt={project.data.title}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 pointer-events-none"
+                  />
+                ) : (
+                  <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-accent/20 to-transparent pointer-events-none">
+                    <span class="font-heading font-bold text-4xl text-accent/50">
+                      {project.data.title.charAt(0)}
+                    </span>
+                  </div>
+                )}
               </div>
-            )}
-          </div>
-          <div class="p-4">
-            <h3 class="font-heading font-bold text-lg mb-2 line-clamp-1">{project.data.title}</h3>
-            <p class="font-body text-sm opacity-80 mb-3 line-clamp-2">{project.data.description}</p>
-            <div class="flex flex-wrap gap-1 mb-3">
-              {project.data.tags.slice(0, 3).map((tag) => (
-                <span class="px-2 py-0.5 text-xs font-mono border border-black dark:border-white bg-accent/10">
-                  {tag}
-                </span>
-              ))}
+              <div class="p-5 flex flex-col flex-grow pointer-events-none">
+                <h3 class="font-heading font-bold text-lg mb-2 line-clamp-1">
+                  {project.data.title}
+                </h3>
+                <p class="font-body text-sm opacity-80 mb-4 line-clamp-2">
+                  {project.data.description}
+                </p>
+                <div class="flex flex-wrap gap-1 mb-4 mt-auto">
+                  {project.data.tags.slice(0, 3).map((tag) => (
+                    <span class="px-2 py-0.5 text-xs font-mono font-bold border border-black dark:border-white bg-accent/10">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div class="p-5 pt-0 mt-auto">
+                <a
+                  href={`/projects/${project.slug}`}
+                  class="inline-block text-sm font-heading font-bold hover:text-accent transition-colors"
+                >
+                  View Details →
+                </a>
+              </div>
             </div>
-            <a
-              href={`/projects/${project.slug}`}
-              class="text-sm font-heading font-bold hover:text-accent transition-colors"
-            >
-              View Details →
-            </a>
           </div>
-        </div>
-      ))
-    }
+        ))
+      }
+    </div>
   </div>
 </div>
 
-<script>
-  const track = document.getElementById('carousel-track');
-  if (track) {
-    let position = 0;
-    const itemWidth = 374;
-    const totalItems = track.children.length / 3;
-    const visibleItems = 3;
-    const maxScroll = -(totalItems - visibleItems) * itemWidth;
+<script is:inline src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+<script is:inline src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js"
+></script>
 
-    setInterval(() => {
-      position -= 1;
-      if (position <= maxScroll) {
-        position = 0;
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const emblaNode = document.getElementById('project-carousel');
+    if (emblaNode && window.EmblaCarousel) {
+      const options = { loop: true, align: 'start' };
+      const plugins = [];
+
+      if (window.EmblaCarouselAutoplay) {
+        plugins.push(
+          window.EmblaCarouselAutoplay({
+            delay: 3000,
+            stopOnInteraction: true,
+            stopOnMouseEnter: true,
+          })
+        );
       }
-      track.style.transform = `translateX(${position}px)`;
-    }, 30);
-  }
-</script>
 
-<style>
-  #carousel-track {
-    transition: transform 0.05s linear;
-  }
-</style>
+      window.EmblaCarousel(emblaNode, options, plugins);
+    }
+  });
+</script>
