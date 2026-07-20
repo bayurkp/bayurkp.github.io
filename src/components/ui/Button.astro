@@ -14,38 +14,50 @@ const {
   href,
   type = 'button',
   class: className = '',
-  disabled = false
+  disabled = false,
 } = Astro.props;
 
-const baseStyles = 'inline-flex items-center justify-center font-heading font-bold border-2 border-black dark:border-white transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed';
+const baseStyles =
+  'inline-flex items-center justify-center font-heading font-bold border-2 border-black dark:border-white transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed';
 
 const variants = {
-  primary: 'bg-accent text-black hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] dark:bg-accent dark:text-black',
-  secondary: 'bg-white dark:bg-neutral-900 hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]',
-  ghost: 'bg-transparent border-transparent hover:border-black dark:hover:border-white'
+  primary:
+    'bg-accent text-black hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] dark:bg-accent dark:text-black',
+  secondary:
+    'bg-white dark:bg-neutral-900 hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]',
+  ghost: 'bg-transparent border-transparent hover:border-black dark:hover:border-white',
 };
 
 const sizes = {
   sm: 'text-sm py-2 px-4',
   md: 'text-base py-3 px-6',
-  lg: 'text-lg py-4 px-8'
+  lg: 'text-lg py-4 px-8',
 };
 
 const shadows = {
   primary: 'shadow-[4px_4px_0px_0px_#000] dark:shadow-[4px_4px_0px_0px_#FFF]',
   secondary: 'shadow-neo dark:shadow-neo-dark',
-  ghost: ''
+  ghost: '',
 };
 
-const classes = [baseStyles, variants[variant], sizes[size], variant !== 'ghost' ? shadows[variant] : ''].filter(Boolean).join(' ');
+const classes = [
+  baseStyles,
+  variants[variant],
+  sizes[size],
+  variant !== 'ghost' ? shadows[variant] : '',
+]
+  .filter(Boolean)
+  .join(' ');
 ---
 
-{href ? (
-  <a href={href} class={`${classes} ${className}`}>
-    <slot />
-  </a>
-) : (
-  <button type={type} class={`${classes} ${className}`} disabled={disabled}>
-    <slot />
-  </button>
-)}
+{
+  href ? (
+    <a href={href} class={`${classes} ${className}`}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} class={`${classes} ${className}`} disabled={disabled}>
+      <slot />
+    </button>
+  )
+}

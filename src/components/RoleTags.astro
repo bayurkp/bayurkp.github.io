@@ -9,7 +9,7 @@ const works = [
   'Database Management',
   'DevOps & CI/CD',
   'Technical Mentoring',
-  'Competitive Programming'
+  'Competitive Programming',
 ];
 
 const separator = '/';
@@ -17,29 +17,41 @@ const separator = '/';
 
 <div class="overflow-hidden border-b-2 border-black dark:border-white bg-accent py-4">
   <div class="animate-scroll flex whitespace-nowrap">
-    {works.map((work, i) => (
-      <>
-        <span class="text-xl md:text-2xl font-heading font-bold text-black px-4">{work}</span>
-        {i < works.length - 1 && (
-          <span class="text-xl md:text-2xl font-heading font-bold text-black/30 px-2">{separator}</span>
-        )}
-      </>
-    ))}
-    {works.map((work, i) => (
-      <>
-        <span class="text-xl md:text-2xl font-heading font-bold text-black px-4">{work}</span>
-        {i < works.length - 1 && (
-          <span class="text-xl md:text-2xl font-heading font-bold text-black/30 px-2">{separator}</span>
-        )}
-      </>
-    ))}
+    {
+      works.map((work, i) => (
+        <>
+          <span class="text-xl md:text-2xl font-heading font-bold text-black px-4">{work}</span>
+          {i < works.length - 1 && (
+            <span class="text-xl md:text-2xl font-heading font-bold text-black/30 px-2">
+              {separator}
+            </span>
+          )}
+        </>
+      ))
+    }
+    {
+      works.map((work, i) => (
+        <>
+          <span class="text-xl md:text-2xl font-heading font-bold text-black px-4">{work}</span>
+          {i < works.length - 1 && (
+            <span class="text-xl md:text-2xl font-heading font-bold text-black/30 px-2">
+              {separator}
+            </span>
+          )}
+        </>
+      ))
+    }
   </div>
 </div>
 
 <style>
   @keyframes scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
   .animate-scroll {
     animation: scroll 30s linear infinite;

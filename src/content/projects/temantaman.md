@@ -1,8 +1,8 @@
 ---
-title: "TemanTaman"
-description: "Digital auction platform for ornamental plants, addressing limited market access for plant sellers."
-thumbnail: "https://picsum.photos/seed/temantaman/800/600"
-tags: ["React", "Node.js", "PostgreSQL", "GCP"]
+title: 'TemanTaman'
+description: 'Digital auction platform for ornamental plants, addressing limited market access for plant sellers.'
+thumbnail: 'https://picsum.photos/seed/temantaman/800/600'
+tags: ['React', 'Node.js', 'PostgreSQL', 'GCP']
 date: 2026-04-20
 featured: true
 ---

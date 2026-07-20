@@ -14,26 +14,28 @@ const {
   placeholder,
   required = false,
   rows,
-  class: className = ''
+  class: className = '',
 } = Astro.props;
 ---
 
-{rows ? (
-  <textarea
-    id={name}
-    name={name}
-    required={required}
-    rows={rows}
-    placeholder={placeholder}
-    class={`w-full px-4 py-3 border-2 border-black dark:border-white bg-white dark:bg-neutral-900 font-body focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 dark:focus:ring-offset-neutral-900 resize-none ${className}`}
-  />
-) : (
-  <input
-    type={type}
-    id={name}
-    name={name}
-    required={required}
-    placeholder={placeholder}
-    class={`w-full px-4 py-3 border-2 border-black dark:border-white bg-white dark:bg-neutral-900 font-body focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 dark:focus:ring-offset-neutral-900 ${className}`}
-  />
-)}
+{
+  rows ? (
+    <textarea
+      id={name}
+      name={name}
+      required={required}
+      rows={rows}
+      placeholder={placeholder}
+      class={`w-full px-4 py-3 border-2 border-black dark:border-white bg-white dark:bg-neutral-900 font-body focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 dark:focus:ring-offset-neutral-900 resize-none ${className}`}
+    />
+  ) : (
+    <input
+      type={type}
+      id={name}
+      name={name}
+      required={required}
+      placeholder={placeholder}
+      class={`w-full px-4 py-3 border-2 border-black dark:border-white bg-white dark:bg-neutral-900 font-body focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 dark:focus:ring-offset-neutral-900 ${className}`}
+    />
+  )
+}

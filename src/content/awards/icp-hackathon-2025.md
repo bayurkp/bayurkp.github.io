@@ -1,8 +1,8 @@
 ---
-title: "1st Place - ICP Indonesia Hackathon"
-organization: "ICP Indonesia Hackathon"
-date: "May 2025"
-description: "Won First Place as part of team Hackathon Dadakan with Moodyan, a decentralized journaling app."
+title: '1st Place - ICP Indonesia Hackathon'
+organization: 'ICP Indonesia Hackathon'
+date: 'May 2025'
+description: 'Won First Place as part of team Hackathon Dadakan with Moodyan, a decentralized journaling app.'
 ---
 
 - Won First Place at the ICP Indonesia Hackathon as part of team Hackathon Dadakan

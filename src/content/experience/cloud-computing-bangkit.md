@@ -1,11 +1,11 @@
 ---
-title: "Cloud Computing Cohort"
-company: "Bangkit Academy"
-location: "Remote"
-startDate: "Sep 2024"
-endDate: "Jan 2025"
+title: 'Cloud Computing Cohort'
+company: 'Bangkit Academy'
+location: 'Remote'
+startDate: 'Sep 2024'
+endDate: 'Jan 2025'
 current: false
-description: "Graduated with Distinction, ranking in the top 10% of the Cloud Computing path."
+description: 'Graduated with Distinction, ranking in the top 10% of the Cloud Computing path.'
 ---
 
 - Graduated with Distinction, ranking in the top 10% of Cloud Computing path

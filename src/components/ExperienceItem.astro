@@ -13,20 +13,25 @@ const { title, company, location, startDate, endDate, current = false, descripti
 ---
 
 <div class="relative pl-8 pb-8 border-l-2 border-black dark:border-white last:pb-0">
-  <div class={`absolute left-[-9px] top-0 w-4 h-4 border-2 border-black dark:border-white ${current ? 'bg-accent' : 'bg-white dark:bg-neutral-900'}`}></div>
-  <div class="border-2 border-black dark:border-white bg-white dark:bg-neutral-900 p-5 shadow-neo dark:shadow-neo-dark hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150">
+  <div
+    class={`absolute left-[-9px] top-0 w-4 h-4 border-2 border-black dark:border-white ${current ? 'bg-accent' : 'bg-white dark:bg-neutral-900'}`}
+  >
+  </div>
+  <div
+    class="border-2 border-black dark:border-white bg-white dark:bg-neutral-900 p-5 shadow-neo dark:shadow-neo-dark hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150"
+  >
     <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
       <div>
         <h3 class="font-heading font-bold text-lg">{title}</h3>
         <p class="font-body text-accent font-medium">{company}</p>
         {location && <p class="font-body text-sm opacity-60">{location}</p>}
       </div>
-      <span class={`px-3 py-1 text-xs font-mono border-2 border-black dark:border-white ${current ? 'bg-accent text-black' : 'bg-white dark:bg-neutral-900'}`}>
+      <span
+        class={`px-3 py-1 text-xs font-mono border-2 border-black dark:border-white ${current ? 'bg-accent text-black' : 'bg-white dark:bg-neutral-900'}`}
+      >
         {current ? `${startDate} - Present` : `${startDate} - ${endDate}`}
       </span>
     </div>
-    {description && (
-      <p class="font-body text-sm opacity-80 leading-relaxed">{description}</p>
-    )}
+    {description && <p class="font-body text-sm opacity-80 leading-relaxed">{description}</p>}
   </div>
 </div>

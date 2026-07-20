@@ -1,10 +1,10 @@
 ---
-title: "Programming Teacher"
-company: "Timedoor"
-location: "Bali"
-startDate: "Aug 2024"
+title: 'Programming Teacher'
+company: 'Timedoor'
+location: 'Bali'
+startDate: 'Aug 2024'
 current: true
-description: "Teaching programming to students of all ages, covering game development, web development, and more."
+description: 'Teaching programming to students of all ages, covering game development, web development, and more.'
 ---
 
 - Mentoring programming students across various categories: kids, teens, and adults (pro)

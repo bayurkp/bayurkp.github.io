@@ -1,8 +1,8 @@
 ---
-title: "Tailwind CSS Tips and Tricks"
-description: "Advanced Tailwind CSS techniques for building beautiful, maintainable user interfaces."
+title: 'Tailwind CSS Tips and Tricks'
+description: 'Advanced Tailwind CSS techniques for building beautiful, maintainable user interfaces.'
 date: 2026-04-15
-tags: ["Tailwind CSS", "CSS", "Frontend"]
+tags: ['Tailwind CSS', 'CSS', 'Frontend']
 ---
 
 ## Custom Configuration

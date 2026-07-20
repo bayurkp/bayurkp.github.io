@@ -1,10 +1,10 @@
 ---
-title: "Moodyan"
-description: "Decentralized journaling application focused on data privacy and mental health. Built with React, TypeScript, ICP, and Motoko."
-thumbnail: "https://picsum.photos/seed/moodyan/800/600"
-tags: ["React", "TypeScript", "ICP", "Motoko", "Web3"]
-link: "https://moodyan.com"
-repo: "https://github.com/bayurkp/moodyan"
+title: 'Moodyan'
+description: 'Decentralized journaling application focused on data privacy and mental health. Built with React, TypeScript, ICP, and Motoko.'
+thumbnail: 'https://picsum.photos/seed/moodyan/800/600'
+tags: ['React', 'TypeScript', 'ICP', 'Motoko', 'Web3']
+link: 'https://moodyan.com'
+repo: 'https://github.com/bayurkp/moodyan'
 date: 2026-05-10
 featured: true
 ---

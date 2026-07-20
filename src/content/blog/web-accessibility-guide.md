@@ -1,8 +1,8 @@
 ---
-title: "Building Accessible Web Applications"
-description: "A practical guide to creating inclusive web experiences that work for everyone."
+title: 'Building Accessible Web Applications'
+description: 'A practical guide to creating inclusive web experiences that work for everyone.'
 date: 2026-02-20
-tags: ["Accessibility", "HTML", "Best Practices"]
+tags: ['Accessibility', 'HTML', 'Best Practices']
 ---
 
 ## Why Accessibility Matters

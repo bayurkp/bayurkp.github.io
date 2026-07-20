@@ -17,23 +17,40 @@ const experiences = await getCollection('experience');
 const educations = await getCollection('education');
 const awards = await getCollection('awards');
 
-const featuredProjects = projects.filter(p => p.data.featured).slice(0, 6);
-const sortedBlog = blogPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3);
+const featuredProjects = projects.filter((p) => p.data.featured).slice(0, 6);
+const sortedBlog = blogPosts
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
 ---
 
 <BaseLayout title="Home | Portfolio">
   <Hero />
 
-  <section id="projects" class="py-16 border-b-2 border-black dark:border-white bg-neutral-light dark:bg-neutral-dark">
+  <section
+    id="projects"
+    class="py-16 border-b-2 border-black dark:border-white bg-neutral-light dark:bg-neutral-dark"
+  >
     <div class="container mx-auto px-4">
       <div class="flex items-end justify-between mb-8">
         <h2 class="text-3xl md:text-4xl font-heading font-bold">Featured Projects</h2>
-        {projects.length > 3 && (
-          <a href="/projects" class="inline-flex items-center gap-2 font-heading font-bold hover:text-accent transition-colors group">
-            View More
-            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-          </a>
-        )}
+        <a
+          href="/projects"
+          class="inline-flex items-center gap-2 font-heading font-bold hover:text-accent transition-colors group"
+        >
+          View More
+          <svg
+            class="w-5 h-5 group-hover:translate-x-1 transition-transform"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
+          >
+        </a>
       </div>
       <ProjectCarousel projects={featuredProjects} />
     </div>
@@ -46,21 +63,26 @@ const sortedBlog = blogPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.
     </div>
   </section>
 
-  <section id="experience" class="py-16 border-b-2 border-black dark:border-white bg-accent/5 dark:bg-accent/10">
+  <section
+    id="experience"
+    class="py-16 border-b-2 border-black dark:border-white bg-accent/5 dark:bg-accent/10"
+  >
     <div class="container mx-auto px-4">
       <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Experience</h2>
       <div class="max-w-3xl">
-        {experiences.map((exp) => (
-          <ExperienceItem
-            title={exp.data.title}
-            company={exp.data.company}
-            location={exp.data.location}
-            startDate={exp.data.startDate}
-            endDate={exp.data.endDate}
-            current={exp.data.current}
-            description={exp.data.description}
-          />
-        ))}
+        {
+          experiences.map((exp) => (
+            <ExperienceItem
+              title={exp.data.title}
+              company={exp.data.company}
+              location={exp.data.location}
+              startDate={exp.data.startDate}
+              endDate={exp.data.endDate}
+              current={exp.data.current}
+              description={exp.data.description}
+            />
+          ))
+        }
       </div>
     </div>
   </section>
@@ -69,60 +91,81 @@ const sortedBlog = blogPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.
     <div class="container mx-auto px-4">
       <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Education</h2>
       <div class="max-w-3xl">
-        {educations.map((edu) => (
-          <EducationItem
-            degree={edu.data.degree}
-            institution={edu.data.institution}
-            location={edu.data.location}
-            startDate={edu.data.startDate}
-            endDate={edu.data.endDate}
-            current={edu.data.current}
-            description={edu.data.description}
-          />
-        ))}
+        {
+          educations.map((edu) => (
+            <EducationItem
+              degree={edu.data.degree}
+              institution={edu.data.institution}
+              location={edu.data.location}
+              startDate={edu.data.startDate}
+              endDate={edu.data.endDate}
+              current={edu.data.current}
+              description={edu.data.description}
+            />
+          ))
+        }
       </div>
     </div>
   </section>
 
-  {awards.length > 0 && (
-    <section id="awards" class="py-16 border-b-2 border-black dark:border-white bg-neutral-light dark:bg-neutral-dark">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Awards & Achievements</h2>
-        <div class="max-w-3xl">
-          {awards.map((award) => (
-            <AwardItem
-              title={award.data.title}
-              organization={award.data.organization}
-              date={award.data.date}
-              description={award.data.description}
-            />
-          ))}
+  {
+    awards.length > 0 && (
+      <section
+        id="awards"
+        class="py-16 border-b-2 border-black dark:border-white bg-neutral-light dark:bg-neutral-dark"
+      >
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Awards & Achievements</h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {awards.map((award) => (
+              <AwardItem
+                title={award.data.title}
+                organization={award.data.organization}
+                date={award.data.date}
+                description={award.data.description}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
-  )}
+      </section>
+    )
+  }
 
   <section id="blog" class="py-16 border-b-2 border-black dark:border-white">
     <div class="container mx-auto px-4">
       <div class="flex items-end justify-between mb-8">
-        <h2 class="text-3xl md:text-4xl font-heading font-bold">Latest Blog Posts</h2>
-        {blogPosts.length > 3 && (
-          <a href="/blog" class="inline-flex items-center gap-2 font-heading font-bold hover:text-accent transition-colors group">
-            View More
-            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-          </a>
-        )}
+        <h2 class="text-3xl md:text-4xl font-heading font-bold">Recent Blog</h2>
+        <a
+          href="/blog"
+          class="inline-flex items-center gap-2 font-heading font-bold hover:text-accent transition-colors group"
+        >
+          View More
+          <svg
+            class="w-5 h-5 group-hover:translate-x-1 transition-transform"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
+          >
+        </a>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {sortedBlog.map((post) => (
-          <BlogCard
-            title={post.data.title}
-            description={post.data.description}
-            date={post.data.date.toISOString()}
-            slug={post.slug}
-            tags={post.data.tags}
-          />
-        ))}
+        {
+          sortedBlog.map((post) => (
+            <BlogCard
+              title={post.data.title}
+              description={post.data.description}
+              date={post.data.date.toISOString()}
+              slug={post.slug}
+              tags={post.data.tags}
+            />
+          ))
+        }
       </div>
     </div>
   </section>

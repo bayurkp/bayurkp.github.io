@@ -1,10 +1,10 @@
 ---
-title: "Real-time Chat App"
-description: "Scalable messaging platform with WebSocket support, group chats, file sharing, and end-to-end encryption."
-thumbnail: "https://picsum.photos/seed/chatapp/800/600"
-tags: ["React", "Node.js", "Socket.io", "Redis"]
-link: "https://chat.demo.com"
-repo: "https://github.com/bayurkp/chat"
+title: 'Real-time Chat App'
+description: 'Scalable messaging platform with WebSocket support, group chats, file sharing, and end-to-end encryption.'
+thumbnail: 'https://picsum.photos/seed/chatapp/800/600'
+tags: ['React', 'Node.js', 'Socket.io', 'Redis']
+link: 'https://chat.demo.com'
+repo: 'https://github.com/bayurkp/chat'
 date: 2026-04-10
 featured: true
 ---

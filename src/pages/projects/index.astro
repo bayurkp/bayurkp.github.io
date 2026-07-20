@@ -13,17 +13,19 @@ const sortedProjects = projects.sort((a, b) => b.data.date.valueOf() - a.data.da
       <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4">Projects</h1>
       <p class="font-body text-lg mb-12 max-w-2xl">A collection of my work and side projects.</p>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {sortedProjects.map((project) => (
-          <ProjectCard
-            title={project.data.title}
-            description={project.data.description}
-            thumbnail={project.data.thumbnail}
-            tags={project.data.tags}
-            link={project.data.link}
-            repo={project.data.repo}
-            slug={project.slug}
-          />
-        ))}
+        {
+          sortedProjects.map((project) => (
+            <ProjectCard
+              title={project.data.title}
+              description={project.data.description}
+              thumbnail={project.data.thumbnail}
+              tags={project.data.tags}
+              link={project.data.link}
+              repo={project.data.repo}
+              slug={project.slug}
+            />
+          ))
+        }
       </div>
     </div>
   </section>

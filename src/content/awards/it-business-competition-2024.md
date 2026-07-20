@@ -1,8 +1,8 @@
 ---
-title: "3rd Place - IT Business Development Competition"
-organization: "PNB IT Competition #16 x ECO"
-date: "Oct 2024"
-description: "Awarded 3rd place for developing TemanTaman, a digital auction platform for ornamental plants."
+title: '3rd Place - IT Business Development Competition'
+organization: 'PNB IT Competition #16 x ECO'
+date: 'Oct 2024'
+description: 'Awarded 3rd place for developing TemanTaman, a digital auction platform for ornamental plants.'
 ---
 
 - Developed TemanTaman, a digital auction platform addressing limited market access for ornamental plant sellers

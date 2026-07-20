@@ -1,11 +1,11 @@
 ---
-title: "Frontend Developer Intern"
-company: "Timedoor"
-location: "Bali"
-startDate: "March 2025"
-endDate: "June 2025"
+title: 'Frontend Developer Intern'
+company: 'Timedoor'
+location: 'Bali'
+startDate: 'March 2025'
+endDate: 'June 2025'
 current: false
-description: "Developed scalable web interfaces using Vue.js and implemented REST API integration."
+description: 'Developed scalable web interfaces using Vue.js and implemented REST API integration.'
 ---
 
 - Developed and maintained scalable web interfaces using Vue.js
