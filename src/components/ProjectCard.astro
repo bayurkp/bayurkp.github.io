@@ -1,0 +1,51 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  thumbnail?: string;
+  tags: string[];
+  link?: string;
+  repo?: string;
+  slug: string;
+}
+
+const { title, description, thumbnail, tags, link, repo, slug } = Astro.props;
+---
+
+<article class="card-neo overflow-hidden group">
+  <div class="aspect-video bg-gray-100 dark:bg-neutral-800 border-b-2 border-black dark:border-white overflow-hidden">
+    {thumbnail ? (
+      <img src={thumbnail} alt={title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+    ) : (
+      <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-accent/20 to-transparent">
+        <span class="font-heading font-bold text-4xl text-accent/50">{title.charAt(0)}</span>
+      </div>
+    )}
+  </div>
+  <div class="p-6">
+    <h3 class="font-heading font-bold text-xl mb-2">{title}</h3>
+    <p class="font-body text-sm mb-4 opacity-80 line-clamp-2">{description}</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      {tags.slice(0, 3).map((tag) => (
+        <span class="px-2 py-1 text-xs font-mono border border-black dark:border-white bg-accent/10">
+          {tag}
+        </span>
+      ))}
+    </div>
+    <div class="flex gap-3">
+      {link && (
+        <a href={link} target="_blank" rel="noopener noreferrer" class="btn-neo text-sm py-2 px-3">
+          Live Demo
+        </a>
+      )}
+      {repo && (
+        <a href={repo} target="_blank" rel="noopener noreferrer" class="btn-neo text-sm py-2 px-3">
+          Code
+        </a>
+      )}
+      <a href={`/projects/${slug}`} class="btn-neo text-sm py-2 px-3">
+        Details
+      </a>
+    </div>
+  </div>
+</article>

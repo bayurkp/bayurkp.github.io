@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project }
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+---
+
+<BaseLayout title={`${project.data.title} | Portfolio`} description={project.data.description} image={project.data.thumbnail}>
+  <article class="py-16">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <a href="/projects" class="inline-flex items-center gap-2 mb-8 font-body hover:text-accent transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Projects
+      </a>
+
+      <header class="mb-12">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4">{project.data.title}</h1>
+        <div class="flex flex-wrap gap-2 mb-6">
+          {project.data.tags.map((tag) => (
+            <span class="px-3 py-1 text-sm font-mono border-2 border-black dark:border-white bg-accent/10">
+              {tag}
+            </span>
+          ))}
+        </div>
+        <div class="flex flex-wrap gap-4">
+          {project.data.link && (
+            <a href={project.data.link} target="_blank" rel="noopener noreferrer" class="btn-neo bg-accent text-black">
+              Live Demo
+            </a>
+          )}
+          {project.data.repo && (
+            <a href={project.data.repo} target="_blank" rel="noopener noreferrer" class="btn-neo">
+              View Code
+            </a>
+          )}
+        </div>
+      </header>
+
+      {project.data.thumbnail && (
+        <div class="mb-12 border-2 border-black dark:border-white">
+          <img src={project.data.thumbnail} alt={project.data.title} class="w-full" />
+        </div>
+      )}
+
+      <div class="prose prose-lg dark:prose-invert max-w-none font-body">
+        <Content />
+      </div>
+    </div>
+  </article>
+</BaseLayout>
