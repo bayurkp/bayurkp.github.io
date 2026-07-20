@@ -2,23 +2,40 @@
 const techStack = [
   {
     category: 'Frontend',
-    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>',
-    items: ['React', 'Next.js', 'Vue', 'Nuxt', 'Tailwind CSS', 'TypeScript']
+    items: [
+      { name: 'React', logo: 'https://cdn.simpleicons.org/react/61DAFB' },
+      { name: 'Next.js', logo: 'https://cdn.simpleicons.org/nextdotjs/000000' },
+      { name: 'Vue', logo: 'https://cdn.simpleicons.org/vuedotjs/4FC08D' },
+      { name: 'TypeScript', logo: 'https://cdn.simpleicons.org/typescript/3178C6' },
+      { name: 'Tailwind CSS', logo: 'https://cdn.simpleicons.org/tailwindcss/06B6D4' }
+    ]
   },
   {
     category: 'Backend',
-    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>',
-    items: ['Node.js', 'Go', 'PHP', 'Laravel', 'Express', 'PostgreSQL']
+    items: [
+      { name: 'Node.js', logo: 'https://cdn.simpleicons.org/nodedotjs/339933' },
+      { name: 'Go', logo: 'https://cdn.simpleicons.org/go/00ADD8' },
+      { name: 'PHP', logo: 'https://cdn.simpleicons.org/php/777BB4' },
+      { name: 'PostgreSQL', logo: 'https://cdn.simpleicons.org/postgresql/41678D' },
+      { name: 'Laravel', logo: 'https://cdn.simpleicons.org/laravel/FF2D20' }
+    ]
   },
   {
     category: 'Cloud & DevOps',
-    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>',
-    items: ['GCP', 'Docker', 'Git', 'Firebase', 'Cloud Run']
+    items: [
+      { name: 'Docker', logo: 'https://cdn.simpleicons.org/docker/2496ED' },
+      { name: 'GCP', logo: 'https://cdn.simpleicons.org/googlecloud/4285F4' },
+      { name: 'Firebase', logo: 'https://cdn.simpleicons.org/firebase/FFCA28' },
+      { name: 'Git', logo: 'https://cdn.simpleicons.org/git/F05032' }
+    ]
   },
   {
     category: 'AI & Tools',
-    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"></path><rect x="8" y="8" width="8" height="8" rx="1"></rect><path d="M8 12H4"></path><path d="M4 16h4"></path><path d="M8 20v-4H4"></path><path d="M16 8V4h4"></path><path d="M20 12h-4"></path><path d="M16 20v-4h4"></path><path d="M20 16h-4"></path></svg>',
-    items: ['LLM Integration', 'MCP', 'Drizzle ORM', 'REST API']
+    items: [
+      { name: 'OpenAI', logo: 'https://cdn.simpleicons.org/openai/412991' },
+      { name: 'TensorFlow', logo: 'https://cdn.simpleicons.org/tensorflow/FF6F00' },
+      { name: 'Redis', logo: 'https://cdn.simpleicons.org/redis/DC382D' }
+    ]
   }
 ];
 ---
@@ -28,15 +45,13 @@ const techStack = [
     <div class={`border-2 border-black dark:border-white p-6 bg-white dark:bg-neutral-900 shadow-neo dark:shadow-neo-dark hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150 ${
       index === 0 ? 'lg:col-span-2' : ''
     }`}>
-      <div class="flex items-center gap-3 mb-4">
-        <span class="text-accent" set:html={stack.icon} />
-        <h3 class="font-heading font-bold text-lg">{stack.category}</h3>
-      </div>
-      <div class="flex flex-wrap gap-2">
+      <h3 class="font-heading font-bold text-lg mb-4 text-accent">{stack.category}</h3>
+      <div class="flex flex-wrap gap-3">
         {stack.items.map((tech) => (
-          <span class="px-3 py-1.5 text-sm font-mono border border-black dark:border-white bg-neutral-light dark:bg-neutral-800 hover:bg-accent hover:text-black hover:border-accent transition-colors cursor-default">
-            {tech}
-          </span>
+          <div class="flex items-center gap-2 px-3 py-2 border border-black dark:border-white bg-neutral-light dark:bg-neutral-800 hover:bg-accent hover:text-black hover:border-accent transition-colors">
+            <img src={tech.logo} alt={tech.name} class="w-5 h-5" loading="lazy" />
+            <span class="text-sm font-mono">{tech.name}</span>
+          </div>
         ))}
       </div>
     </div>

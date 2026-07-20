@@ -20,8 +20,8 @@ const { projects } = Astro.props;
 ---
 
 <div class="relative overflow-hidden">
-  <div class="flex gap-6 transition-transform duration-500 ease-out" id="carousel">
-    {projects.map((project) => (
+  <div class="flex gap-6" id="carousel-track">
+    {[...projects, ...projects, ...projects].map((project, i) => (
       <div class="flex-shrink-0 w-[300px] md:w-[350px] border-2 border-black dark:border-white bg-white dark:bg-neutral-900 shadow-neo dark:shadow-neo-dark">
         <div class="aspect-video bg-gray-100 dark:bg-neutral-800 border-b-2 border-black dark:border-white overflow-hidden">
           {project.data.thumbnail ? (
@@ -52,19 +52,26 @@ const { projects } = Astro.props;
 </div>
 
 <script>
-  const carousel = document.getElementById('carousel');
-  if (carousel) {
+  const track = document.getElementById('carousel-track');
+  if (track) {
     let position = 0;
-    const items = carousel.children;
-    const itemWidth = (items[0] as HTMLElement)?.offsetWidth + 24 || 374;
-    const maxScroll = -(items.length - 3) * itemWidth;
+    const itemWidth = 374;
+    const totalItems = track.children.length / 3;
+    const visibleItems = 3;
+    const maxScroll = -(totalItems - visibleItems) * itemWidth;
 
     setInterval(() => {
-      position -= itemWidth;
+      position -= 1;
       if (position <= maxScroll) {
         position = 0;
       }
-      carousel.style.transform = `translateX(${position}px)`;
-    }, 3000);
+      track.style.transform = `translateX(${position}px)`;
+    }, 30);
   }
 </script>
+
+<style>
+  #carousel-track {
+    transition: transform 0.05s linear;
+  }
+</style>
