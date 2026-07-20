@@ -1,0 +1,70 @@
+---
+interface Project {
+  data: {
+    title: string;
+    description: string;
+    thumbnail?: string;
+    tags: string[];
+    link?: string;
+    repo?: string;
+    featured: boolean;
+  };
+  slug: string;
+}
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+---
+
+<div class="relative overflow-hidden">
+  <div class="flex gap-6 transition-transform duration-500 ease-out" id="carousel">
+    {projects.map((project) => (
+      <div class="flex-shrink-0 w-[300px] md:w-[350px] border-2 border-black dark:border-white bg-white dark:bg-neutral-900 shadow-neo dark:shadow-neo-dark">
+        <div class="aspect-video bg-gray-100 dark:bg-neutral-800 border-b-2 border-black dark:border-white overflow-hidden">
+          {project.data.thumbnail ? (
+            <img src={project.data.thumbnail} alt={project.data.title} class="w-full h-full object-cover" />
+          ) : (
+            <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-accent/20 to-transparent">
+              <span class="font-heading font-bold text-4xl text-accent/50">{project.data.title.charAt(0)}</span>
+            </div>
+          )}
+        </div>
+        <div class="p-4">
+          <h3 class="font-heading font-bold text-lg mb-2 line-clamp-1">{project.data.title}</h3>
+          <p class="font-body text-sm opacity-80 mb-3 line-clamp-2">{project.data.description}</p>
+          <div class="flex flex-wrap gap-1 mb-3">
+            {project.data.tags.slice(0, 3).map((tag) => (
+              <span class="px-2 py-0.5 text-xs font-mono border border-black dark:border-white bg-accent/10">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <a href={`/projects/${project.slug}`} class="text-sm font-heading font-bold hover:text-accent transition-colors">
+            View Details →
+          </a>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<script>
+  const carousel = document.getElementById('carousel');
+  if (carousel) {
+    let position = 0;
+    const items = carousel.children;
+    const itemWidth = (items[0] as HTMLElement)?.offsetWidth + 24 || 374;
+    const maxScroll = -(items.length - 3) * itemWidth;
+
+    setInterval(() => {
+      position -= itemWidth;
+      if (position <= maxScroll) {
+        position = 0;
+      }
+      carousel.style.transform = `translateX(${position}px)`;
+    }, 3000);
+  }
+</script>

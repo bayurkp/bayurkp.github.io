@@ -5,8 +5,10 @@ import ProjectCard from '../components/ProjectCard.astro';
 import BlogCard from '../components/BlogCard.astro';
 import SkillBadge from '../components/SkillBadge.astro';
 import TimelineItem from '../components/TimelineItem.astro';
-import Button from '../components/Button.astro';
-import Input from '../components/Input.astro';
+import ProjectCarousel from '../components/ProjectCarousel.astro';
+import TechStack from '../components/TechStack.astro';
+import Button from '../components/ui/Button.astro';
+import Input from '../components/ui/Input.astro';
 import { getCollection } from 'astro:content';
 
 const projects = await getCollection('projects');
@@ -17,24 +19,6 @@ const awards = await getCollection('awards');
 
 const featuredProjects = projects.filter(p => p.data.featured).slice(0, 6);
 const sortedBlog = blogPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3);
-
-const skills = [
-  { name: 'TypeScript', category: 'Frontend' },
-  { name: 'React', category: 'Frontend' },
-  { name: 'Next.js', category: 'Frontend' },
-  { name: 'Vue', category: 'Frontend' },
-  { name: 'Nuxt', category: 'Frontend' },
-  { name: 'Tailwind CSS', category: 'Frontend' },
-  { name: 'Node.js', category: 'Backend' },
-  { name: 'Go', category: 'Backend' },
-  { name: 'PHP', category: 'Backend' },
-  { name: 'Laravel', category: 'Backend' },
-  { name: 'Express', category: 'Backend' },
-  { name: 'PostgreSQL', category: 'Backend' },
-  { name: 'GCP', category: 'Tools' },
-  { name: 'Git', category: 'Tools' },
-  { name: 'Docker', category: 'Tools' }
-];
 ---
 
 <BaseLayout title="Home | Portfolio">
@@ -43,39 +27,23 @@ const skills = [
   <section id="projects" class="py-16 border-b-2 border-black dark:border-white">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Featured Projects</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {featuredProjects.map((project) => (
-          <ProjectCard
-            title={project.data.title}
-            description={project.data.description}
-            thumbnail={project.data.thumbnail}
-            tags={project.data.tags}
-            link={project.data.link}
-            repo={project.data.repo}
-            slug={project.slug}
-          />
-        ))}
-      </div>
-      {projects.length > 6 && (
+      <ProjectCarousel projects={featuredProjects} />
+      {projects.length > 0 && (
         <div class="mt-8 text-center">
-          <Button href="/projects" variant="secondary">View All Projects</Button>
+          <Button href="/projects" variant="secondary">View More</Button>
         </div>
       )}
     </div>
   </section>
 
-  <section id="skills" class="py-16 border-b-2 border-black dark:border-white">
+  <section id="skills" class="py-16 border-b-2 border-black dark:border-white bg-accent/10 dark:bg-accent/5">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Skills & Tech Stack</h2>
-      <div class="flex flex-wrap gap-4">
-        {skills.map((skill) => (
-          <SkillBadge name={skill.name} category={skill.category} />
-        ))}
-      </div>
+      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Tech Stack</h2>
+      <TechStack />
     </div>
   </section>
 
-  <section id="experience" class="py-16 border-b-2 border-black dark:border-white">
+  <section id="experience" class="py-16 border-b-2 border-black dark:border-white bg-neutral-light dark:bg-neutral-dark">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Experience</h2>
       <div class="max-w-3xl">
@@ -110,7 +78,7 @@ const skills = [
   </section>
 
   {awards.length > 0 && (
-    <section id="awards" class="py-16 border-b-2 border-black dark:border-white">
+    <section id="awards" class="py-16 border-b-2 border-black dark:border-white bg-accent/10 dark:bg-accent/5">
       <div class="container mx-auto px-4">
         <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Awards & Achievements</h2>
         <div class="max-w-3xl">
@@ -127,7 +95,7 @@ const skills = [
     </section>
   )}
 
-  <section id="blog" class="py-16 border-b-2 border-black dark:border-white">
+  <section id="blog" class="py-16 border-b-2 border-black dark:border-white bg-neutral-light dark:bg-neutral-dark">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Latest Blog Posts</h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
