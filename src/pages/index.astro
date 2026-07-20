@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import BlogCard from '../components/BlogCard.astro';
+import SkillBadge from '../components/SkillBadge.astro';
+import TimelineItem from '../components/TimelineItem.astro';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects');
+const blogPosts = await getCollection('blog', ({ data }) => !data.draft);
+const experiences = await getCollection('experience');
+const educations = await getCollection('education');
+const awards = await getCollection('awards');
+
+const featuredProjects = projects.filter(p => p.data.featured).slice(0, 6);
+const sortedBlog = blogPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3);
+
+const skills = [
+  { name: 'TypeScript', category: 'Frontend' },
+  { name: 'React', category: 'Frontend' },
+  { name: 'Astro', category: 'Frontend' },
+  { name: 'Tailwind CSS', category: 'Frontend' },
+  { name: 'Node.js', category: 'Backend' },
+  { name: 'PostgreSQL', category: 'Backend' },
+  { name: 'Docker', category: 'Tools' },
+  { name: 'Git', category: 'Tools' }
+];
+---
+
+<BaseLayout title="Home | Portfolio">
+  <Hero />
+
+  <section id="projects" class="py-16 border-b-2 border-black dark:border-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Featured Projects</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {featuredProjects.map((project) => (
+          <ProjectCard
+            title={project.data.title}
+            description={project.data.description}
+            thumbnail={project.data.thumbnail}
+            tags={project.data.tags}
+            link={project.data.link}
+            repo={project.data.repo}
+            slug={project.slug}
+          />
+        ))}
+      </div>
+      {projects.length > 6 && (
+        <div class="mt-8 text-center">
+          <a href="/projects" class="btn-neo">View All Projects</a>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section id="skills" class="py-16 border-b-2 border-black dark:border-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Skills & Tech Stack</h2>
+      <div class="flex flex-wrap gap-4">
+        {skills.map((skill) => (
+          <SkillBadge name={skill.name} category={skill.category} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="py-16 border-b-2 border-black dark:border-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Experience</h2>
+      <div class="max-w-3xl">
+        {experiences.map((exp) => (
+          <TimelineItem
+            title={exp.data.title}
+            subtitle={exp.data.company}
+            date={exp.data.current ? `${exp.data.startDate} - Present` : `${exp.data.startDate} - ${exp.data.endDate}`}
+            description={exp.data.description}
+            current={exp.data.current}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="py-16 border-b-2 border-black dark:border-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Education</h2>
+      <div class="max-w-3xl">
+        {educations.map((edu) => (
+          <TimelineItem
+            title={edu.data.degree}
+            subtitle={edu.data.institution}
+            date={edu.data.current ? `${edu.data.startDate} - Present` : `${edu.data.startDate} - ${edu.data.endDate}`}
+            description={edu.data.description}
+            current={edu.data.current}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {awards.length > 0 && (
+    <section id="awards" class="py-16 border-b-2 border-black dark:border-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Awards & Achievements</h2>
+        <div class="max-w-3xl">
+          {awards.map((award) => (
+            <TimelineItem
+              title={award.data.title}
+              subtitle={award.data.organization}
+              date={award.data.date}
+              description={award.data.description}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section id="blog" class="py-16 border-b-2 border-black dark:border-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Latest Blog Posts</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sortedBlog.map((post) => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.date.toISOString()}
+            slug={post.slug}
+            tags={post.data.tags}
+          />
+        ))}
+      </div>
+      {blogPosts.length > 3 && (
+        <div class="mt-8 text-center">
+          <a href="/blog" class="btn-neo">View All Posts</a>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section id="contact" class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Get in Touch</h2>
+      <div class="max-w-xl mx-auto">
+        <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-6">
+          <div>
+            <label for="name" class="block font-heading font-bold mb-2">Name</label>
+            <input type="text" id="name" name="name" required class="input-neo" placeholder="Your name" />
+          </div>
+          <div>
+            <label for="email" class="block font-heading font-bold mb-2">Email</label>
+            <input type="email" id="email" name="email" required class="input-neo" placeholder="your@email.com" />
+          </div>
+          <div>
+            <label for="message" class="block font-heading font-bold mb-2">Message</label>
+            <textarea id="message" name="message" required rows={5} class="input-neo resize-none" placeholder="Your message..."></textarea>
+          </div>
+          <button type="submit" class="btn-neo w-full bg-accent text-black">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
