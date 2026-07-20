@@ -1,4 +1,5 @@
 ---
+import Button from './Button.astro';
 ---
 
 <section class="min-h-[90vh] flex items-center border-b-2 border-black dark:border-white">
@@ -11,8 +12,8 @@
         Full-stack developer passionate about building beautiful, performant web applications. I turn complex problems into elegant solutions.
       </p>
       <div class="flex flex-wrap gap-4">
-        <a href="/#projects" class="btn-neo bg-accent text-black">View Projects</a>
-        <a href="/contact" class="btn-neo">Get in Touch</a>
+        <Button href="/#projects" variant="primary">View Projects</Button>
+        <Button href="/contact" variant="secondary">Get in Touch</Button>
       </div>
     </div>
   </div>
@@ -30,7 +31,7 @@
           When I'm not coding, you'll find me exploring new technologies, contributing to open source, or sharing knowledge through blog posts.
         </p>
       </div>
-      <div class="border-2 border-black dark:border-white p-6 bg-white dark:bg-neutral-800 shadow-neo dark:shadow-neo-dark">
+      <div class="border-2 border-black dark:border-white p-6 bg-white dark:bg-neutral-900">
         <h3 class="font-heading font-bold text-xl mb-4">Quick Facts</h3>
         <ul class="space-y-2 font-body">
           <li class="flex items-center gap-2">

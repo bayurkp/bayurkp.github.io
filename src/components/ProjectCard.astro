@@ -1,4 +1,6 @@
 ---
+import Button from './Button.astro';
+
 interface Props {
   title: string;
   description: string;
@@ -12,7 +14,7 @@ interface Props {
 const { title, description, thumbnail, tags, link, repo, slug } = Astro.props;
 ---
 
-<article class="card-neo overflow-hidden group">
+<article class="border-2 border-black dark:border-white bg-white dark:bg-neutral-900 overflow-hidden group">
   <div class="aspect-video bg-gray-100 dark:bg-neutral-800 border-b-2 border-black dark:border-white overflow-hidden">
     {thumbnail ? (
       <img src={thumbnail} alt={title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
@@ -32,20 +34,20 @@ const { title, description, thumbnail, tags, link, repo, slug } = Astro.props;
         </span>
       ))}
     </div>
-    <div class="flex gap-3">
+    <div class="flex flex-wrap gap-3">
       {link && (
-        <a href={link} target="_blank" rel="noopener noreferrer" class="btn-neo text-sm py-2 px-3">
+        <Button href={link} variant="primary" size="sm" class="shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#FFF]">
           Live Demo
-        </a>
+        </Button>
       )}
       {repo && (
-        <a href={repo} target="_blank" rel="noopener noreferrer" class="btn-neo text-sm py-2 px-3">
+        <Button href={repo} variant="secondary" size="sm">
           Code
-        </a>
+        </Button>
       )}
-      <a href={`/projects/${slug}`} class="btn-neo text-sm py-2 px-3">
+      <Button href={`/projects/${slug}`} variant="secondary" size="sm">
         Details
-      </a>
+      </Button>
     </div>
   </div>
 </article>

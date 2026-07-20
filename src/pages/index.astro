@@ -5,6 +5,8 @@ import ProjectCard from '../components/ProjectCard.astro';
 import BlogCard from '../components/BlogCard.astro';
 import SkillBadge from '../components/SkillBadge.astro';
 import TimelineItem from '../components/TimelineItem.astro';
+import Button from '../components/Button.astro';
+import Input from '../components/Input.astro';
 import { getCollection } from 'astro:content';
 
 const projects = await getCollection('projects');
@@ -49,7 +51,7 @@ const skills = [
       </div>
       {projects.length > 6 && (
         <div class="mt-8 text-center">
-          <a href="/projects" class="btn-neo">View All Projects</a>
+          <Button href="/projects" variant="secondary">View All Projects</Button>
         </div>
       )}
     </div>
@@ -134,7 +136,7 @@ const skills = [
       </div>
       {blogPosts.length > 3 && (
         <div class="mt-8 text-center">
-          <a href="/blog" class="btn-neo">View All Posts</a>
+          <Button href="/blog" variant="secondary">View All Posts</Button>
         </div>
       )}
     </div>
@@ -147,17 +149,17 @@ const skills = [
         <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-6">
           <div>
             <label for="name" class="block font-heading font-bold mb-2">Name</label>
-            <input type="text" id="name" name="name" required class="input-neo" placeholder="Your name" />
+            <Input name="name" placeholder="Your name" required />
           </div>
           <div>
             <label for="email" class="block font-heading font-bold mb-2">Email</label>
-            <input type="email" id="email" name="email" required class="input-neo" placeholder="your@email.com" />
+            <Input name="email" type="email" placeholder="your@email.com" required />
           </div>
           <div>
             <label for="message" class="block font-heading font-bold mb-2">Message</label>
-            <textarea id="message" name="message" required rows={5} class="input-neo resize-none" placeholder="Your message..."></textarea>
+            <Input name="message" rows={5} placeholder="Your message..." required />
           </div>
-          <button type="submit" class="btn-neo w-full bg-accent text-black">Send Message</button>
+          <Button type="submit" variant="primary" class="w-full">Send Message</Button>
         </form>
       </div>
     </div>

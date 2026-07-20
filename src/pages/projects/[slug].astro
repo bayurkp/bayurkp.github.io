@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/Button.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -35,14 +36,14 @@ const { Content } = await project.render();
         </div>
         <div class="flex flex-wrap gap-4">
           {project.data.link && (
-            <a href={project.data.link} target="_blank" rel="noopener noreferrer" class="btn-neo bg-accent text-black">
+            <Button href={project.data.link} variant="primary">
               Live Demo
-            </a>
+            </Button>
           )}
           {project.data.repo && (
-            <a href={project.data.repo} target="_blank" rel="noopener noreferrer" class="btn-neo">
+            <Button href={project.data.repo} variant="secondary">
               View Code
-            </a>
+            </Button>
           )}
         </div>
       </header>
