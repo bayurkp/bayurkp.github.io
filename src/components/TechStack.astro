@@ -38,25 +38,16 @@ const techStack = [
     ],
   },
 ];
+
+const allSkills = techStack.flatMap((stack) => stack.items);
 ---
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="flex flex-wrap gap-4 pt-4 justify-center">
   {
-    techStack.map((stack, index) => (
-      <div
-        class={`border-2 border-black dark:border-white p-6 bg-white dark:bg-neutral-900 shadow-neo dark:shadow-neo-dark hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-150 ${
-          index === 0 ? 'lg:col-span-2' : ''
-        }`}
-      >
-        <h3 class="font-heading font-bold text-lg mb-4 text-accent">{stack.category}</h3>
-        <div class="flex flex-wrap gap-3">
-          {stack.items.map((tech) => (
-            <div class="flex items-center gap-2 px-3 py-2 border border-black dark:border-white bg-neutral-light dark:bg-neutral-800 hover:bg-accent hover:text-black hover:border-accent transition-colors">
-              <img src={tech.logo} alt={tech.name} class="w-5 h-5" loading="lazy" />
-              <span class="text-sm font-mono">{tech.name}</span>
-            </div>
-          ))}
-        </div>
+    allSkills.map((tech) => (
+      <div class="flex items-center gap-3 px-4 py-3 border-2 border-black dark:border-white bg-white dark:bg-neutral-900 shadow-neo-sm dark:shadow-neo-dark-sm hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-accent dark:hover:bg-accent hover:text-black hover:border-black dark:hover:border-black transition-all duration-150 group">
+        <img src={tech.logo} alt={tech.name} class="w-6 h-6 grayscale group-hover:grayscale-0 transition-all duration-300" loading="lazy" />
+        <span class="text-base font-heading font-bold">{tech.name}</span>
       </div>
     ))
   }

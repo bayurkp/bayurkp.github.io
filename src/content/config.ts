@@ -46,6 +46,7 @@ const education = defineCollection({
     location: z.string().optional(),
     startDate: z.string(),
     endDate: z.string().optional(),
+    current: z.boolean().default(false).optional(),
     description: z.string().optional(),
   }),
 });
