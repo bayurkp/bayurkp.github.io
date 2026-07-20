@@ -21,6 +21,14 @@ const featuredProjects = projects.filter((p) => p.data.featured).slice(0, 6);
 const sortedBlog = blogPosts
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
+
+const sortedExperiences = experiences.sort((a, b) => {
+  if (a.data.current && !b.data.current) return -1;
+  if (!a.data.current && b.data.current) return 1;
+  const dateA = new Date(a.data.startDate).getTime();
+  const dateB = new Date(b.data.startDate).getTime();
+  return dateB - dateA;
+});
 ---
 
 <BaseLayout title="Home | Portfolio">
@@ -57,8 +65,8 @@ const sortedBlog = blogPosts
   </section>
 
   <section id="skills" class="py-16 border-b-2 border-black dark:border-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Tech Stack</h2>
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8 inline-block">Tech Stack</h2>
       <TechStack />
     </div>
   </section>
@@ -67,11 +75,11 @@ const sortedBlog = blogPosts
     id="experience"
     class="py-16 border-b-2 border-black dark:border-white bg-accent/5 dark:bg-accent/10"
   >
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Experience</h2>
-      <div class="max-w-3xl">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8 inline-block">Experience</h2>
+      <div class="max-w-3xl mx-auto text-left">
         {
-          experiences.map((exp) => (
+          sortedExperiences.map((exp) => (
             <ExperienceItem
               title={exp.data.title}
               company={exp.data.company}
@@ -88,9 +96,9 @@ const sortedBlog = blogPosts
   </section>
 
   <section id="education" class="py-16 border-b-2 border-black dark:border-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Education</h2>
-      <div class="max-w-3xl">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8 inline-block">Education</h2>
+      <div class="max-w-3xl mx-auto text-left">
         {
           educations.map((edu) => (
             <EducationItem
@@ -114,16 +122,20 @@ const sortedBlog = blogPosts
         id="awards"
         class="py-16 border-b-2 border-black dark:border-white bg-neutral-light dark:bg-neutral-dark"
       >
-        <div class="container mx-auto px-4">
-          <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Awards & Achievements</h2>
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="container mx-auto px-4 text-center">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8 inline-block">
+            Awards & Achievements
+          </h2>
+          <div class="flex flex-wrap justify-center gap-6 text-left">
             {awards.map((award) => (
-              <AwardItem
-                title={award.data.title}
-                organization={award.data.organization}
-                date={award.data.date}
-                description={award.data.description}
-              />
+              <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]">
+                <AwardItem
+                  title={award.data.title}
+                  organization={award.data.organization}
+                  date={award.data.date}
+                  description={award.data.description}
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -171,9 +183,9 @@ const sortedBlog = blogPosts
   </section>
 
   <section id="contact" class="py-16 bg-neutral-light dark:bg-neutral-dark">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Get in Touch</h2>
-      <div class="max-w-xl mx-auto">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8 inline-block">Get in Touch</h2>
+      <div class="max-w-xl mx-auto text-left">
         <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-6">
           <div>
             <label for="name" class="block font-heading font-bold mb-2">Name</label>

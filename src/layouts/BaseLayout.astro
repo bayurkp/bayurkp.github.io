@@ -13,7 +13,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth scroll-pt-12 md:scroll-pt-16">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -70,12 +70,28 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     >
       <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
         <a href="/" class="font-heading font-bold text-xl">Bay</a>
-        <div class="flex items-center gap-6">
-          <a href="/#projects" class="hidden sm:block hover:text-accent transition-colors"
+        <div class="flex items-center gap-4 sm:gap-6">
+          <a
+            href="/#about"
+            class="hidden md:block font-heading font-bold text-sm hover:text-accent transition-colors"
+            >About</a
+          >
+          <a
+            href="/#projects"
+            class="hidden sm:block font-heading font-bold text-sm hover:text-accent transition-colors"
             >Projects</a
           >
-          <a href="/#blog" class="hidden sm:block hover:text-accent transition-colors">Blog</a>
-          <Button href="/contact" variant="secondary" size="sm">Contact</Button>
+          <a
+            href="/#experience"
+            class="hidden md:block font-heading font-bold text-sm hover:text-accent transition-colors"
+            >Experience</a
+          >
+          <a
+            href="/#blog"
+            class="hidden sm:block font-heading font-bold text-sm hover:text-accent transition-colors"
+            >Blog</a
+          >
+          <Button href="/#contact" variant="secondary" size="sm">Contact</Button>
           <button
             id="theme-toggle"
             aria-label="Toggle theme"
