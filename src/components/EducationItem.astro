@@ -1,0 +1,32 @@
+---
+interface Props {
+  degree: string;
+  institution: string;
+  location?: string;
+  startDate: string;
+  endDate?: string;
+  current?: boolean;
+  description?: string;
+}
+
+const { degree, institution, location, startDate, endDate, current = false, description } = Astro.props;
+---
+
+<div class="relative pl-8 pb-8 border-l-2 border-accent last:pb-0">
+  <div class="absolute left-[-10px] top-0 w-5 h-5 bg-accent border-2 border-black dark:border-white transform rotate-45"></div>
+  <div class="border-2 border-accent bg-accent/10 dark:bg-accent/5 p-5 ml-2">
+    <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
+      <div>
+        <h3 class="font-heading font-bold text-lg">{degree}</h3>
+        <p class="font-body text-accent font-medium">{institution}</p>
+        {location && <p class="font-body text-sm opacity-60">{location}</p>}
+      </div>
+      <span class="px-3 py-1 text-xs font-mono border-2 border-accent bg-white dark:bg-neutral-900">
+        {current ? `${startDate} - Present` : `${startDate} - ${endDate}`}
+      </span>
+    </div>
+    {description && (
+      <p class="font-body text-sm opacity-80 leading-relaxed">{description}</p>
+    )}
+  </div>
+</div>

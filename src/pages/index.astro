@@ -1,12 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
-import ProjectCard from '../components/ProjectCard.astro';
 import BlogCard from '../components/BlogCard.astro';
-import SkillBadge from '../components/SkillBadge.astro';
-import TimelineItem from '../components/TimelineItem.astro';
 import ProjectCarousel from '../components/ProjectCarousel.astro';
 import TechStack from '../components/TechStack.astro';
+import ExperienceItem from '../components/ExperienceItem.astro';
+import EducationItem from '../components/EducationItem.astro';
+import AwardItem from '../components/AwardItem.astro';
 import Button from '../components/ui/Button.astro';
 import Input from '../components/ui/Input.astro';
 import { getCollection } from 'astro:content';
@@ -24,36 +24,43 @@ const sortedBlog = blogPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.
 <BaseLayout title="Home | Portfolio">
   <Hero />
 
-  <section id="projects" class="py-16 border-b-2 border-black dark:border-white">
+  <section id="projects" class="py-16 border-b-2 border-black dark:border-white bg-neutral-light dark:bg-neutral-dark">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Featured Projects</h2>
       <ProjectCarousel projects={featuredProjects} />
-      {projects.length > 0 && (
-        <div class="mt-8 text-center">
-          <Button href="/projects" variant="secondary">View More</Button>
+      {projects.length > 3 && (
+        <div class="mt-8 text-right">
+          <a href="/projects" class="inline-flex items-center gap-2 font-heading font-bold hover:text-accent transition-colors group">
+            View More
+            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
         </div>
       )}
     </div>
   </section>
 
-  <section id="skills" class="py-16 border-b-2 border-black dark:border-white bg-accent/10 dark:bg-accent/5">
+  <section id="skills" class="py-16 border-b-2 border-black dark:border-white">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Tech Stack</h2>
       <TechStack />
     </div>
   </section>
 
-  <section id="experience" class="py-16 border-b-2 border-black dark:border-white bg-neutral-light dark:bg-neutral-dark">
+  <section id="experience" class="py-16 border-b-2 border-black dark:border-white bg-accent/5 dark:bg-accent/10">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Experience</h2>
       <div class="max-w-3xl">
         {experiences.map((exp) => (
-          <TimelineItem
+          <ExperienceItem
             title={exp.data.title}
-            subtitle={exp.data.company}
-            date={exp.data.current ? `${exp.data.startDate} - Present` : `${exp.data.startDate} - ${exp.data.endDate}`}
-            description={exp.data.description}
+            company={exp.data.company}
+            location={exp.data.location}
+            startDate={exp.data.startDate}
+            endDate={exp.data.endDate}
             current={exp.data.current}
+            description={exp.data.description}
           />
         ))}
       </div>
@@ -65,12 +72,14 @@ const sortedBlog = blogPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.
       <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Education</h2>
       <div class="max-w-3xl">
         {educations.map((edu) => (
-          <TimelineItem
-            title={edu.data.degree}
-            subtitle={edu.data.institution}
-            date={edu.data.current ? `${edu.data.startDate} - Present` : `${edu.data.startDate} - ${edu.data.endDate}`}
-            description={edu.data.description}
+          <EducationItem
+            degree={edu.data.degree}
+            institution={edu.data.institution}
+            location={edu.data.location}
+            startDate={edu.data.startDate}
+            endDate={edu.data.endDate}
             current={edu.data.current}
+            description={edu.data.description}
           />
         ))}
       </div>
@@ -78,14 +87,14 @@ const sortedBlog = blogPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.
   </section>
 
   {awards.length > 0 && (
-    <section id="awards" class="py-16 border-b-2 border-black dark:border-white bg-accent/10 dark:bg-accent/5">
+    <section id="awards" class="py-16 border-b-2 border-black dark:border-white bg-neutral-light dark:bg-neutral-dark">
       <div class="container mx-auto px-4">
         <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Awards & Achievements</h2>
         <div class="max-w-3xl">
           {awards.map((award) => (
-            <TimelineItem
+            <AwardItem
               title={award.data.title}
-              subtitle={award.data.organization}
+              organization={award.data.organization}
               date={award.data.date}
               description={award.data.description}
             />
@@ -95,9 +104,19 @@ const sortedBlog = blogPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.
     </section>
   )}
 
-  <section id="blog" class="py-16 border-b-2 border-black dark:border-white bg-neutral-light dark:bg-neutral-dark">
+  <section id="blog" class="py-16 border-b-2 border-black dark:border-white">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Latest Blog Posts</h2>
+      <div class="flex items-end justify-between mb-8">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold">Latest Blog Posts</h2>
+        {blogPosts.length > 3 && (
+          <a href="/blog" class="inline-flex items-center gap-2 font-heading font-bold hover:text-accent transition-colors group">
+            View More
+            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        )}
+      </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {sortedBlog.map((post) => (
           <BlogCard
@@ -109,15 +128,10 @@ const sortedBlog = blogPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.
           />
         ))}
       </div>
-      {blogPosts.length > 3 && (
-        <div class="mt-8 text-center">
-          <Button href="/blog" variant="secondary">View All Posts</Button>
-        </div>
-      )}
     </div>
   </section>
 
-  <section id="contact" class="py-16">
+  <section id="contact" class="py-16 bg-neutral-light dark:bg-neutral-dark">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Get in Touch</h2>
       <div class="max-w-xl mx-auto">
