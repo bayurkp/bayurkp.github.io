@@ -1,21 +1,23 @@
 ---
-const roles = [
-  'Backend Engineer',
-  'Systems Architect',
-  'AI Integration',
-  'Cloud Engineer',
-  'GCP Certified',
-  'Fullstack Developer',
-  'Programming Teacher',
-  'Problem Solver'
+const works = [
+  'Backend Engineering',
+  'System Architecture',
+  'AI & LLM Integration',
+  'Cloud Infrastructure',
+  'Web Development',
+  'API Design',
+  'Database Management',
+  'DevOps & CI/CD',
+  'Technical Mentoring',
+  'Competitive Programming'
 ];
 ---
 
 <div class="overflow-hidden border-b-2 border-black dark:border-white bg-accent py-4">
   <div class="animate-scroll flex whitespace-nowrap">
-    {[...roles, ...roles].map((role, i) => (
+    {[...works, ...works].map((work) => (
       <span class="mx-8 text-xl md:text-2xl font-heading font-bold text-black">
-        {role}
+        {work}
         <span class="mx-8 text-black/30">/</span>
       </span>
     ))}
@@ -28,6 +30,6 @@ const roles = [
     to { transform: translateX(-50%); }
   }
   .animate-scroll {
-    animation: scroll 20s linear infinite;
+    animation: scroll 25s linear infinite;
   }
 </style>
