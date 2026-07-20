@@ -38,8 +38,6 @@ const shadows = {
 };
 
 const classes = [baseStyles, variants[variant], sizes[size], variant !== 'ghost' ? shadows[variant] : ''].filter(Boolean).join(' ');
-
-const Tag = href ? 'a' : 'button';
 ---
 
 {href ? (
