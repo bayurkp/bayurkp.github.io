@@ -1,11 +1,12 @@
 ---
 title: 'Programming Teacher'
-company: 'Timedoor'
+company: 'Timedoor Indonesia'
 location: 'Bali'
 startDate: 'Aug 2024'
 current: true
-description: 'Teaching programming to students of all ages, covering game development, web development, and more.'
+description: 'Delivered bilingual programming instruction across Scratch, Roblox, Python, Machine Learning, Vue, and Laravel.'
 ---
 
-- Mentoring programming students across various categories: kids, teens, and adults (pro)
-- Teaching programming subjects such as game development, web development, and more
+- Delivered bilingual (English and Bahasa Indonesia) programming instruction to a diverse student base, ranging from children to adult professionals.
+- Facilitated foundational logic and game development classes for kids and teens utilizing Scratch, Roblox Studio, and Construct.
+- Instructed adult learners (Pro class) in advanced full-stack web development (HTML, CSS, JavaScript, Vue, Laravel) and data science fundamentals (Python, Machine Learning, and AI).
