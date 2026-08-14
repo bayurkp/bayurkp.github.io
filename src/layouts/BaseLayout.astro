@@ -1,5 +1,7 @@
 ---
 import Button from '../components/ui/Button.astro';
+import { getCollection } from 'astro:content';
+import '../styles/global.css';
 
 interface Props {
   title: string;
@@ -10,6 +12,7 @@ interface Props {
 const { title, description = 'Personal portfolio website', image = '/og-image.png' } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const hasBlogPosts = (await getCollection('blog', ({ data }) => !data.draft)).length > 0;
 ---
 
 <!doctype html>
@@ -86,11 +89,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             class="hidden md:block font-heading font-bold text-sm hover:text-accent transition-colors"
             >Experience</a
           >
-          <a
-            href="/#blog"
-            class="hidden sm:block font-heading font-bold text-sm hover:text-accent transition-colors"
-            >Blog</a
-          >
+          {
+            hasBlogPosts && (
+              <a
+                href="/#blog"
+                class="hidden sm:block font-heading font-bold text-sm hover:text-accent transition-colors"
+              >
+                Blog
+              </a>
+            )
+          }
           <Button href="/#contact" variant="secondary" size="sm">Contact</Button>
           <button
             id="theme-toggle"
@@ -208,6 +216,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       themeToggle?.addEventListener('click', () => {
         const isDark = document.documentElement.classList.toggle('dark');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        window.dispatchEvent(new CustomEvent('theme-change', { detail: { isDark } }));
       });
     </script>
   </body>

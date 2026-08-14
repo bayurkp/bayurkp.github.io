@@ -143,44 +143,48 @@ const sortedExperiences = experiences.sort((a, b) => {
     )
   }
 
-  <section id="blog" class="py-16 border-b-2 border-black dark:border-white">
-    <div class="container mx-auto px-4">
-      <div class="flex items-end justify-between mb-8">
-        <h2 class="text-3xl md:text-4xl font-heading font-bold">Recent Blog</h2>
-        <a
-          href="/blog"
-          class="inline-flex items-center gap-2 font-heading font-bold hover:text-accent transition-colors group"
-        >
-          View More
-          <svg
-            class="w-5 h-5 group-hover:translate-x-1 transition-transform"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
-          >
-        </a>
-      </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {
-          sortedBlog.map((post) => (
-            <BlogCard
-              title={post.data.title}
-              description={post.data.description}
-              date={post.data.date.toISOString()}
-              slug={post.slug}
-              tags={post.data.tags}
-            />
-          ))
-        }
-      </div>
-    </div>
-  </section>
+  {
+    sortedBlog.length > 0 && (
+      <section id="blog" class="py-16 border-b-2 border-black dark:border-white">
+        <div class="container mx-auto px-4">
+          <div class="flex items-end justify-between mb-8">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold">Recent Blog</h2>
+            <a
+              href="/blog"
+              class="inline-flex items-center gap-2 font-heading font-bold hover:text-accent transition-colors group"
+            >
+              View More
+              <svg
+                class="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
+              >
+            </a>
+          </div>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {
+              sortedBlog.map((post) => (
+                <BlogCard
+                  title={post.data.title}
+                  description={post.data.description}
+                  date={post.data.date.toISOString()}
+                  slug={post.slug}
+                  tags={post.data.tags}
+                />
+              ))
+            }
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   <section id="contact" class="py-16 bg-neutral-light dark:bg-neutral-dark">
     <div class="container mx-auto px-4 text-center">

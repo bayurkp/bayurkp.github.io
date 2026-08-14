@@ -3,6 +3,7 @@ title: 'Getting Started with Astro'
 description: 'A comprehensive guide to building fast websites with Astro, covering setup, content collections, and deployment.'
 date: 2026-06-01
 tags: ['Astro', 'Web Development', 'Tutorial']
+draft: true
 ---
 
 ## Introduction

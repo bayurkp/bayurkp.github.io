@@ -25,13 +25,17 @@ const { projects } = Astro.props;
       {
         projects.map((project) => (
           <div class="embla__slide flex-[0_0_auto] min-w-0 w-[316px] md:w-[366px] mr-0 md:mr-2 py-2 px-2 pb-6">
-            <div class="h-full border-2 border-black dark:border-white bg-white dark:bg-neutral-900 shadow-neo dark:shadow-neo-dark hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 flex flex-col cursor-grab active:cursor-grabbing">
-              <div class="aspect-video bg-gray-100 dark:bg-neutral-800 border-b-2 border-black dark:border-white overflow-hidden group flex-shrink-0">
+            <a
+              href={`/projects/${project.slug}`}
+              class="h-full border-2 border-black dark:border-white bg-white dark:bg-neutral-900 shadow-neo dark:shadow-neo-dark hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 flex flex-col cursor-pointer"
+              draggable="false"
+            >
+              <div class="aspect-video bg-gray-100 dark:bg-neutral-800 border-b-2 border-black dark:border-white overflow-hidden flex-shrink-0">
                 {project.data.thumbnail ? (
                   <img
                     src={project.data.thumbnail}
                     alt={project.data.title}
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 pointer-events-none"
+                    class="w-full h-full object-cover pointer-events-none"
                   />
                 ) : (
                   <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-accent/20 to-transparent pointer-events-none">
@@ -41,7 +45,7 @@ const { projects } = Astro.props;
                   </div>
                 )}
               </div>
-              <div class="p-5 flex flex-col flex-grow pointer-events-none">
+              <div class="p-5 flex flex-col flex-grow">
                 <h3 class="font-heading font-bold text-lg mb-2 line-clamp-1">
                   {project.data.title}
                 </h3>
@@ -57,14 +61,11 @@ const { projects } = Astro.props;
                 </div>
               </div>
               <div class="p-5 pt-0 mt-auto">
-                <a
-                  href={`/projects/${project.slug}`}
-                  class="inline-block text-sm font-heading font-bold hover:text-accent transition-colors"
-                >
+                <span class="inline-block text-sm font-heading font-bold text-accent">
                   View Details →
-                </a>
+                </span>
               </div>
-            </div>
+            </a>
           </div>
         ))
       }

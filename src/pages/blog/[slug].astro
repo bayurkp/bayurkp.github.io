@@ -54,4 +54,102 @@ const formattedDate = post.data.date.toLocaleDateString('en-US', {
       </div>
     </div>
   </article>
+
+  <script>
+    import mermaid from 'mermaid';
+
+    async function renderMermaidDiagrams() {
+      const isDark = document.documentElement.classList.contains('dark');
+      
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: isDark ? 'dark' : 'default',
+        themeVariables: {
+          darkMode: isDark,
+          fontFamily: 'Space Grotesk, Inter, sans-serif',
+          fontSize: '14px',
+          primaryColor: '#FACC15',
+          primaryTextColor: '#000000',
+          primaryBorderColor: isDark ? '#ffffff' : '#000000',
+          lineColor: isDark ? '#ffffff' : '#000000',
+          secondaryColor: isDark ? '#262626' : '#f3f4f6',
+          secondaryTextColor: isDark ? '#ffffff' : '#000000',
+          secondaryBorderColor: isDark ? '#ffffff' : '#000000',
+          tertiaryColor: isDark ? '#171717' : '#ffffff',
+          tertiaryTextColor: isDark ? '#ffffff' : '#000000',
+          tertiaryBorderColor: isDark ? '#ffffff' : '#000000',
+          background: isDark ? '#171717' : '#ffffff',
+          mainBkg: isDark ? '#262626' : '#ffffff',
+          nodeBorder: isDark ? '#ffffff' : '#000000',
+          clusterBkg: isDark ? '#1e1e1e' : '#f9fafb',
+          clusterBorder: isDark ? '#ffffff' : '#000000',
+          titleColor: isDark ? '#ffffff' : '#000000',
+          edgeLabelBackground: isDark ? '#262626' : '#ffffff',
+          actorBkg: isDark ? '#262626' : '#ffffff',
+          actorBorder: isDark ? '#ffffff' : '#000000',
+          actorTextColor: isDark ? '#ffffff' : '#000000',
+          actorLineColor: isDark ? '#ffffff' : '#000000',
+          signalColor: isDark ? '#ffffff' : '#000000',
+          signalTextColor: isDark ? '#ffffff' : '#000000',
+          labelBoxBkgColor: isDark ? '#262626' : '#ffffff',
+          labelBoxBorderColor: isDark ? '#ffffff' : '#000000',
+          labelTextColor: isDark ? '#ffffff' : '#000000',
+          loopTextColor: isDark ? '#ffffff' : '#000000',
+          altSectionBkgColor: isDark ? '#1e1e1e' : '#f3f4f6',
+          noteBkgColor: '#FACC15',
+          noteTextColor: '#000000',
+          noteBorderColor: isDark ? '#ffffff' : '#000000',
+          activationBkgColor: '#FACC15',
+          activationBorderColor: isDark ? '#ffffff' : '#000000',
+          sequenceNumberColor: '#000000',
+        },
+      });
+
+      // Convert unprocessed raw <pre> blocks to persistent wrapper divs (first load only)
+      const rawBlocks = document.querySelectorAll(
+        'pre[data-language="mermaid"], pre.language-mermaid, pre:has(code.language-mermaid)'
+      );
+
+      rawBlocks.forEach((el) => {
+        const container = (el.tagName === 'PRE' ? el : el.closest('pre')) || el;
+        const rawCode = container.textContent || '';
+        if (!rawCode.trim()) return;
+
+        const wrapper = document.createElement('div');
+        wrapper.className =
+          'mermaid-diagram-container my-8 p-6 bg-white dark:bg-neutral-900 border-2 border-black dark:border-white shadow-neo dark:shadow-neo-dark flex flex-col items-center justify-center overflow-x-auto';
+        wrapper.setAttribute('data-mermaid-code', rawCode.trim());
+        container.parentNode?.replaceChild(wrapper, container);
+      });
+
+      // Re-render all diagram wrappers (clears stale SVG so theme colors are fully applied)
+      const diagramWrappers = document.querySelectorAll('.mermaid-diagram-container');
+      for (let i = 0; i < diagramWrappers.length; i++) {
+        const wrapper = diagramWrappers[i];
+        const rawCode = wrapper.getAttribute('data-mermaid-code');
+        if (!rawCode) continue;
+
+        // Clear old SVG before re-rendering to ensure theme variables apply cleanly
+        wrapper.innerHTML = '';
+
+        const uniqueId = `mermaid-blog-svg-${Date.now()}-${i}`;
+        try {
+          const { svg } = await mermaid.render(uniqueId, rawCode);
+          wrapper.innerHTML = svg;
+        } catch (err) {
+          console.error('Mermaid render error:', err);
+        }
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', renderMermaidDiagrams);
+    } else {
+      renderMermaidDiagrams();
+    }
+
+    window.addEventListener('theme-change', () => {
+      setTimeout(renderMermaidDiagrams, 30);
+    });
+  </script>
 </BaseLayout>
