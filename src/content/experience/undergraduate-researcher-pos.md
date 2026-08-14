@@ -1,6 +1,6 @@
 ---
 title: 'Undergraduate Researcher'
-company: 'Point of Sale Project | Udayana University'
+company: 'Udayana University'
 location: 'Jimbaran, Bali'
 startDate: 'Jan 2026'
 endDate: 'Jun 2026'
