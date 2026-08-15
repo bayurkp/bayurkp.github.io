@@ -99,14 +99,6 @@ const hasBlogPosts = (await getCollection('blog', ({ data }) => !data.draft)).le
                 </a>
               )
             }
-            <a
-              href="/summary"
-              class="px-2.5 py-1 text-xs font-mono font-bold bg-accent text-black border-2 border-black shadow-neo-sm hover:shadow-none hover:translate-x-[1px] hover:translate-y-[1px] transition-all flex items-center gap-1.5"
-              title="Open 16:9 Bento Slide Presentation"
-            >
-              <span>⊞</span>
-              <span>Deck (16:9)</span>
-            </a>
           <Button href="/#contact" variant="secondary" size="sm">Contact</Button>
           <button
             id="theme-toggle"
