@@ -1,0 +1,168 @@
+---
+import SummaryLayout from '../../layouts/SummaryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects');
+---
+
+<SummaryLayout
+  title="Projects Showcase & Architectural Deep-Dives"
+  slideNumber={2}
+  totalSlides={6}
+  currentSlug="/summary/projects"
+  prevSlug="/summary"
+  nextSlug="/summary/skills"
+>
+  <div class="flex-1 flex flex-col justify-between gap-3 overflow-hidden">
+    <!-- Header -->
+    <div class="flex items-center justify-between border-b-2 border-black dark:border-white pb-2">
+      <div>
+        <span class="text-xs font-mono font-bold tracking-widest text-accent uppercase">02 • Systems Engineering</span>
+        <h1 class="text-2xl sm:text-3xl font-heading font-black tracking-tight">
+          Production & Scientific Projects
+        </h1>
+      </div>
+      <div class="flex items-center gap-2">
+        <a
+          href="/projects"
+          class="px-2.5 py-1 bg-white dark:bg-neutral-900 border-2 border-black dark:border-white shadow-neo-sm font-mono text-xs font-bold hover:bg-accent hover:text-black transition-all"
+        >
+          Detailed Case Studies ↗
+        </a>
+      </div>
+    </div>
+
+    <!-- 16:9 Projects Bento Matrix -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 grid-rows-1 lg:grid-rows-6 gap-2.5 flex-1 min-h-0">
+      
+      <!-- Project 1: Niagara POS (Hero 1, Cols 1-6, Rows 1-3) -->
+      <a
+        href="/projects/niagara-pos"
+        class="lg:col-span-6 lg:row-span-3 border-2 border-black dark:border-white bg-[#FFFDEB] dark:bg-neutral-900 p-3.5 shadow-neo-sm dark:shadow-neo-dark-sm hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex flex-col justify-between group"
+      >
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="px-2 py-0.5 bg-black text-white dark:bg-white dark:text-black font-mono font-bold text-[10px]">
+              SCIENTIFIC PUBLICATION (BTI)
+            </span>
+            <span class="text-xs font-mono font-bold text-accent group-hover:translate-x-1 transition-transform">Read →</span>
+          </div>
+          <h2 class="font-heading font-bold text-lg mt-1 group-hover:text-accent transition-colors">
+            Niagara POS (Offline-First Multi-Tenant)
+          </h2>
+          <p class="text-xs font-body opacity-80 mt-1 line-clamp-2">
+            Clean Architecture client-to-BaaS with bilateral SQLite-to-Supabase synchronization, FIFO push queues, LWW conflict resolution, 325 test cases, and sub-20ms write latency.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-1 mt-2">
+          <span class="px-1.5 py-0.5 text-[10px] font-mono bg-white dark:bg-black border border-black dark:border-white">Flutter</span>
+          <span class="px-1.5 py-0.5 text-[10px] font-mono bg-white dark:bg-black border border-black dark:border-white">SQLite</span>
+          <span class="px-1.5 py-0.5 text-[10px] font-mono bg-white dark:bg-black border border-black dark:border-white">Supabase</span>
+          <span class="px-1.5 py-0.5 text-[10px] font-mono bg-white dark:bg-black border border-black dark:border-white">Brick ORM</span>
+        </div>
+      </a>
+
+      <!-- Project 2: Kaimify (Hero 2, Cols 7-12, Rows 1-3) -->
+      <a
+        href="/projects/kaimify"
+        class="lg:col-span-6 lg:row-span-3 border-2 border-black dark:border-white bg-[#F0FDF4] dark:bg-neutral-900 p-3.5 shadow-neo-sm dark:shadow-neo-dark-sm hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex flex-col justify-between group"
+      >
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="px-2 py-0.5 bg-accent text-black font-mono font-bold text-[10px] border border-black">
+              WELLNESS SUPER-APP
+            </span>
+            <span class="text-xs font-mono font-bold text-accent group-hover:translate-x-1 transition-transform">Read →</span>
+          </div>
+          <h2 class="font-heading font-bold text-lg mt-1 group-hover:text-accent transition-colors">
+            Kaimify (Harm-Reduction Dual Currency)
+          </h2>
+          <p class="text-xs font-body opacity-80 mt-1 line-clamp-2">
+            Channels compulsive shopping impulses into mindfulness habits via 2D room decoration, dual-currency ledger, AdMob SSV, and event-driven NestJS + Drizzle ORM backend.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-1 mt-2">
+          <span class="px-1.5 py-0.5 text-[10px] font-mono bg-white dark:bg-black border border-black dark:border-white">NestJS</span>
+          <span class="px-1.5 py-0.5 text-[10px] font-mono bg-white dark:bg-black border border-black dark:border-white">Drizzle ORM</span>
+          <span class="px-1.5 py-0.5 text-[10px] font-mono bg-white dark:bg-black border border-black dark:border-white">Flutter</span>
+          <span class="px-1.5 py-0.5 text-[10px] font-mono bg-white dark:bg-black border border-black dark:border-white">PostgreSQL</span>
+        </div>
+      </a>
+
+      <!-- Project 3: Moodyan (Cols 1-4, Rows 4-6) -->
+      <a
+        href="/projects/moodyan"
+        class="lg:col-span-4 lg:row-span-3 border-2 border-black dark:border-white bg-[#EFF6FF] dark:bg-neutral-900 p-3 shadow-neo-sm dark:shadow-neo-dark-sm hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex flex-col justify-between group"
+      >
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="px-2 py-0.5 bg-black text-white dark:bg-white dark:text-black font-mono font-bold text-[10px]">
+              1ST PLACE ICP HACKATHON
+            </span>
+          </div>
+          <h3 class="font-heading font-bold text-base mt-1 group-hover:text-accent transition-colors">
+            Moodyan (Web3 On-Chain Journal)
+          </h3>
+          <p class="text-xs font-body opacity-80 mt-1 line-clamp-2">
+            Decentralized mental wellness journaling on Internet Computer Protocol (ICP) with Motoko canisters, Internet Identity, and local AI mood analysis (Llama 3.2:8B).
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-1 mt-2">
+          <span class="px-1.5 py-0.5 text-[10px] font-mono bg-white dark:bg-black border border-black dark:border-white">Motoko</span>
+          <span class="px-1.5 py-0.5 text-[10px] font-mono bg-white dark:bg-black border border-black dark:border-white">React</span>
+          <span class="px-1.5 py-0.5 text-[10px] font-mono bg-white dark:bg-black border border-black dark:border-white">Web3 ICP</span>
+        </div>
+      </a>
+
+      <!-- Project 4: Kelompok Setia Hati (KSH) (Cols 5-8, Rows 4-6) -->
+      <a
+        href="/projects/ksh-platform"
+        class="lg:col-span-4 lg:row-span-3 border-2 border-black dark:border-white bg-[#FAF5FF] dark:bg-neutral-900 p-3 shadow-neo-sm dark:shadow-neo-dark-sm hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex flex-col justify-between group"
+      >
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="px-2 py-0.5 bg-black text-white dark:bg-white dark:text-black font-mono font-bold text-[10px]">
+              MULTI-REGION GOVERNANCE
+            </span>
+          </div>
+          <h3 class="font-heading font-bold text-base mt-1 group-hover:text-accent transition-colors">
+            KSH Platform (Next.js + Laravel)
+          </h3>
+          <p class="text-xs font-body opacity-80 mt-1 line-clamp-2">
+            Enterprise community ecosystem featuring 6-tier Spatie RBAC, automated serial PDF certificate generator, and regional donation ledger tracking.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-1 mt-2">
+          <span class="px-1.5 py-0.5 text-[10px] font-mono bg-white dark:bg-black border border-black dark:border-white">Next.js 15</span>
+          <span class="px-1.5 py-0.5 text-[10px] font-mono bg-white dark:bg-black border border-black dark:border-white">Laravel 10</span>
+          <span class="px-1.5 py-0.5 text-[10px] font-mono bg-white dark:bg-black border border-black dark:border-white">Spatie RBAC</span>
+        </div>
+      </a>
+
+      <!-- Project 5: Requirementor & ByJSON (Cols 9-12, Rows 4-6) -->
+      <a
+        href="/projects/requirementor"
+        class="lg:col-span-4 lg:row-span-3 border-2 border-black dark:border-white bg-[#FFF1F2] dark:bg-neutral-900 p-3 shadow-neo-sm dark:shadow-neo-dark-sm hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex flex-col justify-between group"
+      >
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="px-2 py-0.5 bg-black text-white dark:bg-white dark:text-black font-mono font-bold text-[10px]">
+              AGENTIC WORKFLOWS & SPECS
+            </span>
+          </div>
+          <h3 class="font-heading font-bold text-base mt-1 group-hover:text-accent transition-colors">
+            Requirementor & ByJSON
+          </h3>
+          <p class="text-xs font-body opacity-80 mt-1 line-clamp-2">
+            Model Context Protocol (MCP) local stdio server for RFC 2119 PRD authoring, alongside ByJSON predictable 3-key REST payload specification.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-1 mt-2">
+          <span class="px-1.5 py-0.5 text-[10px] font-mono bg-white dark:bg-black border border-black dark:border-white">Model Context Protocol</span>
+          <span class="px-1.5 py-0.5 text-[10px] font-mono bg-white dark:bg-black border border-black dark:border-white">API Spec</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</SummaryLayout>

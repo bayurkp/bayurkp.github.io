@@ -1,0 +1,146 @@
+---
+import SummaryLayout from '../../layouts/SummaryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const experiences = await getCollection('experience');
+---
+
+<SummaryLayout
+  title="Professional Experience & Leadership Timeline"
+  slideNumber={4}
+  totalSlides={6}
+  currentSlug="/summary/experience"
+  prevSlug="/summary/skills"
+  nextSlug="/summary/awards"
+>
+  <div class="flex-1 flex flex-col justify-between gap-3 overflow-hidden">
+    <!-- Header -->
+    <div class="flex items-center justify-between border-b-2 border-black dark:border-white pb-2">
+      <div>
+        <span class="text-xs font-mono font-bold tracking-widest text-accent uppercase">04 • Career & Leadership</span>
+        <h1 class="text-2xl sm:text-3xl font-heading font-black tracking-tight">
+          Professional Work & Research Roles
+        </h1>
+      </div>
+      <div class="text-xs font-mono opacity-70">
+        Industry Development • Academic Research • Technical Education
+      </div>
+    </div>
+
+    <!-- 16:9 Experience Bento Matrix -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 grid-rows-1 lg:grid-rows-6 gap-2.5 flex-1 min-h-0">
+      
+      <!-- Role 1: Fullstack Developer @ Kaimify (Cols 1-6, Rows 1-3) -->
+      <div
+        class="lg:col-span-6 lg:row-span-3 border-2 border-black dark:border-white bg-[#F0FDF4] dark:bg-neutral-900 p-3.5 shadow-neo-sm dark:shadow-neo-dark-sm flex flex-col justify-between"
+      >
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="px-2 py-0.5 bg-accent text-black font-mono font-bold text-[10px] border border-black">
+              CURRENT • FULLSTACK
+            </span>
+            <span class="text-xs font-mono font-bold">Jul 2026 – Present</span>
+          </div>
+          <h2 class="font-heading font-bold text-base mt-1">Fullstack Developer — Kaimify (Remote)</h2>
+          <p class="text-xs font-body opacity-80 mt-1 line-clamp-3">
+            Engineered backend services in NestJS & PostgreSQL with Drizzle ORM. Built dual-currency ACID wallet, Google AdMob SSV validation, LLM-powered journal insights, and eliminated N+1 queries with batch fetching.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-1 mt-1 text-[10px] font-mono">
+          <span class="px-1.5 py-0.5 bg-white dark:bg-black border border-black dark:border-white">NestJS</span>
+          <span class="px-1.5 py-0.5 bg-white dark:bg-black border border-black dark:border-white">Flutter</span>
+          <span class="px-1.5 py-0.5 bg-white dark:bg-black border border-black dark:border-white">PostgreSQL</span>
+          <span class="px-1.5 py-0.5 bg-white dark:bg-black border border-black dark:border-white">AdMob SSV</span>
+        </div>
+      </div>
+
+      <!-- Role 2: Undergraduate Researcher @ Udayana (Cols 7-12, Rows 1-3) -->
+      <div
+        class="lg:col-span-6 lg:row-span-3 border-2 border-black dark:border-white bg-[#FFFDEB] dark:bg-neutral-900 p-3.5 shadow-neo-sm dark:shadow-neo-dark-sm flex flex-col justify-between"
+      >
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="px-2 py-0.5 bg-black text-white dark:bg-white dark:text-black font-mono font-bold text-[10px]">
+              SCIENTIFIC RESEARCH
+            </span>
+            <span class="text-xs font-mono font-bold">Jan 2026 – Jun 2026</span>
+          </div>
+          <h2 class="font-heading font-bold text-base mt-1">Undergraduate Researcher — Udayana University</h2>
+          <p class="text-xs font-body opacity-80 mt-1 line-clamp-3">
+            Architected offline-first multi-tenant POS utilizing Clean Architecture. Validated 1,000+ offline transactions with 0% data loss and sub-20ms latency. Published paper in <em>Buletin Teknologi Informasi</em>.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-1 mt-1 text-[10px] font-mono">
+          <span class="px-1.5 py-0.5 bg-white dark:bg-black border border-black dark:border-white">Clean Arch</span>
+          <span class="px-1.5 py-0.5 bg-white dark:bg-black border border-black dark:border-white">SQLite</span>
+          <span class="px-1.5 py-0.5 bg-white dark:bg-black border border-black dark:border-white">Supabase</span>
+          <span class="px-1.5 py-0.5 bg-white dark:bg-black border border-black dark:border-white">300+ Tests</span>
+        </div>
+      </div>
+
+      <!-- Role 3: Programming Teacher @ Timedoor (Cols 1-4, Rows 4-6) -->
+      <div
+        class="lg:col-span-4 lg:row-span-3 border-2 border-black dark:border-white bg-[#EFF6FF] dark:bg-neutral-900 p-3 shadow-neo-sm dark:shadow-neo-dark-sm flex flex-col justify-between"
+      >
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="px-2 py-0.5 bg-accent text-black font-mono font-bold text-[10px] border border-black">
+              CURRENT • TEACHING
+            </span>
+            <span class="text-xs font-mono font-bold">Aug 2024 – Present</span>
+          </div>
+          <h3 class="font-heading font-bold text-sm mt-1">Programming Teacher — Timedoor</h3>
+          <p class="text-xs font-body opacity-80 mt-1 line-clamp-2">
+            Delivered bilingual instruction across Python, Machine Learning, AI, Vue.js, Laravel, and game development logic.
+          </p>
+        </div>
+        <div class="text-[10px] font-mono opacity-70">
+          Kids, Teens, to Pro Adult Learners
+        </div>
+      </div>
+
+      <!-- Role 4: Cloud Computing Cohort @ Bangkit (Cols 5-8, Rows 4-6) -->
+      <div
+        class="lg:col-span-4 lg:row-span-3 border-2 border-black dark:border-white bg-[#FAF5FF] dark:bg-neutral-900 p-3 shadow-neo-sm dark:shadow-neo-dark-sm flex flex-col justify-between"
+      >
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="px-2 py-0.5 bg-black text-white dark:bg-white dark:text-black font-mono font-bold text-[10px]">
+              TOP 10% DISTINCTION
+            </span>
+            <span class="text-xs font-mono font-bold">Sep 2024 – Jan 2025</span>
+          </div>
+          <h3 class="font-heading font-bold text-sm mt-1">Cloud Computing — Bangkit Academy</h3>
+          <p class="text-xs font-body opacity-80 mt-1 line-clamp-2">
+            Built Memotions Capstone (Top 50 of 644) on GCP Cloud Run with Express & Drizzle. Led 7 engineers as Team Manager.
+          </p>
+        </div>
+        <div class="text-[10px] font-mono opacity-70">
+          GCP Cloud Run • Drizzle • Pub/Sub
+        </div>
+      </div>
+
+      <!-- Role 5: Leadership & Head TA (Cols 9-12, Rows 4-6) -->
+      <div
+        class="lg:col-span-4 lg:row-span-3 border-2 border-black dark:border-white bg-[#FFF1F2] dark:bg-neutral-900 p-3 shadow-neo-sm dark:shadow-neo-dark-sm flex flex-col justify-between"
+      >
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="px-2 py-0.5 bg-black text-white dark:bg-white dark:text-black font-mono font-bold text-[10px]">
+              LEADERSHIP & TA
+            </span>
+            <span class="text-xs font-mono font-bold">2023 – 2024</span>
+          </div>
+          <h3 class="font-heading font-bold text-sm mt-1">Tech Artisan & Head TA</h3>
+          <p class="text-xs font-body opacity-80 mt-1 line-clamp-2">
+            Vice Chairman coordinating 6 technical divisions. Head TA for Algorithm & Programming (C/C++) and Database Concepts.
+          </p>
+        </div>
+        <div class="text-[10px] font-mono opacity-70">
+          Community Governance • Mentoring
+        </div>
+      </div>
+
+    </div>
+  </div>
+</SummaryLayout>

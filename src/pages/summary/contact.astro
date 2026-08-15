@@ -1,0 +1,162 @@
+---
+import SummaryLayout from '../../layouts/SummaryLayout.astro';
+---
+
+<SummaryLayout
+  title="Get in Touch & Connect"
+  slideNumber={6}
+  totalSlides={6}
+  currentSlug="/summary/contact"
+  prevSlug="/summary/awards"
+  nextSlug="/summary"
+>
+  <div class="flex-1 flex flex-col justify-between gap-3 overflow-hidden">
+    <!-- Header -->
+    <div class="flex items-center justify-between border-b-2 border-black dark:border-white pb-2">
+      <div>
+        <span class="text-xs font-mono font-bold tracking-widest text-accent uppercase">06 • Connect & Collaborate</span>
+        <h1 class="text-2xl sm:text-3xl font-heading font-black tracking-tight">
+          Let's Build Something Exceptional
+        </h1>
+      </div>
+      <div class="text-xs font-mono opacity-70">
+        Open for Backend Architecture & Distributed Systems Opportunities
+      </div>
+    </div>
+
+    <!-- 16:9 Contact Bento Matrix -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 grid-rows-1 lg:grid-rows-6 gap-2.5 flex-1 min-h-0">
+      
+      <!-- Bento 1: Direct Message Form (Cols 1-7, Rows 1-6) -->
+      <div
+        class="lg:col-span-7 lg:row-span-6 border-2 border-black dark:border-white bg-[#FFFDEB] dark:bg-neutral-900 p-4 shadow-neo-sm dark:shadow-neo-dark-sm flex flex-col justify-between"
+      >
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-mono text-xs font-bold px-2 py-0.5 bg-black text-white dark:bg-white dark:text-black">
+              DIRECT MESSAGE
+            </span>
+            <span class="text-xs font-mono text-accent font-bold">Delivered to bayurkp194@gmail.com</span>
+          </div>
+          <form action="https://formsubmit.co/bayurkp194@gmail.com" method="POST" class="space-y-2 text-xs font-mono">
+            <input type="hidden" name="_subject" value="New Summary Deck Inquiry from bayurkp.github.io" />
+            <input type="hidden" name="_captcha" value="false" />
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="block font-bold mb-1">Your Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  placeholder="e.g. John Doe"
+                  class="w-full px-2.5 py-1.5 bg-white dark:bg-black border-2 border-black dark:border-white outline-none focus:bg-accent/10 transition-colors"
+                />
+              </div>
+              <div>
+                <label class="block font-bold mb-1">Email Address</label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="john@example.com"
+                  class="w-full px-2.5 py-1.5 bg-white dark:bg-black border-2 border-black dark:border-white outline-none focus:bg-accent/10 transition-colors"
+                />
+              </div>
+            </div>
+            <div>
+              <label class="block font-bold mb-1">Subject</label>
+              <input
+                type="text"
+                name="subject"
+                required
+                placeholder="Collaboration, Project Inquiries, or System Architecture"
+                class="w-full px-2.5 py-1.5 bg-white dark:bg-black border-2 border-black dark:border-white outline-none focus:bg-accent/10 transition-colors"
+              />
+            </div>
+            <div>
+              <label class="block font-bold mb-1">Message</label>
+              <textarea
+                name="message"
+                required
+                rows={3}
+                placeholder="Tell me about your project or opportunity..."
+                class="w-full px-2.5 py-1.5 bg-white dark:bg-black border-2 border-black dark:border-white outline-none focus:bg-accent/10 resize-none transition-colors"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="w-full py-2 bg-accent text-black font-heading font-bold text-xs border-2 border-black shadow-neo-sm hover:shadow-none hover:translate-x-[1px] hover:translate-y-[1px] transition-all cursor-pointer"
+            >
+              Send Message Immediately ✉️
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bento 2: Direct Contact Channels (Cols 8-12, Rows 1-3) -->
+      <div
+        class="lg:col-span-5 lg:row-span-3 border-2 border-black dark:border-white bg-[#EFF6FF] dark:bg-neutral-900 p-3.5 shadow-neo-sm dark:shadow-neo-dark-sm flex flex-col justify-between"
+      >
+        <div>
+          <span class="font-mono text-[10px] font-bold px-2 py-0.5 bg-black text-white dark:bg-white dark:text-black">
+            CONTACT CHANNELS
+          </span>
+          <div class="space-y-2 mt-2 font-mono text-xs">
+            <a
+              href="mailto:bayurkp194@gmail.com"
+              class="flex items-center gap-2 p-1.5 bg-white dark:bg-black border border-black dark:border-white hover:bg-accent hover:text-black transition-colors"
+            >
+              <span>📧</span>
+              <span class="font-bold truncate">bayurkp194@gmail.com</span>
+            </a>
+            <a
+              href="https://wa.me/62895321697691"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-2 p-1.5 bg-white dark:bg-black border border-black dark:border-white hover:bg-accent hover:text-black transition-colors"
+            >
+              <span>💬</span>
+              <span class="font-bold truncate">+62 895 3216 97691 (WhatsApp)</span>
+            </a>
+            <div class="flex items-center gap-2 p-1.5 bg-white dark:bg-black border border-black dark:border-white">
+              <span>📍</span>
+              <span class="opacity-80">Tabanan, Bali, Indonesia</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bento 3: Quick Navigation & Profiles (Cols 8-12, Rows 4-6) -->
+      <div
+        class="lg:col-span-5 lg:row-span-3 border-2 border-black dark:border-white bg-[#F0FDF4] dark:bg-neutral-900 p-3.5 shadow-neo-sm dark:shadow-neo-dark-sm flex flex-col justify-between"
+      >
+        <div>
+          <span class="font-mono text-[10px] font-bold px-2 py-0.5 bg-accent text-black border border-black">
+            PROFILES & RESOURCES
+          </span>
+          <div class="grid grid-cols-2 gap-2 mt-2 text-xs font-mono font-bold">
+            <a
+              href="https://github.com/bayurkp"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="p-2 bg-white dark:bg-black border border-black dark:border-white hover:bg-accent hover:text-black transition-colors flex items-center justify-center gap-1.5"
+            >
+              GitHub ↗
+            </a>
+            <a
+              href="/"
+              class="p-2 bg-white dark:bg-black border border-black dark:border-white hover:bg-accent hover:text-black transition-colors flex items-center justify-center gap-1.5"
+            >
+              Full Website ↗
+            </a>
+          </div>
+        </div>
+        <div class="pt-2 border-t border-black/20 dark:border-white/20 flex items-center justify-between text-[11px] font-mono">
+          <span class="opacity-60">Deck Completion</span>
+          <a href="/summary" class="font-bold text-accent hover:underline">Restart Slide Deck ↺</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</SummaryLayout>

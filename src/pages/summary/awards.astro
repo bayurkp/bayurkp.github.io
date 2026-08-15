@@ -1,0 +1,120 @@
+---
+import SummaryLayout from '../../layouts/SummaryLayout.astro';
+---
+
+<SummaryLayout
+  title="Honors, Awards & Research Publications"
+  slideNumber={5}
+  totalSlides={6}
+  currentSlug="/summary/awards"
+  prevSlug="/summary/experience"
+  nextSlug="/summary/contact"
+>
+  <div class="flex-1 flex flex-col justify-between gap-3 overflow-hidden">
+    <!-- Header -->
+    <div class="flex items-center justify-between border-b-2 border-black dark:border-white pb-2">
+      <div>
+        <span class="text-xs font-mono font-bold tracking-widest text-accent uppercase">05 • Recognition & Impact</span>
+        <h1 class="text-2xl sm:text-3xl font-heading font-black tracking-tight">
+          Honors, Awards & Scientific Publications
+        </h1>
+      </div>
+      <div class="text-xs font-mono opacity-70">
+        Academic Excellence • Hackathons • National Scholarships
+      </div>
+    </div>
+
+    <!-- 16:9 Awards Bento Matrix -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 grid-rows-1 lg:grid-rows-6 gap-2.5 flex-1 min-h-0">
+      
+      <!-- Award 1: Beasiswa Cendekia BAZNAS (Cols 1-6, Rows 1-3) -->
+      <div
+        class="lg:col-span-6 lg:row-span-3 border-2 border-black dark:border-white bg-[#FFFDEB] dark:bg-neutral-900 p-3.5 shadow-neo-sm dark:shadow-neo-dark-sm flex flex-col justify-between"
+      >
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="px-2 py-0.5 bg-accent text-black font-mono font-bold text-[10px] border border-black">
+              NATIONAL SCHOLARSHIP
+            </span>
+            <span class="text-xs font-mono font-bold">Aug 2024 – Aug 2026</span>
+          </div>
+          <h2 class="font-heading font-bold text-base mt-1">Awardee of Program Beasiswa Cendekia BAZNAS</h2>
+          <p class="text-xs font-body opacity-80 mt-1 line-clamp-3">
+            Selected for prestigious national scholarship focused on academic excellence and social leadership. Contributor for national publication: manuscript titled <em>"Menyusun Hari, Tim, dan Baris Kode"</em> (Feb 2026) on software engineering leadership and social impact.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 mt-1 text-[11px] font-mono font-bold text-accent">
+          <span>🏛️ BAZNAS Pusat</span>
+          <span>•</span>
+          <span>Universitas Udayana</span>
+        </div>
+      </div>
+
+      <!-- Award 2: 1st Place ICP Indonesia Hackathon (Cols 7-12, Rows 1-3) -->
+      <div
+        class="lg:col-span-6 lg:row-span-3 border-2 border-black dark:border-white bg-[#EFF6FF] dark:bg-neutral-900 p-3.5 shadow-neo-sm dark:shadow-neo-dark-sm flex flex-col justify-between"
+      >
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="px-2 py-0.5 bg-black text-white dark:bg-white dark:text-black font-mono font-bold text-[10px]">
+              1ST PLACE CHAMPION
+            </span>
+            <span class="text-xs font-mono font-bold">May 2025</span>
+          </div>
+          <h2 class="font-heading font-bold text-base mt-1">1st Place — ICP Indonesia Hackathon</h2>
+          <p class="text-xs font-body opacity-80 mt-1 line-clamp-3">
+            Won 1st Place as part of team <em>Hackathon Dadakan</em> by engineering <strong>Moodyan</strong>, a Web3 decentralized wellness application on Internet Computer Protocol (ICP) with Motoko canisters, Internet Identity, and local AI mood analysis (Llama 3.2:8B).
+          </p>
+        </div>
+        <div class="flex items-center gap-2 mt-1 text-[11px] font-mono font-bold text-accent">
+          <span>🏆 ICP Hub Indonesia</span>
+          <span>•</span>
+          <span>Ash Nuanu, Tabanan</span>
+        </div>
+      </div>
+
+      <!-- Award 3: 3rd Place PNB IT Competition (Cols 1-6, Rows 4-6) -->
+      <div
+        class="lg:col-span-6 lg:row-span-3 border-2 border-black dark:border-white bg-[#F0FDF4] dark:bg-neutral-900 p-3.5 shadow-neo-sm dark:shadow-neo-dark-sm flex flex-col justify-between"
+      >
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="px-2 py-0.5 bg-black text-white dark:bg-white dark:text-black font-mono font-bold text-[10px]">
+              3RD PLACE PODIUM
+            </span>
+            <span class="text-xs font-mono font-bold">Oct 2024</span>
+          </div>
+          <h3 class="font-heading font-bold text-base mt-1">3rd Place — IT Business Development Competition</h3>
+          <p class="text-xs font-body opacity-80 mt-1 line-clamp-3">
+            Awarded 3rd place for <strong>TemanTaman</strong>, an auction platform eliminating intermediary margins for ornamental plant farmers. Validated market demand across 871M+ plants produced in 2023 with real-time bidding & escrow settlement.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 mt-1 text-[11px] font-mono font-bold text-accent">
+          <span>🌱 PNB IT Competition #16 x ECO</span>
+        </div>
+      </div>
+
+      <!-- Award 4: Scientific Research Publication & GPA (Cols 7-12, Rows 4-6) -->
+      <div
+        class="lg:col-span-6 lg:row-span-3 border-2 border-black dark:border-white bg-[#FAF5FF] dark:bg-neutral-900 p-3.5 shadow-neo-sm dark:shadow-neo-dark-sm flex flex-col justify-between"
+      >
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="px-2 py-0.5 bg-accent text-black font-mono font-bold text-[10px] border border-black">
+              RESEARCH & ACADEMICS
+            </span>
+            <span class="text-xs font-mono font-bold text-accent">GPA: 3.93 / 4.0</span>
+          </div>
+          <h3 class="font-heading font-bold text-base mt-1">Scientific Paper — Buletin Teknologi Informasi</h3>
+          <p class="text-xs font-body opacity-80 mt-1 line-clamp-3">
+            Co-authored <em>"Domain and Data Layer Design for Offline-First Multi-Tenant POS with BaaS Integration"</em> (Bayu Rizky Kurnia Pratama et al., Universitas Udayana & Politeknik Negeri Bali).
+          </p>
+        </div>
+        <div class="flex items-center gap-2 mt-1 text-[11px] font-mono font-bold text-accent">
+          <span>📚 Peer-Reviewed Research Publication</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</SummaryLayout>
