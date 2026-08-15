@@ -1,146 +1,246 @@
 ---
 import SummaryLayout from '../../layouts/SummaryLayout.astro';
-import { getCollection } from 'astro:content';
-
-const experiences = await getCollection('experience');
 ---
 
 <SummaryLayout
-  title="Professional Experience & Leadership Timeline"
+  title="Experience"
   slideNumber={4}
   totalSlides={6}
   currentSlug="/summary/experience"
   prevSlug="/summary/skills"
   nextSlug="/summary/awards"
 >
-  <div class="flex-1 flex flex-col justify-between gap-3 overflow-hidden">
+  <div class="flex-1 flex flex-col justify-between overflow-hidden">
     <!-- Header -->
-    <div class="flex items-center justify-between border-b-2 border-black dark:border-white pb-2">
+    <div
+      class="h-16 sm:h-[68px] flex items-center justify-between border-b-2 border-black dark:border-white bg-zinc-50 dark:bg-zinc-900 px-5 shrink-0"
+    >
       <div>
-        <span class="text-xs font-mono font-bold tracking-widest text-accent uppercase">04 • Career & Leadership</span>
-        <h1 class="text-2xl sm:text-3xl font-heading font-black tracking-tight">
-          Professional Work & Research Roles
+        <span class="text-xs font-mono font-bold text-accent uppercase tracking-wider"
+          >04 • Career</span
+        >
+        <h1
+          class="text-xl sm:text-2xl font-heading font-black text-black dark:text-white leading-tight"
+        >
+          Where I've Worked
         </h1>
       </div>
-      <div class="text-xs font-mono opacity-70">
-        Industry Development • Academic Research • Technical Education
+      <div class="text-xs font-mono text-zinc-500">
+        Industry • Research • Education • Leadership
       </div>
     </div>
 
-    <!-- 16:9 Experience Bento Matrix -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 grid-rows-1 lg:grid-rows-6 gap-2.5 flex-1 min-h-0">
-      
-      <!-- Role 1: Fullstack Developer @ Kaimify (Cols 1-6, Rows 1-3) -->
+    <!-- 16:9 Grid (5 cols x 2 rows: [1, icon, 1, 1, icon] / [1, 1, 1, icon, 1]) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 flex-1 min-h-0">
+      <!-- ================= ROW 1 ================= -->
+
+      <!-- 1. [Card 1] Kaimify (Dark Flagship Card) -->
       <div
-        class="lg:col-span-6 lg:row-span-3 border-2 border-black dark:border-white bg-[#F0FDF4] dark:bg-neutral-900 p-3.5 shadow-neo-sm dark:shadow-neo-dark-sm flex flex-col justify-between"
+        class="bg-zinc-900 dark:bg-black p-4 flex flex-col justify-between border-b-2 lg:border-r-2 border-black dark:border-white text-white"
       >
         <div>
-          <div class="flex items-center justify-between">
-            <span class="px-2 py-0.5 bg-accent text-black font-mono font-bold text-[10px] border border-black">
-              CURRENT • FULLSTACK
-            </span>
-            <span class="text-xs font-mono font-bold">Jul 2026 – Present</span>
-          </div>
-          <h2 class="font-heading font-bold text-base mt-1">Fullstack Developer — Kaimify (Remote)</h2>
-          <p class="text-xs font-body opacity-80 mt-1 line-clamp-3">
-            Engineered backend services in NestJS & PostgreSQL with Drizzle ORM. Built dual-currency ACID wallet, Google AdMob SSV validation, LLM-powered journal insights, and eliminated N+1 queries with batch fetching.
+          <span class="text-[10px] font-mono text-zinc-400">2026 – Present</span>
+          <h2 class="font-heading font-bold text-sm sm:text-base text-white mt-0.5">
+            Fullstack Developer
+          </h2>
+          <p class="text-xs font-mono text-accent font-semibold">Kaimify</p>
+          <p class="text-xs font-body text-zinc-300 mt-2 leading-relaxed">
+            Building backend microservices in NestJS & PostgreSQL with dual-currency transactional
+            ledgers.
           </p>
         </div>
-        <div class="flex flex-wrap gap-1 mt-1 text-[10px] font-mono">
-          <span class="px-1.5 py-0.5 bg-white dark:bg-black border border-black dark:border-white">NestJS</span>
-          <span class="px-1.5 py-0.5 bg-white dark:bg-black border border-black dark:border-white">Flutter</span>
-          <span class="px-1.5 py-0.5 bg-white dark:bg-black border border-black dark:border-white">PostgreSQL</span>
-          <span class="px-1.5 py-0.5 bg-white dark:bg-black border border-black dark:border-white">AdMob SSV</span>
+        <div class="text-[11px] font-mono text-zinc-400 pt-2 border-t border-white/15">
+          NestJS • Flutter
         </div>
       </div>
 
-      <!-- Role 2: Undergraduate Researcher @ Udayana (Cols 7-12, Rows 1-3) -->
+      <!-- 2. [ICON 1] Pure Accent Icon Cell -->
       <div
-        class="lg:col-span-6 lg:row-span-3 border-2 border-black dark:border-white bg-[#FFFDEB] dark:bg-neutral-900 p-3.5 shadow-neo-sm dark:shadow-neo-dark-sm flex flex-col justify-between"
+        class="bg-accent flex items-center justify-center p-4 border-b-2 lg:border-r-2 border-black"
+      >
+        <svg
+          class="w-14 h-14 sm:w-16 sm:h-16 text-black"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.75"
+        >
+          <rect width="20" height="8" x="2" y="2" rx="2" ry="2"></rect>
+          <rect width="20" height="8" x="2" y="14" rx="2" ry="2"></rect>
+          <line x1="6" x2="6.01" y1="6" y2="6"></line>
+          <line x1="6" x2="6.01" y1="18" y2="18"></line>
+        </svg>
+      </div>
+
+      <!-- 3. [Card 2] Undergraduate Researcher -->
+      <div
+        class="bg-white dark:bg-zinc-900 p-4 flex flex-col justify-between border-b-2 lg:border-r-2 border-black dark:border-white"
       >
         <div>
-          <div class="flex items-center justify-between">
-            <span class="px-2 py-0.5 bg-black text-white dark:bg-white dark:text-black font-mono font-bold text-[10px]">
-              SCIENTIFIC RESEARCH
-            </span>
-            <span class="text-xs font-mono font-bold">Jan 2026 – Jun 2026</span>
-          </div>
-          <h2 class="font-heading font-bold text-base mt-1">Undergraduate Researcher — Udayana University</h2>
-          <p class="text-xs font-body opacity-80 mt-1 line-clamp-3">
-            Architected offline-first multi-tenant POS utilizing Clean Architecture. Validated 1,000+ offline transactions with 0% data loss and sub-20ms latency. Published paper in <em>Buletin Teknologi Informasi</em>.
+          <span class="text-[10px] font-mono text-zinc-500">Jan 2026 – Jun 2026</span>
+          <h2 class="font-heading font-bold text-sm sm:text-base text-black dark:text-white mt-0.5">
+            Undergraduate Researcher
+          </h2>
+          <p class="text-xs font-mono text-accent font-semibold">Udayana University</p>
+          <p class="text-xs font-body text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">
+            Architected offline-first POS with Clean Architecture, SQLite sync, and sub-20ms write
+            latency.
           </p>
         </div>
-        <div class="flex flex-wrap gap-1 mt-1 text-[10px] font-mono">
-          <span class="px-1.5 py-0.5 bg-white dark:bg-black border border-black dark:border-white">Clean Arch</span>
-          <span class="px-1.5 py-0.5 bg-white dark:bg-black border border-black dark:border-white">SQLite</span>
-          <span class="px-1.5 py-0.5 bg-white dark:bg-black border border-black dark:border-white">Supabase</span>
-          <span class="px-1.5 py-0.5 bg-white dark:bg-black border border-black dark:border-white">300+ Tests</span>
+        <div
+          class="text-[11px] font-mono text-zinc-500 pt-2 border-t border-black/10 dark:border-white/10"
+        >
+          Flutter • SQLite • Supabase
         </div>
       </div>
 
-      <!-- Role 3: Programming Teacher @ Timedoor (Cols 1-4, Rows 4-6) -->
+      <!-- 4. [Card 3] Frontend Intern -->
       <div
-        class="lg:col-span-4 lg:row-span-3 border-2 border-black dark:border-white bg-[#EFF6FF] dark:bg-neutral-900 p-3 shadow-neo-sm dark:shadow-neo-dark-sm flex flex-col justify-between"
+        class="bg-white dark:bg-zinc-900 p-4 flex flex-col justify-between border-b-2 lg:border-r-2 border-black dark:border-white"
       >
         <div>
-          <div class="flex items-center justify-between">
-            <span class="px-2 py-0.5 bg-accent text-black font-mono font-bold text-[10px] border border-black">
-              CURRENT • TEACHING
-            </span>
-            <span class="text-xs font-mono font-bold">Aug 2024 – Present</span>
-          </div>
-          <h3 class="font-heading font-bold text-sm mt-1">Programming Teacher — Timedoor</h3>
-          <p class="text-xs font-body opacity-80 mt-1 line-clamp-2">
-            Delivered bilingual instruction across Python, Machine Learning, AI, Vue.js, Laravel, and game development logic.
+          <span class="text-[10px] font-mono text-zinc-500">Mar 2025 – Jun 2025</span>
+          <h2 class="font-heading font-bold text-sm sm:text-base text-black dark:text-white mt-0.5">
+            Frontend Intern
+          </h2>
+          <p class="text-xs font-mono text-accent font-semibold">Timedoor Indonesia</p>
+          <p class="text-xs font-body text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">
+            Developed Vue.js web interfaces, integrated REST APIs, and resolved 100+ UI & logic
+            issues.
           </p>
         </div>
-        <div class="text-[10px] font-mono opacity-70">
-          Kids, Teens, to Pro Adult Learners
+        <div
+          class="text-[11px] font-mono text-zinc-500 pt-2 border-t border-black/10 dark:border-white/10"
+        >
+          Vue.js • REST API • Git
         </div>
       </div>
 
-      <!-- Role 4: Cloud Computing Cohort @ Bangkit (Cols 5-8, Rows 4-6) -->
+      <!-- 5. [ICON 2] Pure Dark / Accent Icon Cell -->
       <div
-        class="lg:col-span-4 lg:row-span-3 border-2 border-black dark:border-white bg-[#FAF5FF] dark:bg-neutral-900 p-3 shadow-neo-sm dark:shadow-neo-dark-sm flex flex-col justify-between"
+        class="bg-zinc-900 dark:bg-black flex items-center justify-center p-4 border-b-2 border-black dark:border-white"
+      >
+        <svg
+          class="w-14 h-14 sm:w-16 sm:h-16 text-accent"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.75"
+        >
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+      </div>
+
+      <!-- ================= ROW 2 ================= -->
+
+      <!-- 6. [Card 4] Programming Teacher -->
+      <div
+        class="bg-white dark:bg-zinc-900 p-4 flex flex-col justify-between border-b-2 md:border-b-0 lg:border-r-2 border-black dark:border-white"
       >
         <div>
-          <div class="flex items-center justify-between">
-            <span class="px-2 py-0.5 bg-black text-white dark:bg-white dark:text-black font-mono font-bold text-[10px]">
-              TOP 10% DISTINCTION
-            </span>
-            <span class="text-xs font-mono font-bold">Sep 2024 – Jan 2025</span>
-          </div>
-          <h3 class="font-heading font-bold text-sm mt-1">Cloud Computing — Bangkit Academy</h3>
-          <p class="text-xs font-body opacity-80 mt-1 line-clamp-2">
-            Built Memotions Capstone (Top 50 of 644) on GCP Cloud Run with Express & Drizzle. Led 7 engineers as Team Manager.
+          <span class="text-[10px] font-mono text-zinc-500">2024 – Present</span>
+          <h2 class="font-heading font-bold text-sm sm:text-base text-black dark:text-white mt-0.5">
+            Programming Teacher
+          </h2>
+          <p class="text-xs font-mono text-accent font-semibold">Timedoor Academy</p>
+          <p class="text-xs font-body text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">
+            Delivering instruction in Python, Machine Learning, AI algorithms, and Vue.js
+            fundamentals.
           </p>
         </div>
-        <div class="text-[10px] font-mono opacity-70">
-          GCP Cloud Run • Drizzle • Pub/Sub
+        <div
+          class="text-[11px] font-mono text-zinc-500 pt-2 border-t border-black/10 dark:border-white/10"
+        >
+          Teaching • Mentoring
         </div>
       </div>
 
-      <!-- Role 5: Leadership & Head TA (Cols 9-12, Rows 4-6) -->
+      <!-- 7. [Card 5] Bangkit Academy -->
       <div
-        class="lg:col-span-4 lg:row-span-3 border-2 border-black dark:border-white bg-[#FFF1F2] dark:bg-neutral-900 p-3 shadow-neo-sm dark:shadow-neo-dark-sm flex flex-col justify-between"
+        class="bg-white dark:bg-zinc-900 p-4 flex flex-col justify-between border-b-2 md:border-b-0 lg:border-r-2 border-black dark:border-white"
       >
         <div>
-          <div class="flex items-center justify-between">
-            <span class="px-2 py-0.5 bg-black text-white dark:bg-white dark:text-black font-mono font-bold text-[10px]">
-              LEADERSHIP & TA
-            </span>
-            <span class="text-xs font-mono font-bold">2023 – 2024</span>
-          </div>
-          <h3 class="font-heading font-bold text-sm mt-1">Tech Artisan & Head TA</h3>
-          <p class="text-xs font-body opacity-80 mt-1 line-clamp-2">
-            Vice Chairman coordinating 6 technical divisions. Head TA for Algorithm & Programming (C/C++) and Database Concepts.
+          <span class="text-[10px] font-mono text-zinc-500">Feb 2024 – Jul 2024</span>
+          <h2 class="font-heading font-bold text-sm sm:text-base text-black dark:text-white mt-0.5">
+            Cloud Computing
+          </h2>
+          <p class="text-xs font-mono text-accent font-semibold">Bangkit Academy</p>
+          <p class="text-xs font-body text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">
+            Built Google Cloud infrastructure. Led team of 7 to Top 50 Capstone ranking out of 644
+            teams.
           </p>
         </div>
-        <div class="text-[10px] font-mono opacity-70">
-          Community Governance • Mentoring
+        <div
+          class="text-[11px] font-mono text-zinc-500 pt-2 border-t border-black/10 dark:border-white/10"
+        >
+          GCP • Docker • Express
         </div>
       </div>
 
+      <!-- 8. [Card 6] Teaching Assistant -->
+      <div
+        class="bg-white dark:bg-zinc-900 p-4 flex flex-col justify-between border-b-2 md:border-b-0 lg:border-r-2 border-black dark:border-white"
+      >
+        <div>
+          <span class="text-[10px] font-mono text-zinc-500">Sep 2023 – Jun 2024</span>
+          <h2 class="font-heading font-bold text-sm sm:text-base text-black dark:text-white mt-0.5">
+            Teaching Assistant
+          </h2>
+          <p class="text-xs font-mono text-accent font-semibold">Udayana University</p>
+          <p class="text-xs font-body text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">
+            Instructed C/C++ Algorithms & Programming and Database Concepts (MySQL, ERD, PDM).
+          </p>
+        </div>
+        <div
+          class="text-[11px] font-mono text-zinc-500 pt-2 border-t border-black/10 dark:border-white/10"
+        >
+          C/C++ • Algorithms • MySQL
+        </div>
+      </div>
+
+      <!-- 9. [ICON 3] Pure Accent Icon Cell -->
+      <div
+        class="bg-accent flex items-center justify-center p-4 border-b-2 md:border-b-0 lg:border-r-2 border-black"
+      >
+        <svg
+          class="w-14 h-14 sm:w-16 sm:h-16 text-black"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.75"
+        >
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+      </div>
+
+      <!-- 10. [Card 7] Vice Chairman (Technology Artisan) -->
+      <div
+        class="bg-white dark:bg-zinc-900 p-4 flex flex-col justify-between border-black dark:border-white"
+      >
+        <div>
+          <span class="text-[10px] font-mono text-zinc-500">Jan 2024 – Dec 2024</span>
+          <h2 class="font-heading font-bold text-sm sm:text-base text-black dark:text-white mt-0.5">
+            Vice Chairman
+          </h2>
+          <p class="text-xs font-mono text-accent font-semibold">Technology Artisan</p>
+          <p class="text-xs font-body text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">
+            Coordinated technical programs across 6 engineering divisions in student developer
+            community.
+          </p>
+        </div>
+        <div
+          class="text-[11px] font-mono text-zinc-500 pt-2 border-t border-black/10 dark:border-white/10"
+        >
+          Leadership • Teamwork
+        </div>
+      </div>
     </div>
   </div>
 </SummaryLayout>

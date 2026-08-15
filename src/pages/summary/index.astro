@@ -1,191 +1,125 @@
 ---
 import SummaryLayout from '../../layouts/SummaryLayout.astro';
-import { getCollection } from 'astro:content';
-
-const projects = await getCollection('projects');
-const experiences = await getCollection('experience');
-const awards = await getCollection('awards');
 ---
 
 <SummaryLayout
-  title="Executive Summary & Architecture Portfolio"
+  title="Overview"
   slideNumber={1}
   totalSlides={6}
   currentSlug="/summary"
+  prevSlug="/summary/contact"
   nextSlug="/summary/projects"
 >
-  <div class="flex-1 flex flex-col justify-between gap-3 overflow-hidden">
-    <!-- Header Banner -->
-    <div class="flex items-center justify-between border-b-2 border-black dark:border-white pb-2.5">
-      <div>
-        <span class="text-xs font-mono font-bold tracking-widest text-accent uppercase">Executive Portfolio Summary</span>
-        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-heading font-black leading-tight tracking-tight">
-          Bayu Rizky Kurnia Pratama
-        </h1>
-      </div>
-      <div class="text-right">
-        <div class="inline-block px-2.5 py-1 bg-accent text-black font-mono font-bold text-xs border border-black dark:border-white shadow-neo-sm">
-          Tabanan, Bali • GPA 3.93 / 4.0
-        </div>
-        <p class="text-xs font-body opacity-70 mt-1">Backend Engineer & Systems Architect</p>
+  <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 min-h-0 divide-y-2 sm:divide-y-0 lg:divide-x-2 divide-black dark:divide-white">
+
+    <!-- PANEL A: Photo Card (Cols 1-3) — tall image fill with name overlay -->
+    <div class="lg:col-span-3 relative overflow-hidden bg-zinc-900 border-b-2 lg:border-b-0 border-black dark:border-white flex flex-col">
+      <img
+        src="/images/bay-1.jpeg"
+        alt="Bayu Pratama"
+        class="absolute inset-0 w-full h-full object-cover object-[42%_center] grayscale contrast-125 opacity-70"
+      />
+      <!-- Gradient overlay -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+      <!-- Content on top of photo -->
+      <div class="relative flex flex-col justify-end h-full p-5 gap-1">
+        <p class="font-mono text-xs text-accent font-bold uppercase tracking-widest">01 • Profile</p>
+        <h1 class="text-xl font-heading font-black text-white leading-tight">Bayu Rizky<br/>Kurnia Pratama</h1>
+        <p class="text-[11px] font-mono text-zinc-300 mt-0.5">Software Engineer</p>
+        <p class="text-[10px] font-mono text-accent">Fullstack • Backend • AI Integration</p>
       </div>
     </div>
 
-    <!-- 16:9 Master Bento Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 grid-rows-1 lg:grid-rows-6 gap-3 flex-1 min-h-0">
-      
-      <!-- Bento 1: Profile & Bio Summary (Cols 1-4, Rows 1-6) -->
-      <div
-        class="lg:col-span-4 lg:row-span-6 border-2 border-black dark:border-white bg-neutral-50 dark:bg-neutral-900/60 p-4 shadow-neo-sm dark:shadow-neo-dark-sm flex flex-col justify-between relative overflow-hidden group"
-      >
-        <div class="space-y-3">
-          <div class="flex items-center gap-3">
-            <img
-              src="/images/bay-1.jpeg"
-              alt="Bayu Pratama"
-              class="w-14 h-14 object-cover border-2 border-black dark:border-white shadow-neo-sm grayscale group-hover:grayscale-0 transition-all"
-            />
-            <div>
-              <h2 class="font-heading font-bold text-base leading-tight">Backend & System Design</h2>
-              <p class="font-mono text-xs text-accent font-bold">Node.js • PHP • Go • AI/LLM</p>
-            </div>
-          </div>
-          <p class="text-xs sm:text-[13px] font-body leading-relaxed opacity-90">
-            Backend Engineer specializing in resilient distributed systems, offline-first architectures, virtual economies, and LLM integrations. Author of peer-reviewed research in <em>Buletin Teknologi Informasi</em>.
-          </p>
-          <div class="border-t border-black/20 dark:border-white/20 pt-2 space-y-1.5 text-xs font-mono">
-            <div class="flex justify-between">
-              <span class="opacity-60">Education:</span>
-              <span class="font-bold">Udayana Univ (CS/IT)</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="opacity-60">Current Role:</span>
-              <span class="font-bold text-accent">Fullstack Dev @ Kaimify</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="opacity-60">Honor:</span>
-              <span class="font-bold">BAZNAS National Scholar</span>
-            </div>
-          </div>
-        </div>
+    <!-- Right 9 Columns — nested 3x2 grid -->
+    <div class="lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid-rows-2 divide-y-2 divide-black dark:divide-white">
 
-        <a
-          href="/summary/skills"
-          class="w-full mt-3 py-1.5 px-3 bg-black dark:bg-white text-white dark:text-black font-heading font-bold text-xs text-center border border-black hover:bg-accent hover:text-black transition-colors flex items-center justify-center gap-1.5"
-        >
-          View Full Skill Matrix <span>→</span>
-        </a>
+      <!-- Row 1 -->
+
+      <!-- B: Big Stat — Pure Color Block -->
+      <div class="bg-accent p-5 flex flex-col justify-between border-b-2 border-r-0 lg:border-r-2 border-black">
+        <div class="flex items-start justify-between">
+          <span class="font-mono text-xs font-bold text-black uppercase tracking-widest">Projects Shipped</span>
+          <svg class="w-5 h-5 text-black/40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div>
+          <div class="text-5xl font-heading font-black text-black leading-none">10+</div>
+          <p class="text-xs font-mono text-black/70 mt-1">Production & research systems</p>
+        </div>
       </div>
 
-      <!-- Bento 2: Featured Projects Hero (Cols 5-8, Rows 1-3) -> Links to /summary/projects -->
-      <a
-        href="/summary/projects"
-        class="lg:col-span-4 lg:row-span-3 border-2 border-black dark:border-white bg-[#FFF9E6] dark:bg-neutral-900 p-4 shadow-neo-sm dark:shadow-neo-dark-sm hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex flex-col justify-between group cursor-pointer"
-      >
+      <!-- C: Bio Text — Clean typography card -->
+      <a href="/summary/projects" class="bg-white dark:bg-zinc-900 p-5 flex flex-col justify-between border-b-2 border-r-0 lg:border-r-2 border-black dark:border-white group hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-all">
         <div>
           <div class="flex items-center justify-between mb-2">
-            <span class="font-mono text-xs font-bold px-2 py-0.5 bg-black text-white dark:bg-white dark:text-black">
-              01 • FEATURED PROJECTS
-            </span>
-            <span class="text-xs font-mono font-bold text-accent group-hover:translate-x-1 transition-transform">
-              10 Projects →
-            </span>
+            <span class="font-mono text-xs font-bold text-accent uppercase tracking-widest">02 • Work</span>
+            <svg class="w-4 h-4 text-zinc-400 group-hover:text-accent transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
           </div>
-          <h3 class="font-heading font-bold text-base group-hover:text-accent transition-colors">
-            Production & Research Systems
-          </h3>
-          <p class="text-xs font-body opacity-80 mt-1 line-clamp-2">
-            Niagara POS (Offline-First Clean Architecture), Kaimify (Harm-reduction Dual Currency), Moodyan (ICP Web3), and KSH Multi-Region.
+          <h2 class="text-xl font-heading font-black text-black dark:text-white group-hover:text-accent transition-colors">Featured Projects</h2>
+          <p class="text-xs font-body text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">
+            Offline-first POS, dual-currency wellness app, decentralized Web3 journal, and enterprise community platforms.
           </p>
         </div>
-        <div class="flex flex-wrap gap-1 mt-2">
-          <span class="px-1.5 py-0.5 text-[10px] font-mono font-bold bg-white dark:bg-black border border-black dark:border-white">Clean Arch</span>
-          <span class="px-1.5 py-0.5 text-[10px] font-mono font-bold bg-white dark:bg-black border border-black dark:border-white">SQLite/Supabase</span>
-          <span class="px-1.5 py-0.5 text-[10px] font-mono font-bold bg-white dark:bg-black border border-black dark:border-white">NestJS</span>
-          <span class="px-1.5 py-0.5 text-[10px] font-mono font-bold bg-white dark:bg-black border border-black dark:border-white">Web3 ICP</span>
+        <div class="text-[11px] font-mono text-zinc-500 mt-3">Niagara POS • Kaimify • Moodyan • KSH</div>
+      </a>
+
+      <!-- D: Wins — Dark Accent Big Number -->
+      <a href="/summary/awards" class="bg-zinc-900 dark:bg-black p-5 flex flex-col justify-between border-b-2 border-black dark:border-white group hover:bg-zinc-800 transition-all">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-xs font-bold text-accent uppercase tracking-widest">05 • Wins</span>
+          <svg class="w-5 h-5 text-zinc-600 group-hover:text-accent transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+        </div>
+        <div>
+          <div class="text-4xl font-heading font-black text-white leading-none">1st Place</div>
+          <p class="text-xs font-mono text-accent mt-1 font-bold">ICP Indonesia Hackathon</p>
+          <p class="text-xs font-mono text-zinc-500 mt-0.5">+ BAZNAS National Scholar</p>
         </div>
       </a>
 
-      <!-- Bento 3: Tech Stack & Architecture (Cols 9-12, Rows 1-3) -> Links to /summary/skills -->
-      <a
-        href="/summary/skills"
-        class="lg:col-span-4 lg:row-span-3 border-2 border-black dark:border-white bg-[#EBF5FB] dark:bg-neutral-900 p-4 shadow-neo-sm dark:shadow-neo-dark-sm hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex flex-col justify-between group cursor-pointer"
-      >
+      <!-- Row 2 -->
+
+      <!-- E: About / Bio — text-heavy card -->
+      <div class="bg-white dark:bg-zinc-900 p-5 flex flex-col justify-between border-r-0 lg:border-r-2 border-black dark:border-white">
         <div>
-          <div class="flex items-center justify-between mb-2">
-            <span class="font-mono text-xs font-bold px-2 py-0.5 bg-black text-white dark:bg-white dark:text-black">
-              02 • CORE TECH STACK
-            </span>
-            <span class="text-xs font-mono font-bold text-accent group-hover:translate-x-1 transition-transform">
-              Explore →
-            </span>
-          </div>
-          <h3 class="font-heading font-bold text-base group-hover:text-accent transition-colors">
-            Full-Spectrum Engineering
-          </h3>
-          <p class="text-xs font-body opacity-80 mt-1 line-clamp-2">
-            NestJS, Express, Laravel, Go, Flutter, React, Next.js, PostgreSQL, Drizzle ORM, GCP, Docker, & LLMs.
+          <p class="text-sm font-body text-zinc-700 dark:text-zinc-300 leading-relaxed">
+            I design and build backend services — APIs, data sync engines, transactional ledgers, and the occasional LLM integration. Focused on systems that work reliably offline and at scale.
           </p>
         </div>
-        <div class="grid grid-cols-2 gap-1 mt-2 text-[11px] font-mono">
-          <div class="bg-white/80 dark:bg-black/60 px-1.5 py-0.5 border border-black/30 dark:border-white/30 truncate">⚡ Nest / Laravel</div>
-          <div class="bg-white/80 dark:bg-black/60 px-1.5 py-0.5 border border-black/30 dark:border-white/30 truncate">📱 Flutter / React</div>
-          <div class="bg-white/80 dark:bg-black/60 px-1.5 py-0.5 border border-black/30 dark:border-white/30 truncate">🗄️ PostgreSQL/Drizzle</div>
-          <div class="bg-white/80 dark:bg-black/60 px-1.5 py-0.5 border border-black/30 dark:border-white/30 truncate">🤖 LLM & Web3</div>
+        <div class="pt-3 border-t border-black/10 dark:border-white/10 flex items-center justify-between text-xs font-mono">
+          <span class="text-zinc-500">Current Role</span>
+          <span class="font-bold text-black dark:text-white">Fullstack Dev @ Kaimify</span>
+        </div>
+      </div>
+
+      <!-- F: Tech — Icon Grid Card -->
+      <a href="/summary/skills" class="bg-white dark:bg-zinc-900 p-5 flex flex-col justify-between border-r-0 lg:border-r-2 border-black dark:border-white group hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-all">
+        <div class="flex items-center justify-between mb-3">
+          <span class="font-mono text-xs font-bold text-accent uppercase tracking-widest">03 • Stack</span>
+          <svg class="w-4 h-4 text-zinc-400 group-hover:text-accent transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+        </div>
+        <div class="grid grid-cols-2 gap-1.5 font-mono text-xs font-bold flex-1">
+          {['NestJS', 'Node.js', 'Laravel', 'Go', 'Flutter', 'PostgreSQL', 'SQLite', 'Docker'].map(t => (
+            <div class="px-2 py-1.5 bg-zinc-100 dark:bg-zinc-800 border border-black/15 dark:border-white/15 truncate">{t}</div>
+          ))}
         </div>
       </a>
 
-      <!-- Bento 4: Career & Leadership Timeline (Cols 5-8, Rows 4-6) -> Links to /summary/experience -->
-      <a
-        href="/summary/experience"
-        class="lg:col-span-4 lg:row-span-3 border-2 border-black dark:border-white bg-[#EAFaf1] dark:bg-neutral-900 p-4 shadow-neo-sm dark:shadow-neo-dark-sm hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex flex-col justify-between group cursor-pointer"
-      >
-        <div>
-          <div class="flex items-center justify-between mb-2">
-            <span class="font-mono text-xs font-bold px-2 py-0.5 bg-black text-white dark:bg-white dark:text-black">
-              03 • EXPERIENCE
-            </span>
-            <span class="text-xs font-mono font-bold text-accent group-hover:translate-x-1 transition-transform">
-              Timeline →
-            </span>
-          </div>
-          <h3 class="font-heading font-bold text-base group-hover:text-accent transition-colors">
-            Industry & Research Roles
-          </h3>
-          <p class="text-xs font-body opacity-80 mt-1 line-clamp-2">
-            Fullstack Dev (Kaimify), Programming Teacher & Intern (Timedoor), POS Researcher, Bangkit Top 10%, Head TA.
-          </p>
+      <!-- G: Experience — Timeline strip card -->
+      <a href="/summary/experience" class="bg-white dark:bg-zinc-900 p-5 flex flex-col justify-between border-black dark:border-white group hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-all">
+        <div class="flex items-center justify-between mb-3">
+          <span class="font-mono text-xs font-bold text-accent uppercase tracking-widest">04 • Career</span>
+          <svg class="w-4 h-4 text-zinc-400 group-hover:text-accent transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
         </div>
-        <div class="border-t border-black/20 dark:border-white/20 pt-1.5 flex items-center justify-between text-xs font-mono">
-          <span class="text-accent font-bold">7 Key Milestones</span>
-          <span class="opacity-60">2023 - Present</span>
-        </div>
-      </a>
-
-      <!-- Bento 5: Awards & Honors (Cols 9-12, Rows 4-6) -> Links to /summary/awards -->
-      <a
-        href="/summary/awards"
-        class="lg:col-span-4 lg:row-span-3 border-2 border-black dark:border-white bg-[#FDEDEC] dark:bg-neutral-900 p-4 shadow-neo-sm dark:shadow-neo-dark-sm hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex flex-col justify-between group cursor-pointer"
-      >
-        <div>
-          <div class="flex items-center justify-between mb-2">
-            <span class="font-mono text-xs font-bold px-2 py-0.5 bg-black text-white dark:bg-white dark:text-black">
-              04 • HONORS & RESEARCH
-            </span>
-            <span class="text-xs font-mono font-bold text-accent group-hover:translate-x-1 transition-transform">
-              Accolades →
-            </span>
-          </div>
-          <h3 class="font-heading font-bold text-base group-hover:text-accent transition-colors">
-            Hackathons & Publications
-          </h3>
-          <p class="text-xs font-body opacity-80 mt-1 line-clamp-2">
-            1st Place ICP Web3 Hackathon, 3rd Place PNB IT Competition, Beasiswa Cendekia BAZNAS Awardee & BTI Research Paper.
-          </p>
-        </div>
-        <div class="flex items-center gap-1.5 mt-2">
-          <span class="px-2 py-0.5 bg-accent text-black font-mono font-bold text-[10px] border border-black">🏆 1st ICP Web3</span>
-          <span class="px-2 py-0.5 bg-white dark:bg-black font-mono font-bold text-[10px] border border-black dark:border-white">🎓 BAZNAS Scholar</span>
+        <div class="space-y-1.5 flex-1">
+          {[
+            { role: 'Kaimify', label: 'Fullstack Dev', year: '2026', active: true },
+            { role: 'Timedoor', label: 'Programming Teacher', year: '2024', active: false },
+            { role: 'Bangkit', label: 'Cloud Computing — Top 10%', year: '2024', active: false },
+          ].map(e => (
+            <div class={`flex items-center justify-between px-2.5 py-1.5 border font-mono text-xs ${e.active ? 'bg-accent text-black border-black' : 'bg-zinc-100 dark:bg-zinc-800 border-black/15 dark:border-white/15 text-black dark:text-white'}`}>
+              <span class="font-bold truncate">{e.role}</span>
+              <span class={`text-[10px] ${e.active ? 'text-black' : 'text-zinc-500'}`}>{e.year}</span>
+            </div>
+          ))}
         </div>
       </a>
 

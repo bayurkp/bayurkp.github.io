@@ -3,173 +3,110 @@ import SummaryLayout from '../../layouts/SummaryLayout.astro';
 ---
 
 <SummaryLayout
-  title="Technical Stack & Architecture Competencies"
+  title="Stack"
   slideNumber={3}
   totalSlides={6}
   currentSlug="/summary/skills"
   prevSlug="/summary/projects"
   nextSlug="/summary/experience"
 >
-  <div class="flex-1 flex flex-col justify-between gap-3 overflow-hidden">
+  <div class="flex-1 flex flex-col justify-between overflow-hidden">
     <!-- Header -->
-    <div class="flex items-center justify-between border-b-2 border-black dark:border-white pb-2">
+    <div class="h-16 sm:h-[68px] flex items-center justify-between border-b-2 border-black dark:border-white bg-zinc-50 dark:bg-zinc-900 px-5 shrink-0">
       <div>
-        <span class="text-xs font-mono font-bold tracking-widest text-accent uppercase">03 • Core Competencies</span>
-        <h1 class="text-2xl sm:text-3xl font-heading font-black tracking-tight">
-          Tech Stack & Architecture Matrix
+        <span class="text-xs font-mono font-bold text-accent uppercase tracking-wider">03 • Core Tools</span>
+        <h1 class="text-xl sm:text-2xl font-heading font-black text-black dark:text-white leading-tight">
+          Technical Stack
         </h1>
       </div>
-      <div class="hidden sm:block text-xs font-mono opacity-70">
-        Backend-First • Distributed Systems • Offline-First
+      <div class="text-xs font-mono text-zinc-500">
+        Backend-First Development
       </div>
     </div>
 
-    <!-- 16:9 Skills Bento Matrix -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 grid-rows-1 lg:grid-rows-6 gap-2.5 flex-1 min-h-0">
+    <!-- 16:9 4-Quadrant Matrix -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 flex-1 min-h-0 divide-y-2 sm:divide-y-0 sm:divide-x-2 divide-black dark:divide-white">
       
-      <!-- Bento 1: Backend & Microservices (Cols 1-6, Rows 1-3) -->
-      <div
-        class="lg:col-span-6 lg:row-span-3 border-2 border-black dark:border-white bg-[#FFFBEB] dark:bg-neutral-900 p-3.5 shadow-neo-sm dark:shadow-neo-dark-sm flex flex-col justify-between"
-      >
-        <div>
-          <div class="flex items-center justify-between mb-1.5">
-            <span class="font-mono text-xs font-bold px-2 py-0.5 bg-black text-white dark:bg-white dark:text-black">
-              BACKEND ARCHITECTURE & APIS
-            </span>
-            <span class="text-xs font-mono font-bold text-accent">Core Specialization</span>
+      <!-- Left Column -->
+      <div class="flex flex-col divide-y-2 divide-black dark:divide-white">
+        <!-- Quadrant 1: Backend Development -->
+        <div class="flex-1 bg-white dark:bg-zinc-900 p-6 flex flex-col justify-between">
+          <div>
+            <h2 class="font-heading font-bold text-xl text-black dark:text-white mb-2">
+              Backend Development
+            </h2>
+            <p class="text-sm font-body text-zinc-600 dark:text-zinc-300 leading-relaxed mb-4">
+              Building scalable REST APIs, background job workers, and business logic using Node.js, Go, and PHP.
+            </p>
           </div>
-          <p class="text-xs font-body opacity-80 mb-2">
-            Engineering high-concurrency event-driven backends, REST APIs, GraphQL, and microservice topologies.
-          </p>
+          <div class="flex flex-wrap gap-2 font-mono text-xs">
+            <span class="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 border border-black/20 dark:border-white/20 font-bold">NestJS</span>
+            <span class="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 border border-black/20 dark:border-white/20 font-bold">Node.js</span>
+            <span class="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 border border-black/20 dark:border-white/20 font-bold">Laravel</span>
+            <span class="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 border border-black/20 dark:border-white/20 font-bold">Go</span>
+            <span class="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 border border-black/20 dark:border-white/20 font-bold">TypeScript</span>
+            <span class="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 border border-black/20 dark:border-white/20 font-bold">Python</span>
+          </div>
         </div>
-        <div class="grid grid-cols-4 gap-1.5 text-xs font-mono font-bold">
-          <div class="p-1.5 bg-white dark:bg-black border border-black dark:border-white flex items-center gap-1.5 truncate">
-            <span class="w-2 h-2 rounded-full bg-red-500"></span> NestJS
+
+        <!-- Quadrant 3: Databases & DevOps -->
+        <div class="flex-1 bg-white dark:bg-zinc-900 p-6 flex flex-col justify-between">
+          <div>
+            <h2 class="font-heading font-bold text-xl text-black dark:text-white mb-2">
+              Databases & DevOps
+            </h2>
+            <p class="text-sm font-body text-zinc-600 dark:text-zinc-300 leading-relaxed mb-4">
+              Relational schemas with Drizzle ORM, offline SQLite caching, Docker containers, and Google Cloud Run.
+            </p>
           </div>
-          <div class="p-1.5 bg-white dark:bg-black border border-black dark:border-white flex items-center gap-1.5 truncate">
-            <span class="w-2 h-2 rounded-full bg-green-500"></span> Node.js
-          </div>
-          <div class="p-1.5 bg-white dark:bg-black border border-black dark:border-white flex items-center gap-1.5 truncate">
-            <span class="w-2 h-2 rounded-full bg-red-600"></span> Laravel
-          </div>
-          <div class="p-1.5 bg-white dark:bg-black border border-black dark:border-white flex items-center gap-1.5 truncate">
-            <span class="w-2 h-2 rounded-full bg-blue-400"></span> Go
-          </div>
-          <div class="p-1.5 bg-white dark:bg-black border border-black dark:border-white flex items-center gap-1.5 truncate">
-            <span class="w-2 h-2 rounded-full bg-indigo-500"></span> PHP
-          </div>
-          <div class="p-1.5 bg-white dark:bg-black border border-black dark:border-white flex items-center gap-1.5 truncate">
-            <span class="w-2 h-2 rounded-full bg-yellow-400"></span> Python
-          </div>
-          <div class="p-1.5 bg-white dark:bg-black border border-black dark:border-white flex items-center gap-1.5 truncate">
-            <span class="w-2 h-2 rounded-full bg-blue-600"></span> TypeScript
-          </div>
-          <div class="p-1.5 bg-white dark:bg-black border border-black dark:border-white flex items-center gap-1.5 truncate">
-            <span class="w-2 h-2 rounded-full bg-blue-800"></span> C / C++
+          <div class="flex flex-wrap gap-2 font-mono text-xs">
+            <span class="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 border border-black/20 dark:border-white/20 font-bold">PostgreSQL</span>
+            <span class="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 border border-black/20 dark:border-white/20 font-bold">SQLite</span>
+            <span class="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 border border-black/20 dark:border-white/20 font-bold">Supabase</span>
+            <span class="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 border border-black/20 dark:border-white/20 font-bold">Drizzle ORM</span>
+            <span class="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 border border-black/20 dark:border-white/20 font-bold">Docker</span>
+            <span class="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 border border-black/20 dark:border-white/20 font-bold">Google Cloud</span>
           </div>
         </div>
       </div>
 
-      <!-- Bento 2: Frontend & Mobile Ecosystem (Cols 7-12, Rows 1-3) -->
-      <div
-        class="lg:col-span-6 lg:row-span-3 border-2 border-black dark:border-white bg-[#EFF6FF] dark:bg-neutral-900 p-3.5 shadow-neo-sm dark:shadow-neo-dark-sm flex flex-col justify-between"
-      >
-        <div>
-          <div class="flex items-center justify-between mb-1.5">
-            <span class="font-mono text-xs font-bold px-2 py-0.5 bg-black text-white dark:bg-white dark:text-black">
-              FRONTEND & MOBILE ECOSYSTEM
-            </span>
-            <span class="text-xs font-mono font-bold text-accent">Cross-Platform</span>
+      <!-- Right Column -->
+      <div class="flex flex-col divide-y-2 divide-black dark:divide-white">
+        <!-- Quadrant 2: Frontend & Mobile -->
+        <div class="flex-1 bg-white dark:bg-zinc-900 p-6 flex flex-col justify-between">
+          <div>
+            <h2 class="font-heading font-bold text-xl text-black dark:text-white mb-2">
+              Frontend & Mobile
+            </h2>
+            <p class="text-sm font-body text-zinc-600 dark:text-zinc-300 leading-relaxed mb-4">
+              Cross-platform mobile applications in Flutter, and modern responsive web interfaces in React and Next.js.
+            </p>
           </div>
-          <p class="text-xs font-body opacity-80 mb-2">
-            Developing responsive client applications, interactive spatial canvas engines, and server-rendered portals.
-          </p>
-        </div>
-        <div class="grid grid-cols-4 gap-1.5 text-xs font-mono font-bold">
-          <div class="p-1.5 bg-white dark:bg-black border border-black dark:border-white flex items-center gap-1.5 truncate">
-            <span class="w-2 h-2 rounded-full bg-sky-500"></span> Flutter
-          </div>
-          <div class="p-1.5 bg-white dark:bg-black border border-black dark:border-white flex items-center gap-1.5 truncate">
-            <span class="w-2 h-2 rounded-full bg-blue-500"></span> Dart
-          </div>
-          <div class="p-1.5 bg-white dark:bg-black border border-black dark:border-white flex items-center gap-1.5 truncate">
-            <span class="w-2 h-2 rounded-full bg-cyan-400"></span> React
-          </div>
-          <div class="p-1.5 bg-white dark:bg-black border border-black dark:border-white flex items-center gap-1.5 truncate">
-            <span class="w-2 h-2 rounded-full bg-black dark:bg-white"></span> Next.js 15
-          </div>
-          <div class="p-1.5 bg-white dark:bg-black border border-black dark:border-white flex items-center gap-1.5 truncate">
-            <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Vue.js
-          </div>
-          <div class="p-1.5 bg-white dark:bg-black border border-black dark:border-white flex items-center gap-1.5 truncate">
-            <span class="w-2 h-2 rounded-full bg-emerald-600"></span> Nuxt
-          </div>
-          <div class="p-1.5 bg-white dark:bg-black border border-black dark:border-white flex items-center gap-1.5 truncate">
-            <span class="w-2 h-2 rounded-full bg-teal-400"></span> Tailwind
-          </div>
-          <div class="p-1.5 bg-white dark:bg-black border border-black dark:border-white flex items-center gap-1.5 truncate">
-            <span class="w-2 h-2 rounded-full bg-purple-500"></span> Shadcn UI
+          <div class="flex flex-wrap gap-2 font-mono text-xs">
+            <span class="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 border border-black/20 dark:border-white/20 font-bold">Flutter</span>
+            <span class="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 border border-black/20 dark:border-white/20 font-bold">Dart</span>
+            <span class="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 border border-black/20 dark:border-white/20 font-bold">React</span>
+            <span class="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 border border-black/20 dark:border-white/20 font-bold">Next.js 15</span>
+            <span class="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 border border-black/20 dark:border-white/20 font-bold">Vue.js</span>
+            <span class="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 border border-black/20 dark:border-white/20 font-bold">Tailwind CSS</span>
           </div>
         </div>
-      </div>
 
-      <!-- Bento 3: Databases & Cloud Infrastructure (Cols 1-6, Rows 4-6) -->
-      <div
-        class="lg:col-span-6 lg:row-span-3 border-2 border-black dark:border-white bg-[#F0FDF4] dark:bg-neutral-900 p-3.5 shadow-neo-sm dark:shadow-neo-dark-sm flex flex-col justify-between"
-      >
-        <div>
-          <div class="flex items-center justify-between mb-1.5">
-            <span class="font-mono text-xs font-bold px-2 py-0.5 bg-black text-white dark:bg-white dark:text-black">
-              DATABASES & CLOUD DEVOPS
-            </span>
-            <span class="text-xs font-mono font-bold text-accent">GCP Certified</span>
+        <!-- Quadrant 4: Architectural Focus -->
+        <div class="flex-1 bg-white dark:bg-zinc-900 p-6 flex flex-col justify-between">
+          <div>
+            <h2 class="font-heading font-bold text-xl text-black dark:text-white mb-2">
+              Architectural Focus
+            </h2>
+            <p class="text-sm font-body text-zinc-600 dark:text-zinc-300 leading-relaxed mb-4">
+              Core architectural patterns implemented and battle-tested across production applications.
+            </p>
           </div>
-          <p class="text-xs font-body opacity-80 mb-2">
-            Relational schemas, ORM type safety, offline SQLite caching, Docker containers, and CI/CD pipelines.
-          </p>
-        </div>
-        <div class="grid grid-cols-4 gap-1.5 text-xs font-mono font-bold">
-          <div class="p-1.5 bg-white dark:bg-black border border-black dark:border-white truncate">PostgreSQL</div>
-          <div class="p-1.5 bg-white dark:bg-black border border-black dark:border-white truncate">SQLite</div>
-          <div class="p-1.5 bg-white dark:bg-black border border-black dark:border-white truncate">Supabase</div>
-          <div class="p-1.5 bg-white dark:bg-black border border-black dark:border-white truncate">Drizzle ORM</div>
-          <div class="p-1.5 bg-white dark:bg-black border border-black dark:border-white truncate">GCP Run</div>
-          <div class="p-1.5 bg-white dark:bg-black border border-black dark:border-white truncate">Firebase</div>
-          <div class="p-1.5 bg-white dark:bg-black border border-black dark:border-white truncate">Docker</div>
-          <div class="p-1.5 bg-white dark:bg-black border border-black dark:border-white truncate">Git / CI/CD</div>
-        </div>
-      </div>
-
-      <!-- Bento 4: Architecture & Cutting Edge (Cols 7-12, Rows 4-6) -->
-      <div
-        class="lg:col-span-6 lg:row-span-3 border-2 border-black dark:border-white bg-[#FAF5FF] dark:bg-neutral-900 p-3.5 shadow-neo-sm dark:shadow-neo-dark-sm flex flex-col justify-between"
-      >
-        <div>
-          <div class="flex items-center justify-between mb-1.5">
-            <span class="font-mono text-xs font-bold px-2 py-0.5 bg-accent text-black border border-black">
-              SPECIALIZED ARCHITECTURAL PATTERNS
-            </span>
-          </div>
-          <p class="text-xs font-body opacity-80 mb-2">
-            System paradigms applied across production applications and peer-reviewed academic publications.
-          </p>
-        </div>
-        <div class="grid grid-cols-2 gap-2 text-xs font-mono">
-          <div class="p-2 bg-white dark:bg-black border border-black dark:border-white">
-            <span class="font-bold text-accent block">🔄 Offline-First & Sync</span>
-            <span class="opacity-70 text-[11px]">Bilateral queues, LWW & Event Sourcing</span>
-          </div>
-          <div class="p-2 bg-white dark:bg-black border border-black dark:border-white">
-            <span class="font-bold text-accent block">🤖 LLM & Agentic MCP</span>
-            <span class="opacity-70 text-[11px]">Model Context Protocol, RAG, Ollama/Gemini</span>
-          </div>
-          <div class="p-2 bg-white dark:bg-black border border-black dark:border-white">
-            <span class="font-bold text-accent block">🌐 Web3 & Motoko</span>
-            <span class="opacity-70 text-[11px]">Internet Computer Protocol, Internet Identity</span>
-          </div>
-          <div class="p-2 bg-white dark:bg-black border border-black dark:border-white">
-            <span class="font-bold text-accent block">💰 Dual-Currency Ledgers</span>
-            <span class="opacity-70 text-[11px]">ACID transactions, AdMob SSV, anti-race locks</span>
+          <div class="flex flex-wrap gap-2 font-mono text-xs">
+            <span class="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 border border-black/20 dark:border-white/20 font-bold">Offline-First Data Sync</span>
+            <span class="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 border border-black/20 dark:border-white/20 font-bold">Dual-Currency Ledgers</span>
+            <span class="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 border border-black/20 dark:border-white/20 font-bold">Model Context Protocol (MCP)</span>
+            <span class="px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 border border-black/20 dark:border-white/20 font-bold">Clean Architecture</span>
           </div>
         </div>
       </div>
