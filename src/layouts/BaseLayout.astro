@@ -2,6 +2,7 @@
 import Button from '../components/ui/Button.astro';
 import { getCollection } from 'astro:content';
 import '../styles/global.css';
+import AmberCursorParticles from '../components/AmberCursorParticles.astro';
 
 interface Props {
   title: string;
@@ -210,6 +211,9 @@ const hasBlogPosts = (await getCollection('blog', ({ data }) => !data.draft)).le
         </div>
       </div>
     </footer>
+
+    <!-- Amber Particle Cursor Trail Effect -->
+    <AmberCursorParticles />
 
     <script>
       const themeToggle = document.getElementById('theme-toggle');

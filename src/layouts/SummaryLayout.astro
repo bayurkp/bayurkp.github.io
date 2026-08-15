@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import PrintDeck from '../components/PrintDeck.astro';
+import AmberCursorParticles from '../components/AmberCursorParticles.astro';
 
 interface Props {
   title: string;
@@ -222,6 +223,9 @@ const slides = [
 
     <!-- Hidden 6-Slide Printable Deck (Only visible during window.print()) -->
     <PrintDeck />
+
+    <!-- Amber Particle Cursor Trail Effect -->
+    <AmberCursorParticles />
 
     <!-- Keyboard Navigation & Actions -->
     <script is:inline define:vars={{ prevSlug, nextSlug }}>
