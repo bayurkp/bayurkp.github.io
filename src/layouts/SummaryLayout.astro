@@ -57,16 +57,16 @@ const slides = [
     </script>
   </head>
   <body
-    class="h-screen max-h-screen overflow-hidden bg-[#F0F0F3] dark:bg-[#0C0C0E] text-black dark:text-white font-body antialiased flex flex-col justify-between p-2 sm:p-3 lg:p-3 select-none print:p-0 print:bg-white"
+    class="min-h-screen lg:h-screen lg:max-h-screen overflow-y-auto lg:overflow-hidden bg-[#F0F0F3] dark:bg-[#0C0C0E] text-black dark:text-white font-body antialiased flex flex-col justify-between p-2 sm:p-3 lg:p-3 select-none print:p-0 print:bg-white"
   >
     <!-- Top Header -->
     <header
-      class="w-full max-w-[1560px] mx-auto mb-1.5 flex items-center justify-between gap-3 shrink-0 print:hidden"
+      class="w-full max-w-[1560px] mx-auto mb-1.5 flex items-center justify-between gap-2 shrink-0 print:hidden"
     >
-      <div class="flex items-center gap-1.5">
+      <div class="flex items-center gap-1.5 overflow-hidden flex-1 sm:flex-initial">
         <a
           href="/"
-          class="h-8 px-3 bg-white dark:bg-zinc-900 border-2 border-black dark:border-white font-mono font-bold text-xs hover:bg-accent hover:text-black dark:hover:bg-accent dark:hover:text-black transition-all inline-flex items-center gap-1.5 whitespace-nowrap"
+          class="h-8 px-2.5 sm:px-3 bg-white dark:bg-zinc-900 border-2 border-black dark:border-white font-mono font-bold text-xs hover:bg-accent hover:text-black dark:hover:bg-accent dark:hover:text-black transition-all inline-flex items-center gap-1.5 shrink-0 whitespace-nowrap"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -82,14 +82,14 @@ const slides = [
           <span>Home</span>
         </a>
 
-        <div class="flex items-center gap-1.5 overflow-x-auto py-0.5">
+        <div class="flex items-center gap-1.5 overflow-x-auto py-0.5 no-scrollbar">
           {
             slides.map((s, idx) => {
               const isActive = currentSlug === s.slug;
               return (
                 <a
                   href={s.slug}
-                  class={`h-8 px-3 text-xs font-mono font-bold border-2 border-black dark:border-white transition-all inline-flex items-center whitespace-nowrap ${
+                  class={`h-8 px-2.5 sm:px-3 text-xs font-mono font-bold border-2 border-black dark:border-white transition-all inline-flex items-center shrink-0 whitespace-nowrap ${
                     isActive
                       ? 'bg-black text-white dark:bg-white dark:text-black'
                       : 'bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 hover:bg-accent hover:text-black dark:hover:bg-accent dark:hover:text-black'
@@ -103,11 +103,11 @@ const slides = [
         </div>
       </div>
 
-      <div class="flex items-center gap-1.5">
+      <div class="flex items-center gap-1.5 shrink-0">
         <a
           href="/cv/CV_Bayu_Rizky_Kurnia_Pratama.pdf"
           download="CV_Bayu_Rizky_Kurnia_Pratama.pdf"
-          class="h-8 px-3 bg-white dark:bg-zinc-900 border-2 border-black dark:border-white font-mono text-xs font-bold hover:bg-accent hover:text-black dark:hover:bg-accent dark:hover:text-black transition-all inline-flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
+          class="h-8 px-2.5 sm:px-3 bg-white dark:bg-zinc-900 border-2 border-black dark:border-white font-mono text-xs font-bold hover:bg-accent hover:text-black dark:hover:bg-accent dark:hover:text-black transition-all inline-flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
           title="Download CV"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
@@ -116,7 +116,7 @@ const slides = [
 
         <button
           id="print-btn"
-          class="h-8 px-3 bg-white dark:bg-zinc-900 border-2 border-black dark:border-white font-mono text-xs font-bold hover:bg-accent hover:text-black dark:hover:bg-accent dark:hover:text-black transition-all inline-flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
+          class="h-8 px-2.5 sm:px-3 bg-white dark:bg-zinc-900 border-2 border-black dark:border-white font-mono text-xs font-bold hover:bg-accent hover:text-black dark:hover:bg-accent dark:hover:text-black transition-all inline-flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
           title="Print / Save 6 Slides as PDF"
         >
           <svg
@@ -137,7 +137,7 @@ const slides = [
 
         <button
           id="theme-toggle"
-          class="h-8 w-8 bg-white dark:bg-zinc-900 border-2 border-black dark:border-white hover:bg-accent hover:text-black dark:hover:bg-accent dark:hover:text-black transition-all inline-flex items-center justify-center cursor-pointer"
+          class="h-8 w-8 bg-white dark:bg-zinc-900 border-2 border-black dark:border-white hover:bg-accent hover:text-black dark:hover:bg-accent dark:hover:text-black transition-all inline-flex items-center justify-center cursor-pointer shrink-0"
           aria-label="Toggle theme"
         >
           <svg
@@ -171,21 +171,21 @@ const slides = [
     </header>
 
     <!-- Main 16:9 Presentation Frame -->
-    <main class="w-full max-w-[1560px] mx-auto flex-1 min-h-0 flex items-center justify-center">
+    <main class="w-full max-w-[1560px] mx-auto flex-1 min-h-0 flex items-center justify-center py-1 sm:py-0">
       <div
         id="slide-container"
-        class="w-full h-full max-h-full aspect-auto lg:aspect-[16/9] bg-white dark:bg-[#121215] border-3 border-black dark:border-white p-0 flex flex-col justify-between overflow-hidden relative print:border-none print:shadow-none print:max-h-none print:aspect-[16/9]"
+        class="w-full h-full max-h-full aspect-auto lg:aspect-[16/9] bg-white dark:bg-[#121215] border-3 border-black dark:border-white p-0 flex flex-col justify-between overflow-y-auto lg:overflow-hidden relative print:border-none print:shadow-none print:max-h-none print:aspect-[16/9]"
       >
         <slot />
 
         <!-- Clean Slide Footer -->
         <footer
-          class="border-t-2 border-black dark:border-white bg-zinc-50 dark:bg-zinc-900 px-4 py-1.5 flex items-center justify-between text-xs font-mono shrink-0"
+          class="border-t-2 border-black dark:border-white bg-zinc-50 dark:bg-zinc-900 px-3 sm:px-4 py-1.5 flex items-center justify-between text-xs font-mono shrink-0"
         >
           <div class="flex items-center gap-2">
             <span class="font-bold text-black dark:text-white">Bayu Pratama</span>
             <span class="opacity-40">•</span>
-            <span class="opacity-60">Software Engineer</span>
+            <span class="opacity-60 hidden sm:inline">Software Engineer</span>
           </div>
 
           <div class="flex items-center gap-3">

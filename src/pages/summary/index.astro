@@ -10,10 +10,10 @@ import SummaryLayout from '../../layouts/SummaryLayout.astro';
   prevSlug="/summary/contact"
   nextSlug="/summary/projects"
 >
-  <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 min-h-0 divide-y-2 sm:divide-y-0 lg:divide-x-2 divide-black dark:divide-white">
+  <div class="flex-1 grid grid-cols-1 lg:grid-cols-12 min-h-0 divide-y-2 lg:divide-y-0 lg:divide-x-2 divide-black dark:divide-white">
 
     <!-- PANEL A: Photo Card (Cols 1-3) — tall image fill with name overlay -->
-    <div class="lg:col-span-3 relative overflow-hidden bg-zinc-900 border-b-2 lg:border-b-0 border-black dark:border-white flex flex-col">
+    <div class="col-span-1 lg:col-span-3 h-64 sm:h-80 lg:h-full relative overflow-hidden bg-zinc-900 border-b-2 lg:border-b-0 border-black dark:border-white flex flex-col">
       <img
         src="/images/bay-1.jpeg"
         alt="Bayu Pratama"
@@ -24,19 +24,19 @@ import SummaryLayout from '../../layouts/SummaryLayout.astro';
       <!-- Content on top of photo -->
       <div class="relative flex flex-col justify-end h-full p-5 gap-1">
         <p class="font-mono text-xs text-accent font-bold uppercase tracking-widest">01 • Profile</p>
-        <h1 class="text-xl font-heading font-black text-white leading-tight">Bayu Rizky<br/>Kurnia Pratama</h1>
-        <p class="text-[11px] font-mono text-zinc-300 mt-0.5">Software Engineer</p>
-        <p class="text-[10px] font-mono text-accent">Fullstack • Backend • AI Integration</p>
+        <h1 class="text-xl sm:text-2xl font-heading font-black text-white leading-tight">Bayu Rizky<br/>Kurnia Pratama</h1>
+        <p class="text-xs font-mono text-zinc-300 mt-0.5">Software Engineer</p>
+        <p class="text-[11px] font-mono text-accent font-bold">Fullstack • Backend • AI Integration</p>
       </div>
     </div>
 
     <!-- Right 9 Columns — nested 3x2 grid -->
-    <div class="lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid-rows-2 divide-y-2 divide-black dark:divide-white">
+    <div class="col-span-1 lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2 divide-y-2 sm:divide-y-0 lg:divide-y-2 divide-black dark:divide-white">
 
       <!-- Row 1 -->
 
       <!-- B: Big Stat — Pure Color Block -->
-      <div class="bg-accent p-5 flex flex-col justify-between border-b-2 border-r-0 lg:border-r-2 border-black">
+      <div class="bg-accent p-5 flex flex-col justify-between border-b-2 border-r-0 sm:border-r-2 border-black">
         <div class="flex items-start justify-between">
           <span class="font-mono text-xs font-bold text-black uppercase tracking-widest">Projects Shipped</span>
           <svg class="w-5 h-5 text-black/40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
