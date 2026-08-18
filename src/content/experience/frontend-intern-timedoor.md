@@ -1,7 +1,7 @@
 ---
 title: 'Frontend Developer Intern'
 company: 'Timedoor Indonesia'
-location: 'Bali'
+location: 'Denpasar, Bali'
 startDate: 'Mar 2025'
 endDate: 'Jun 2025'
 current: false

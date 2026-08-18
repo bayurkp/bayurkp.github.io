@@ -5,8 +5,7 @@
 <canvas
   id="amber-cursor-particles"
   class="fixed inset-0 pointer-events-none z-[99999] print:hidden"
-  aria-hidden="true"
-></canvas>
+  aria-hidden="true"></canvas>
 
 <script>
   function initAmberParticles() {
@@ -46,11 +45,11 @@
 
     const particles: Particle[] = [];
     const colors = [
-      '245, 166, 35',  // #F5A623 (Primary Accent)
-      '255, 184, 77',  // #FFB84D (Light Amber)
-      '245, 158, 11',  // #F59E0B (Rich Amber)
-      '251, 191, 36',  // #FBBF24 (Bright Golden)
-      '217, 119, 6',   // #D97706 (Deep Amber)
+      '245, 166, 35', // #F5A623 (Primary Accent)
+      '255, 184, 77', // #FFB84D (Light Amber)
+      '245, 158, 11', // #F59E0B (Rich Amber)
+      '251, 191, 36', // #FBBF24 (Bright Golden)
+      '217, 119, 6', // #D97706 (Deep Amber)
     ];
 
     let lastX = 0;
@@ -100,24 +99,40 @@
     }
 
     window.addEventListener('mousemove', (e) => onPointerMove(e), { passive: true });
-    window.addEventListener('touchmove', (e) => {
-      if (e.touches.length > 0) onPointerMove(e.touches[0]);
-    }, { passive: true });
+    window.addEventListener(
+      'touchmove',
+      (e) => {
+        if (e.touches.length > 0) onPointerMove(e.touches[0]);
+      },
+      { passive: true }
+    );
 
-    window.addEventListener('mousedown', (e) => {
-      isMouseDown = true;
-      addParticle(e.clientX, e.clientY, 8, true);
-    }, { passive: true });
+    window.addEventListener(
+      'mousedown',
+      (e) => {
+        isMouseDown = true;
+        addParticle(e.clientX, e.clientY, 8, true);
+      },
+      { passive: true }
+    );
 
-    window.addEventListener('mouseup', () => {
-      isMouseDown = false;
-    }, { passive: true });
+    window.addEventListener(
+      'mouseup',
+      () => {
+        isMouseDown = false;
+      },
+      { passive: true }
+    );
 
-    window.addEventListener('touchstart', (e) => {
-      if (e.touches.length > 0) {
-        addParticle(e.touches[0].clientX, e.touches[0].clientY, 6, true);
-      }
-    }, { passive: true });
+    window.addEventListener(
+      'touchstart',
+      (e) => {
+        if (e.touches.length > 0) {
+          addParticle(e.touches[0].clientX, e.touches[0].clientY, 6, true);
+        }
+      },
+      { passive: true }
+    );
 
     let animationFrameId: number;
 
@@ -154,10 +169,14 @@
 
     render();
 
-    document.addEventListener('astro:after-swap', () => {
-      cancelAnimationFrame(animationFrameId);
-      initAmberParticles();
-    }, { once: true });
+    document.addEventListener(
+      'astro:after-swap',
+      () => {
+        cancelAnimationFrame(animationFrameId);
+        initAmberParticles();
+      },
+      { once: true }
+    );
   }
 
   // Initialize on DOM ready

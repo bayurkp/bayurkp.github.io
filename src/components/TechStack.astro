@@ -56,7 +56,12 @@ const allSkills = techStack.flatMap((stack) => stack.items);
   {
     allSkills.map((tech) => (
       <div class="flex items-center gap-3 px-4 py-3 border-2 border-black dark:border-white bg-white dark:bg-neutral-900 shadow-neo-sm dark:shadow-neo-dark-sm hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-accent dark:hover:bg-accent hover:text-black hover:border-black dark:hover:border-black transition-all duration-150 group">
-        <img src={tech.logo} alt={tech.name} class="w-6 h-6 grayscale group-hover:grayscale-0 transition-all duration-300" loading="lazy" />
+        <img
+          src={tech.logo}
+          alt={tech.name}
+          class="w-6 h-6 grayscale group-hover:grayscale-0 transition-all duration-300"
+          loading="lazy"
+        />
         <span class="text-base font-heading font-bold">{tech.name}</span>
       </div>
     ))

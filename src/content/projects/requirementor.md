@@ -5,7 +5,7 @@ thumbnail: 'https://picsum.photos/seed/requirementor/800/600'
 tags: ['TypeScript', 'Node.js', 'MCP', 'React', 'Tailwind CSS', 'AI', 'Developer Tools']
 repo: 'https://github.com/bayurkp/requirementor'
 date: 2026-06-01
-featured: true
+featured: false
 ---
 
 ## Overview

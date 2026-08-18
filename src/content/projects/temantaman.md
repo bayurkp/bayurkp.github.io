@@ -4,7 +4,7 @@ description: 'Auction-based marketplace eliminating intermediary margins in orna
 thumbnail: 'https://picsum.photos/seed/temantaman/800/600'
 tags: ['React', 'Node.js', 'PostgreSQL', 'Business Plan', 'Marketplace', 'E-Commerce']
 date: 2024-10-15
-featured: false
+featured: true
 ---
 
 ## Overview

@@ -164,22 +164,25 @@ const sortedExperiences = experiences.sort((a, b) => {
                 stroke="currentColor"
                 stroke-width="2"
                 stroke-linecap="round"
-                stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
+                stroke-linejoin="round"
               >
+                <>
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </>
+              </svg>
             </a>
           </div>
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {
-              sortedBlog.map((post) => (
-                <BlogCard
-                  title={post.data.title}
-                  description={post.data.description}
-                  date={post.data.date.toISOString()}
-                  slug={post.slug}
-                  tags={post.data.tags}
-                />
-              ))
-            }
+            {sortedBlog.map((post) => (
+              <BlogCard
+                title={post.data.title}
+                description={post.data.description}
+                date={post.data.date.toISOString()}
+                slug={post.slug}
+                tags={post.data.tags}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -191,7 +194,11 @@ const sortedExperiences = experiences.sort((a, b) => {
       <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8 inline-block">Get in Touch</h2>
       <div class="max-w-xl mx-auto text-left">
         <form action="https://formsubmit.co/bayurkp194@gmail.com" method="POST" class="space-y-6">
-          <input type="hidden" name="_subject" value="New Portfolio Message from bayurkp.github.io" />
+          <input
+            type="hidden"
+            name="_subject"
+            value="New Portfolio Message from bayurkp.github.io"
+          />
           <input type="hidden" name="_captcha" value="false" />
           <div>
             <label for="name" class="block font-heading font-bold mb-2">Name</label>

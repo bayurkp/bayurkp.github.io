@@ -60,7 +60,7 @@ const formattedDate = post.data.date.toLocaleDateString('en-US', {
 
     async function renderMermaidDiagrams() {
       const isDark = document.documentElement.classList.contains('dark');
-      
+
       mermaid.initialize({
         startOnLoad: false,
         theme: isDark ? 'dark' : 'default',

@@ -10,36 +10,60 @@ import SummaryLayout from '../../layouts/SummaryLayout.astro';
   prevSlug="/summary/contact"
   nextSlug="/summary/projects"
 >
-  <div class="flex-1 grid grid-cols-1 lg:grid-cols-12 min-h-0 divide-y-2 lg:divide-y-0 lg:divide-x-2 divide-black dark:divide-white">
-
+  <div
+    class="flex-1 grid grid-cols-1 lg:grid-cols-12 min-h-0 divide-y-2 lg:divide-y-0 lg:divide-x-2 divide-black dark:divide-white"
+  >
     <!-- PANEL A: Photo Card (Cols 1-3) — tall image fill with name overlay -->
-    <div class="col-span-1 lg:col-span-3 h-64 sm:h-80 lg:h-full relative overflow-hidden bg-zinc-900 border-b-2 lg:border-b-0 border-black dark:border-white flex flex-col">
+    <div
+      class="col-span-1 lg:col-span-3 h-64 sm:h-80 lg:h-full relative overflow-hidden bg-zinc-900 border-b-2 lg:border-b-0 border-black dark:border-white flex flex-col"
+    >
       <img
         src="/images/bay-1.jpeg"
         alt="Bayu Pratama"
         class="absolute inset-0 w-full h-full object-cover object-[42%_center] grayscale contrast-125 opacity-70"
       />
       <!-- Gradient overlay -->
-      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent">
+      </div>
       <!-- Content on top of photo -->
       <div class="relative flex flex-col justify-end h-full p-5 gap-1">
-        <p class="font-mono text-xs text-accent font-bold uppercase tracking-widest">01 • Profile</p>
-        <h1 class="text-xl sm:text-2xl font-heading font-black text-white leading-tight">Bayu Rizky<br/>Kurnia Pratama</h1>
+        <p class="font-mono text-xs text-accent font-bold uppercase tracking-widest">
+          01 • Profile
+        </p>
+        <h1 class="text-xl sm:text-2xl font-heading font-black text-white leading-tight">
+          Bayu Rizky<br />Kurnia Pratama
+        </h1>
         <p class="text-xs font-mono text-zinc-300 mt-0.5">Software Engineer</p>
-        <p class="text-[11px] font-mono text-accent font-bold">Fullstack • Backend • AI Integration</p>
+        <p class="text-[11px] font-mono text-accent font-bold">
+          Fullstack • Backend • AI Integration
+        </p>
       </div>
     </div>
 
     <!-- Right 9 Columns — nested 3x2 grid -->
-    <div class="col-span-1 lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2 divide-y-2 sm:divide-y-0 lg:divide-y-2 divide-black dark:divide-white">
-
+    <div
+      class="col-span-1 lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2 divide-y-2 sm:divide-y-0 lg:divide-y-2 divide-black dark:divide-white"
+    >
       <!-- Row 1 -->
 
       <!-- B: Big Stat — Pure Color Block -->
-      <div class="bg-accent p-5 flex flex-col justify-between border-b-2 border-r-0 sm:border-r-2 border-black">
+      <div
+        class="bg-accent p-5 flex flex-col justify-between border-b-2 border-r-0 sm:border-r-2 border-black"
+      >
         <div class="flex items-start justify-between">
-          <span class="font-mono text-xs font-bold text-black uppercase tracking-widest">Projects Shipped</span>
-          <svg class="w-5 h-5 text-black/40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          <span class="font-mono text-xs font-bold text-black uppercase tracking-widest"
+            >Projects Shipped</span
+          >
+          <svg
+            class="w-5 h-5 text-black/40"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            ><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path
+              d="M2 12l10 5 10-5"></path></svg
+          >
         </div>
         <div>
           <div class="text-5xl font-heading font-black text-black leading-none">10+</div>
@@ -48,25 +72,61 @@ import SummaryLayout from '../../layouts/SummaryLayout.astro';
       </div>
 
       <!-- C: Bio Text — Clean typography card -->
-      <a href="/summary/projects" class="bg-white dark:bg-zinc-900 p-5 flex flex-col justify-between border-b-2 border-r-0 lg:border-r-2 border-black dark:border-white group hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-all">
+      <a
+        href="/summary/projects"
+        class="bg-white dark:bg-zinc-900 p-5 flex flex-col justify-between border-b-2 border-r-0 lg:border-r-2 border-black dark:border-white group hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-all"
+      >
         <div>
           <div class="flex items-center justify-between mb-2">
-            <span class="font-mono text-xs font-bold text-accent uppercase tracking-widest">02 • Work</span>
-            <svg class="w-4 h-4 text-zinc-400 group-hover:text-accent transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            <span class="font-mono text-xs font-bold text-accent uppercase tracking-widest"
+              >02 • Work</span
+            >
+            <svg
+              class="w-4 h-4 text-zinc-400 group-hover:text-accent transition-colors"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg
+            >
           </div>
-          <h2 class="text-xl font-heading font-black text-black dark:text-white group-hover:text-accent transition-colors">Featured Projects</h2>
+          <h2
+            class="text-xl font-heading font-black text-black dark:text-white group-hover:text-accent transition-colors"
+          >
+            Featured Projects
+          </h2>
           <p class="text-xs font-body text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">
-            Offline-first POS, dual-currency wellness app, decentralized Web3 journal, and enterprise community platforms.
+            Offline-first POS, dual-currency wellness app, decentralized Web3 journal, and
+            enterprise community platforms.
           </p>
         </div>
-        <div class="text-[11px] font-mono text-zinc-500 mt-3">Niagara POS • Kaimify • Moodyan • KSH</div>
+        <div class="text-[11px] font-mono text-zinc-500 mt-3">
+          Niagara POS • Kaimify • Moodyan • KSH
+        </div>
       </a>
 
       <!-- D: Wins — Dark Accent Big Number -->
-      <a href="/summary/awards" class="bg-zinc-900 dark:bg-black p-5 flex flex-col justify-between border-b-2 border-black dark:border-white group hover:bg-zinc-800 transition-all">
+      <a
+        href="/summary/awards"
+        class="bg-zinc-900 dark:bg-black p-5 flex flex-col justify-between border-b-2 border-black dark:border-white group hover:bg-zinc-800 transition-all"
+      >
         <div class="flex items-center justify-between">
-          <span class="font-mono text-xs font-bold text-accent uppercase tracking-widest">05 • Wins</span>
-          <svg class="w-5 h-5 text-zinc-600 group-hover:text-accent transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+          <span class="font-mono text-xs font-bold text-accent uppercase tracking-widest"
+            >05 • Wins</span
+          >
+          <svg
+            class="w-5 h-5 text-zinc-600 group-hover:text-accent transition-colors"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            ><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"
+            ></path><path d="M4 22h16"></path><path
+              d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path
+              d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path
+              d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path></svg
+          >
         </div>
         <div>
           <div class="text-4xl font-heading font-black text-white leading-none">1st Place</div>
@@ -78,51 +138,92 @@ import SummaryLayout from '../../layouts/SummaryLayout.astro';
       <!-- Row 2 -->
 
       <!-- E: About / Bio — text-heavy card -->
-      <div class="bg-white dark:bg-zinc-900 p-5 flex flex-col justify-between border-r-0 lg:border-r-2 border-black dark:border-white">
+      <div
+        class="bg-white dark:bg-zinc-900 p-5 flex flex-col justify-between border-r-0 lg:border-r-2 border-black dark:border-white"
+      >
         <div>
           <p class="text-sm font-body text-zinc-700 dark:text-zinc-300 leading-relaxed">
-            I design and build backend services — APIs, data sync engines, transactional ledgers, and the occasional LLM integration. Focused on systems that work reliably offline and at scale.
+            I design and build backend services — APIs, data sync engines, transactional ledgers,
+            and the occasional LLM integration. Focused on systems that work reliably offline and at
+            scale.
           </p>
         </div>
-        <div class="pt-3 border-t border-black/10 dark:border-white/10 flex items-center justify-between text-xs font-mono">
+        <div
+          class="pt-3 border-t border-black/10 dark:border-white/10 flex items-center justify-between text-xs font-mono"
+        >
           <span class="text-zinc-500">Current Role</span>
           <span class="font-bold text-black dark:text-white">Fullstack Dev @ Kaimify</span>
         </div>
       </div>
 
       <!-- F: Tech — Icon Grid Card -->
-      <a href="/summary/skills" class="bg-white dark:bg-zinc-900 p-5 flex flex-col justify-between border-r-0 lg:border-r-2 border-black dark:border-white group hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-all">
+      <a
+        href="/summary/skills"
+        class="bg-white dark:bg-zinc-900 p-5 flex flex-col justify-between border-r-0 lg:border-r-2 border-black dark:border-white group hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-all"
+      >
         <div class="flex items-center justify-between mb-3">
-          <span class="font-mono text-xs font-bold text-accent uppercase tracking-widest">03 • Stack</span>
-          <svg class="w-4 h-4 text-zinc-400 group-hover:text-accent transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          <span class="font-mono text-xs font-bold text-accent uppercase tracking-widest"
+            >03 • Stack</span
+          >
+          <svg
+            class="w-4 h-4 text-zinc-400 group-hover:text-accent transition-colors"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg
+          >
         </div>
         <div class="grid grid-cols-2 gap-1.5 font-mono text-xs font-bold flex-1">
-          {['NestJS', 'Node.js', 'Laravel', 'Go', 'Flutter', 'PostgreSQL', 'SQLite', 'Docker'].map(t => (
-            <div class="px-2 py-1.5 bg-zinc-100 dark:bg-zinc-800 border border-black/15 dark:border-white/15 truncate">{t}</div>
-          ))}
+          {
+            ['NestJS', 'Node.js', 'Laravel', 'Go', 'Flutter', 'PostgreSQL', 'SQLite', 'Docker'].map(
+              (t) => (
+                <div class="px-2 py-1.5 bg-zinc-100 dark:bg-zinc-800 border border-black/15 dark:border-white/15 truncate">
+                  {t}
+                </div>
+              )
+            )
+          }
         </div>
       </a>
 
       <!-- G: Experience — Timeline strip card -->
-      <a href="/summary/experience" class="bg-white dark:bg-zinc-900 p-5 flex flex-col justify-between border-black dark:border-white group hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-all">
+      <a
+        href="/summary/experience"
+        class="bg-white dark:bg-zinc-900 p-5 flex flex-col justify-between border-black dark:border-white group hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-all"
+      >
         <div class="flex items-center justify-between mb-3">
-          <span class="font-mono text-xs font-bold text-accent uppercase tracking-widest">04 • Career</span>
-          <svg class="w-4 h-4 text-zinc-400 group-hover:text-accent transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          <span class="font-mono text-xs font-bold text-accent uppercase tracking-widest"
+            >04 • Career</span
+          >
+          <svg
+            class="w-4 h-4 text-zinc-400 group-hover:text-accent transition-colors"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg
+          >
         </div>
         <div class="space-y-1.5 flex-1">
-          {[
-            { role: 'Kaimify', label: 'Fullstack Dev', year: '2026', active: true },
-            { role: 'Timedoor', label: 'Programming Teacher', year: '2024', active: false },
-            { role: 'Bangkit', label: 'Cloud Computing — Top 10%', year: '2024', active: false },
-          ].map(e => (
-            <div class={`flex items-center justify-between px-2.5 py-1.5 border font-mono text-xs ${e.active ? 'bg-accent text-black border-black' : 'bg-zinc-100 dark:bg-zinc-800 border-black/15 dark:border-white/15 text-black dark:text-white'}`}>
-              <span class="font-bold truncate">{e.role}</span>
-              <span class={`text-[10px] ${e.active ? 'text-black' : 'text-zinc-500'}`}>{e.year}</span>
-            </div>
-          ))}
+          {
+            [
+              { role: 'Kaimify', label: 'Fullstack Dev', year: '2026', active: true },
+              { role: 'Timedoor', label: 'Programming Teacher', year: '2024', active: false },
+              { role: 'Bangkit', label: 'Cloud Computing — Top 10%', year: '2024', active: false },
+            ].map((e) => (
+              <div
+                class={`flex items-center justify-between px-2.5 py-1.5 border font-mono text-xs ${e.active ? 'bg-accent text-black border-black' : 'bg-zinc-100 dark:bg-zinc-800 border-black/15 dark:border-white/15 text-black dark:text-white'}`}
+              >
+                <span class="font-bold truncate">{e.role}</span>
+                <span class={`text-[10px] ${e.active ? 'text-black' : 'text-zinc-500'}`}>
+                  {e.year}
+                </span>
+              </div>
+            ))
+          }
         </div>
       </a>
-
     </div>
   </div>
 </SummaryLayout>

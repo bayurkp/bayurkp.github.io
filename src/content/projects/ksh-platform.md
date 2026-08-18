@@ -3,17 +3,7 @@ title: 'Kelompok Setia Hati (KSH)'
 description: 'Multi-region community and event management ecosystem for Kelompok Setia Hati built with Next.js and Laravel, featuring 6-tier RBAC, automated certificate generation, and regional donation tracking.'
 thumbnail: 'https://picsum.photos/seed/kshplatform/800/600'
 tags:
-  [
-    'Next.js',
-    'React',
-    'TypeScript',
-    'Laravel',
-    'PHP',
-    'Tailwind CSS',
-    'Shadcn UI',
-    'PostgreSQL',
-    'RBAC',
-  ]
+  ['Next.js', 'React', 'TypeScript', 'Laravel', 'PHP', 'Tailwind CSS', 'Shadcn UI', 'MySQL', 'RBAC']
 repo: 'https://github.com/KSH-Project/ksh-fe-v2'
 date: 2025-09-15
 featured: true
@@ -36,7 +26,7 @@ sequenceDiagram
     participant Frontend as Next.js Portal (App Router)
     participant API as Laravel REST API Gateway
     participant Auth as Sanctum & Spatie RBAC
-    participant DB as PostgreSQL Database
+    participant DB as MySQL Relational Database
     participant Cert as Dynamic PDF Engine
 
     Member->>Frontend: Registers for Multi-Session Workshop
@@ -85,7 +75,7 @@ graph TD
     end
 
     subgraph Data & Storage Tier
-        J[(PostgreSQL Relational Database)]
+        J[(MySQL Relational Database)]
         K[Static Asset & Document Storage]
     end
 
@@ -111,6 +101,6 @@ This decoupled topology allows regional administrators to manage localized conte
 
 - **6-Tier Role-Based Access Control (RBAC)**: Enforced strict permission boundaries across `super_admin`, `regional_admin`, `editor`, `mentor`, `member`, and `alumni` roles using Spatie Laravel Permission.
 - **Dynamic Certificate Numbering Standard**: Implemented an automated serial certificate generator enforcing canonical naming schemes: `KSH-{COUNTRYCODE}-{YYYYMMDD}-{EVENTID_PADDED}-{COMPLETIONID_PADDED}`.
-- **Database-Backed i18n Localization**: Built a dynamic multi-language dictionary stored in PostgreSQL with cookie-backed caching on the Next.js client, enabling non-technical admins to update copy in real time.
+- **Database-Backed i18n Localization**: Built a dynamic multi-language dictionary stored in MySQL with cookie-backed caching on the Next.js client, enabling non-technical admins to update copy in real time.
 - **Adaptive 5-Preset Theming System**: Engineered a versatile design system in Next.js supporting _Default, Modern, Brutalist, Soft-Pop, and Twitter_ visual themes with seamless Light/Dark mode toggling.
 - **Regional Financial & Donation Transparency**: Partitioned donation centers by geographical territory, recording multi-currency inflows, admin confirmations, and cash flow reports for complete fiscal accountability.

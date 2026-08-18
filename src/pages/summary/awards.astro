@@ -12,10 +12,16 @@ import SummaryLayout from '../../layouts/SummaryLayout.astro';
 >
   <div class="flex-1 flex flex-col justify-between overflow-hidden">
     <!-- Header -->
-    <div class="h-16 sm:h-[68px] flex items-center justify-between border-b-2 border-black dark:border-white bg-zinc-50 dark:bg-zinc-900 px-5 shrink-0">
+    <div
+      class="h-16 sm:h-[68px] flex items-center justify-between border-b-2 border-black dark:border-white bg-zinc-50 dark:bg-zinc-900 px-5 shrink-0"
+    >
       <div>
-        <span class="text-xs font-mono font-bold text-accent uppercase tracking-wider">05 • Recognition</span>
-        <h1 class="text-xl sm:text-2xl font-heading font-black text-black dark:text-white leading-tight">
+        <span class="text-xs font-mono font-bold text-accent uppercase tracking-wider"
+          >05 • Recognition</span
+        >
+        <h1
+          class="text-xl sm:text-2xl font-heading font-black text-black dark:text-white leading-tight"
+        >
           Highlights & Wins
         </h1>
       </div>
@@ -23,32 +29,47 @@ import SummaryLayout from '../../layouts/SummaryLayout.astro';
     </div>
 
     <!-- 3-column asymmetric bento -->
-    <div class="grid grid-cols-1 md:grid-cols-3 flex-1 min-h-0 divide-y-2 md:divide-y-0 md:divide-x-2 divide-black dark:divide-white">
-
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 flex-1 min-h-0 divide-y-2 md:divide-y-0 md:divide-x-2 divide-black dark:divide-white"
+    >
       <!-- COL 1: 1st Place ICP — Solid accent background, massive number -->
       <div class="bg-accent flex flex-col justify-between p-6">
         <div class="flex items-start justify-between">
-          <span class="font-mono text-xs font-bold text-black uppercase tracking-widest">1st Place Winner</span>
+          <span class="font-mono text-xs font-bold text-black uppercase tracking-widest"
+            >1st Place Winner</span
+          >
           <!-- Trophy icon -->
-          <svg class="w-6 h-6 text-black/50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
-            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
-            <path d="M4 22h16"/>
-            <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
-            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
-            <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/>
+          <svg
+            class="w-6 h-6 text-black/50"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+            <path d="M4 22h16"></path>
+            <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+            <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
           </svg>
         </div>
 
         <div>
           <div class="text-7xl font-heading font-black text-black leading-none">01.</div>
-          <h2 class="text-xl font-heading font-black text-black mt-1">ICP Indonesia<br/>Hackathon</h2>
+          <h2 class="text-xl font-heading font-black text-black mt-1">
+            ICP Indonesia<br />Hackathon
+          </h2>
           <p class="text-xs font-body text-black/70 mt-2 leading-relaxed">
-            Built <strong>Moodyan</strong> — an on-chain wellness journal using Motoko canisters, Internet Identity, and local LLM mood analysis.
+            Built <strong>Moodyan</strong> — an on-chain wellness journal using Motoko canisters, Internet
+            Identity, and local LLM mood analysis.
           </p>
         </div>
 
-        <div class="pt-3 border-t border-black/30 flex items-center justify-between font-mono text-xs text-black/70">
+        <div
+          class="pt-3 border-t border-black/30 flex items-center justify-between font-mono text-xs text-black/70"
+        >
           <span>ICP Hub Indonesia</span>
           <span class="font-bold text-black">May 2025</span>
         </div>
@@ -57,22 +78,36 @@ import SummaryLayout from '../../layouts/SummaryLayout.astro';
       <!-- COL 2: BAZNAS Scholarship — Dark card with award icon + prose -->
       <div class="bg-zinc-900 dark:bg-black flex flex-col justify-between p-6">
         <div class="flex items-start justify-between">
-          <span class="font-mono text-xs font-bold text-accent uppercase tracking-widest">National Scholarship</span>
+          <span class="font-mono text-xs font-bold text-accent uppercase tracking-widest"
+            >National Scholarship</span
+          >
           <!-- Award icon -->
-          <svg class="w-6 h-6 text-zinc-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="12" cy="8" r="6"/>
-            <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+          <svg
+            class="w-6 h-6 text-zinc-600"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <circle cx="12" cy="8" r="6"></circle>
+            <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"></path>
           </svg>
         </div>
 
         <div>
-          <h2 class="text-2xl font-heading font-black text-white leading-tight">Beasiswa Cendekia<br/>BAZNAS</h2>
+          <h2 class="text-2xl font-heading font-black text-white leading-tight">
+            Beasiswa Cendekia<br />BAZNAS
+          </h2>
           <p class="text-xs font-body text-zinc-400 mt-3 leading-relaxed">
-            Awarded based on academic performance and community leadership. Contributed a software engineering leadership manuscript to a national anthology.
+            Awarded based on academic performance and community leadership. Contributed a software
+            engineering leadership manuscript to a national anthology.
           </p>
         </div>
 
-        <div class="pt-3 border-t border-white/10 flex items-center justify-between font-mono text-xs">
+        <div
+          class="pt-3 border-t border-white/10 flex items-center justify-between font-mono text-xs"
+        >
           <span class="text-zinc-500">BAZNAS Pusat</span>
           <span class="font-bold text-accent">2024 – 2026</span>
         </div>
@@ -80,24 +115,37 @@ import SummaryLayout from '../../layouts/SummaryLayout.astro';
 
       <!-- COL 3: Two stacked sub-cards — 3rd Place + Bangkit Top 50 -->
       <div class="flex flex-col divide-y-2 divide-black dark:divide-white">
-
         <!-- 3rd Place PNB -->
         <div class="flex-1 bg-white dark:bg-zinc-900 p-5 flex flex-col justify-between">
           <div class="flex items-start justify-between mb-2">
             <div>
-              <span class="font-mono text-xs font-bold text-zinc-500 uppercase tracking-widest">3rd Place Podium</span>
-              <h3 class="text-lg font-heading font-black text-black dark:text-white mt-0.5">PNB IT Business</h3>
+              <span class="font-mono text-xs font-bold text-zinc-500 uppercase tracking-widest"
+                >3rd Place Podium</span
+              >
+              <h3 class="text-lg font-heading font-black text-black dark:text-white mt-0.5">
+                PNB IT Business
+              </h3>
             </div>
             <!-- Medal icon -->
-            <svg class="w-5 h-5 text-zinc-400 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="12" cy="8" r="6"/>
-              <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+            <svg
+              class="w-5 h-5 text-zinc-400 mt-0.5"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <circle cx="12" cy="8" r="6"></circle>
+              <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"></path>
             </svg>
           </div>
           <p class="text-xs font-body text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            <strong>TemanTaman</strong> — agricultural marketplace with real-time auctions connecting growers directly to buyers.
+            <strong>TemanTaman</strong> — agricultural marketplace with real-time auctions connecting
+            growers directly to buyers.
           </p>
-          <div class="pt-2 border-t border-black/10 dark:border-white/10 flex items-center justify-between font-mono text-[11px]">
+          <div
+            class="pt-2 border-t border-black/10 dark:border-white/10 flex items-center justify-between font-mono text-[11px]"
+          >
             <span class="text-zinc-500">Politeknik Negeri Bali</span>
             <span class="font-bold text-black dark:text-white">Oct 2024</span>
           </div>
@@ -107,25 +155,38 @@ import SummaryLayout from '../../layouts/SummaryLayout.astro';
         <div class="flex-1 bg-white dark:bg-zinc-900 p-5 flex flex-col justify-between">
           <div class="flex items-start justify-between mb-2">
             <div>
-              <span class="font-mono text-xs font-bold text-accent uppercase tracking-widest">Top 10% Cohort</span>
-              <h3 class="text-lg font-heading font-black text-black dark:text-white mt-0.5">Bangkit Academy</h3>
+              <span class="font-mono text-xs font-bold text-accent uppercase tracking-widest"
+                >Top 10% Cohort</span
+              >
+              <h3 class="text-lg font-heading font-black text-black dark:text-white mt-0.5">
+                Bangkit Academy
+              </h3>
             </div>
             <!-- Stars icon -->
-            <svg class="w-5 h-5 text-accent mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            <svg
+              class="w-5 h-5 text-accent mt-0.5"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              ></polygon>
             </svg>
           </div>
           <p class="text-xs font-body text-zinc-600 dark:text-zinc-400 leading-relaxed">
             Led 7-engineer team to <strong>Top 50 of 644 teams</strong> for cloud-native GCP backend capstone.
           </p>
-          <div class="pt-2 border-t border-black/10 dark:border-white/10 flex items-center justify-between font-mono text-[11px]">
+          <div
+            class="pt-2 border-t border-black/10 dark:border-white/10 flex items-center justify-between font-mono text-[11px]"
+          >
             <span class="text-zinc-500">Google × GoTo × Traveloka</span>
             <span class="font-bold text-black dark:text-white">2025</span>
           </div>
         </div>
-
       </div>
-
     </div>
   </div>
 </SummaryLayout>

@@ -1,5 +1,80 @@
 ---
 import SummaryLayout from '../../layouts/SummaryLayout.astro';
+
+const experiences = [
+  {
+    period: 'Jul 2026 – Present',
+    title: 'Software Engineer',
+    company: 'Self-employed',
+    description:
+      'Engineered multi-region platforms (KSH) and academic systems (SIM-PKMTI) with Next.js 15, React 18, and Laravel 10.',
+    stack: ['Next.js 15', 'Laravel 10', 'React 18'],
+    darkCard: true,
+  },
+  {
+    period: '2026 – Present',
+    title: 'Fullstack Developer',
+    company: 'Kaimify',
+    description:
+      'Building backend microservices in NestJS & PostgreSQL with dual-currency transactional ledgers.',
+    stack: ['NestJS', 'PostgreSQL', 'Flutter'],
+    darkCard: false,
+  },
+  {
+    period: 'Jan 2026 – Jun 2026',
+    title: 'Undergraduate Researcher',
+    company: 'Udayana University',
+    description:
+      'Architected offline-first POS with Clean Architecture, SQLite sync, and sub-20ms write latency.',
+    stack: ['Flutter', 'SQLite', 'Supabase'],
+    darkCard: false,
+  },
+  {
+    period: 'Mar 2025 – Jun 2025',
+    title: 'Frontend Developer Intern',
+    company: 'Timedoor Indonesia',
+    description:
+      'Developed Vue.js web interfaces, integrated REST APIs, and resolved 100+ UI & logic issues.',
+    stack: ['Vue.js', 'REST API', 'Git'],
+    darkCard: false,
+  },
+  {
+    period: 'Aug 2024 – Present',
+    title: 'Programming Teacher',
+    company: 'Timedoor Academy',
+    description:
+      'Delivering bilingual instruction in Python, Machine Learning, AI algorithms, and Vue.js fundamentals.',
+    stack: ['Python', 'Teaching', 'Vue.js'],
+    darkCard: false,
+  },
+  {
+    period: 'Feb 2024 – Jul 2024',
+    title: 'Cloud Computing Cohort',
+    company: 'Bangkit Academy',
+    description:
+      'Built Google Cloud infrastructure. Led team of 7 to Top 50 Capstone ranking out of 644 national teams.',
+    stack: ['GCP', 'Docker', 'Express'],
+    darkCard: false,
+  },
+  {
+    period: 'Sep 2023 – Jun 2024',
+    title: 'Teaching Assistant',
+    company: 'Udayana University',
+    description:
+      'Instructed C/C++ Algorithms & Programming and Database Concepts (MySQL, ERD, PDM).',
+    stack: ['C/C++', 'Algorithms', 'MySQL'],
+    darkCard: false,
+  },
+  {
+    period: 'Jan 2024 – Dec 2024',
+    title: 'Vice Chairman',
+    company: 'Technology Artisan',
+    description:
+      'Coordinated technical programs across 6 engineering divisions in student developer community.',
+    stack: ['Leadership', 'Teamwork'],
+    darkCard: false,
+  },
+];
 ---
 
 <SummaryLayout
@@ -30,217 +105,69 @@ import SummaryLayout from '../../layouts/SummaryLayout.astro';
       </div>
     </div>
 
-    <!-- 16:9 Grid (5 cols x 2 rows: [1, icon, 1, 1, icon] / [1, 1, 1, icon, 1]) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 flex-1 min-h-0">
-      <!-- ================= ROW 1 ================= -->
+    <!-- 4x2 Grid (8 Cards) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 flex-1 min-h-0">
+      {
+        experiences.map((exp, idx) => {
+          const isRightCol = (idx + 1) % 4 === 0;
+          const isBottomRow = idx >= 4;
+          const borderClasses = [
+            !isRightCol ? 'lg:border-r-2' : '',
+            !isBottomRow ? 'border-b-2' : '',
+            idx % 2 === 0 ? 'md:border-r-2 lg:border-r-0' : '',
+            'border-black dark:border-white',
+          ]
+            .filter(Boolean)
+            .join(' ');
 
-      <!-- 1. [Card 1] Kaimify (Dark Flagship Card) -->
-      <div
-        class="bg-zinc-900 dark:bg-black p-4 flex flex-col justify-between border-b-2 lg:border-r-2 border-black dark:border-white text-white"
-      >
-        <div>
-          <span class="text-[10px] font-mono text-zinc-400">2026 – Present</span>
-          <h2 class="font-heading font-bold text-sm sm:text-base text-white mt-0.5">
-            Fullstack Developer
-          </h2>
-          <p class="text-xs font-mono text-accent font-semibold">Kaimify</p>
-          <p class="text-xs font-body text-zinc-300 mt-2 leading-relaxed">
-            Building backend microservices in NestJS & PostgreSQL with dual-currency transactional
-            ledgers.
-          </p>
-        </div>
-        <div class="text-[11px] font-mono text-zinc-400 pt-2 border-t border-white/15">
-          NestJS • Flutter
-        </div>
-      </div>
+          const bgClass = exp.darkCard
+            ? 'bg-zinc-900 dark:bg-black text-white'
+            : 'bg-white dark:bg-zinc-900 text-black dark:text-white';
 
-      <!-- 2. [ICON 1] Pure Accent Icon Cell -->
-      <div
-        class="bg-accent flex items-center justify-center p-4 border-b-2 lg:border-r-2 border-black"
-      >
-        <svg
-          class="w-14 h-14 sm:w-16 sm:h-16 text-black"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.75"
-        >
-          <rect width="20" height="8" x="2" y="2" rx="2" ry="2"></rect>
-          <rect width="20" height="8" x="2" y="14" rx="2" ry="2"></rect>
-          <line x1="6" x2="6.01" y1="6" y2="6"></line>
-          <line x1="6" x2="6.01" y1="18" y2="18"></line>
-        </svg>
-      </div>
+          const titleColor = exp.darkCard ? 'text-white' : 'text-black dark:text-white';
+          const descColor = exp.darkCard ? 'text-zinc-300' : 'text-zinc-600 dark:text-zinc-400';
+          const periodColor = exp.darkCard ? 'text-zinc-400' : 'text-zinc-500';
+          const borderDivider = exp.darkCard
+            ? 'border-white/15'
+            : 'border-black/10 dark:border-white/10';
+          const stackColor = exp.darkCard ? 'text-zinc-400' : 'text-zinc-500';
 
-      <!-- 3. [Card 2] Undergraduate Researcher -->
-      <div
-        class="bg-white dark:bg-zinc-900 p-4 flex flex-col justify-between border-b-2 lg:border-r-2 border-black dark:border-white"
-      >
-        <div>
-          <span class="text-[10px] font-mono text-zinc-500">Jan 2026 – Jun 2026</span>
-          <h2 class="font-heading font-bold text-sm sm:text-base text-black dark:text-white mt-0.5">
-            Undergraduate Researcher
-          </h2>
-          <p class="text-xs font-mono text-accent font-semibold">Udayana University</p>
-          <p class="text-xs font-body text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">
-            Architected offline-first POS with Clean Architecture, SQLite sync, and sub-20ms write
-            latency.
-          </p>
-        </div>
-        <div
-          class="text-[11px] font-mono text-zinc-500 pt-2 border-t border-black/10 dark:border-white/10"
-        >
-          Flutter • SQLite • Supabase
-        </div>
-      </div>
-
-      <!-- 4. [Card 3] Frontend Intern -->
-      <div
-        class="bg-white dark:bg-zinc-900 p-4 flex flex-col justify-between border-b-2 lg:border-r-2 border-black dark:border-white"
-      >
-        <div>
-          <span class="text-[10px] font-mono text-zinc-500">Mar 2025 – Jun 2025</span>
-          <h2 class="font-heading font-bold text-sm sm:text-base text-black dark:text-white mt-0.5">
-            Frontend Intern
-          </h2>
-          <p class="text-xs font-mono text-accent font-semibold">Timedoor Indonesia</p>
-          <p class="text-xs font-body text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">
-            Developed Vue.js web interfaces, integrated REST APIs, and resolved 100+ UI & logic
-            issues.
-          </p>
-        </div>
-        <div
-          class="text-[11px] font-mono text-zinc-500 pt-2 border-t border-black/10 dark:border-white/10"
-        >
-          Vue.js • REST API • Git
-        </div>
-      </div>
-
-      <!-- 5. [ICON 2] Pure Dark / Accent Icon Cell -->
-      <div
-        class="bg-zinc-900 dark:bg-black flex items-center justify-center p-4 border-b-2 border-black dark:border-white"
-      >
-        <svg
-          class="w-14 h-14 sm:w-16 sm:h-16 text-accent"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.75"
-        >
-          <polyline points="16 18 22 12 16 6"></polyline>
-          <polyline points="8 6 2 12 8 18"></polyline>
-        </svg>
-      </div>
-
-      <!-- ================= ROW 2 ================= -->
-
-      <!-- 6. [Card 4] Programming Teacher -->
-      <div
-        class="bg-white dark:bg-zinc-900 p-4 flex flex-col justify-between border-b-2 md:border-b-0 lg:border-r-2 border-black dark:border-white"
-      >
-        <div>
-          <span class="text-[10px] font-mono text-zinc-500">2024 – Present</span>
-          <h2 class="font-heading font-bold text-sm sm:text-base text-black dark:text-white mt-0.5">
-            Programming Teacher
-          </h2>
-          <p class="text-xs font-mono text-accent font-semibold">Timedoor Academy</p>
-          <p class="text-xs font-body text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">
-            Delivering instruction in Python, Machine Learning, AI algorithms, and Vue.js
-            fundamentals.
-          </p>
-        </div>
-        <div
-          class="text-[11px] font-mono text-zinc-500 pt-2 border-t border-black/10 dark:border-white/10"
-        >
-          Teaching • Mentoring
-        </div>
-      </div>
-
-      <!-- 7. [Card 5] Bangkit Academy -->
-      <div
-        class="bg-white dark:bg-zinc-900 p-4 flex flex-col justify-between border-b-2 md:border-b-0 lg:border-r-2 border-black dark:border-white"
-      >
-        <div>
-          <span class="text-[10px] font-mono text-zinc-500">Feb 2024 – Jul 2024</span>
-          <h2 class="font-heading font-bold text-sm sm:text-base text-black dark:text-white mt-0.5">
-            Cloud Computing
-          </h2>
-          <p class="text-xs font-mono text-accent font-semibold">Bangkit Academy</p>
-          <p class="text-xs font-body text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">
-            Built Google Cloud infrastructure. Led team of 7 to Top 50 Capstone ranking out of 644
-            teams.
-          </p>
-        </div>
-        <div
-          class="text-[11px] font-mono text-zinc-500 pt-2 border-t border-black/10 dark:border-white/10"
-        >
-          GCP • Docker • Express
-        </div>
-      </div>
-
-      <!-- 8. [Card 6] Teaching Assistant -->
-      <div
-        class="bg-white dark:bg-zinc-900 p-4 flex flex-col justify-between border-b-2 md:border-b-0 lg:border-r-2 border-black dark:border-white"
-      >
-        <div>
-          <span class="text-[10px] font-mono text-zinc-500">Sep 2023 – Jun 2024</span>
-          <h2 class="font-heading font-bold text-sm sm:text-base text-black dark:text-white mt-0.5">
-            Teaching Assistant
-          </h2>
-          <p class="text-xs font-mono text-accent font-semibold">Udayana University</p>
-          <p class="text-xs font-body text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">
-            Instructed C/C++ Algorithms & Programming and Database Concepts (MySQL, ERD, PDM).
-          </p>
-        </div>
-        <div
-          class="text-[11px] font-mono text-zinc-500 pt-2 border-t border-black/10 dark:border-white/10"
-        >
-          C/C++ • Algorithms • MySQL
-        </div>
-      </div>
-
-      <!-- 9. [ICON 3] Pure Accent Icon Cell -->
-      <div
-        class="bg-accent flex items-center justify-center p-4 border-b-2 md:border-b-0 lg:border-r-2 border-black"
-      >
-        <svg
-          class="w-14 h-14 sm:w-16 sm:h-16 text-black"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.75"
-        >
-          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-          <circle cx="9" cy="7" r="4"></circle>
-          <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-        </svg>
-      </div>
-
-      <!-- 10. [Card 7] Vice Chairman (Technology Artisan) -->
-      <div
-        class="bg-white dark:bg-zinc-900 p-4 flex flex-col justify-between border-black dark:border-white"
-      >
-        <div>
-          <span class="text-[10px] font-mono text-zinc-500">Jan 2024 – Dec 2024</span>
-          <h2 class="font-heading font-bold text-sm sm:text-base text-black dark:text-white mt-0.5">
-            Vice Chairman
-          </h2>
-          <p class="text-xs font-mono text-accent font-semibold">Technology Artisan</p>
-          <p class="text-xs font-body text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">
-            Coordinated technical programs across 6 engineering divisions in student developer
-            community.
-          </p>
-        </div>
-        <div
-          class="text-[11px] font-mono text-zinc-500 pt-2 border-t border-black/10 dark:border-white/10"
-        >
-          Leadership • Teamwork
-        </div>
-      </div>
+          return (
+            <div class={`${bgClass} ${borderClasses} p-4 flex flex-col justify-between`}>
+              <div>
+                <span class={`text-[10px] font-mono ${periodColor}`}>{exp.period}</span>
+                <h2
+                  class={`font-heading font-bold text-sm sm:text-base ${titleColor} mt-0.5 leading-snug`}
+                >
+                  {exp.title}
+                </h2>
+                <p class="text-xs font-mono text-accent font-semibold">{exp.company}</p>
+                <p class={`text-xs font-body ${descColor} mt-2 leading-relaxed`}>
+                  {exp.description}
+                </p>
+              </div>
+              <div
+                class={`text-[11px] font-mono pt-2 border-t mt-2 flex items-center gap-1.5 flex-wrap ${borderDivider} ${stackColor}`}
+              >
+                {exp.stack.map((s, sIdx) => (
+                  <>
+                    <span
+                      class={
+                        exp.darkCard
+                          ? 'text-zinc-200 font-bold'
+                          : 'text-zinc-700 dark:text-zinc-300 font-bold'
+                      }
+                    >
+                      {s}
+                    </span>
+                    {sIdx < exp.stack.length - 1 && <span>•</span>}
+                  </>
+                ))}
+              </div>
+            </div>
+          );
+        })
+      }
     </div>
   </div>
 </SummaryLayout>

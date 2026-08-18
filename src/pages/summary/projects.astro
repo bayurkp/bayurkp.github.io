@@ -5,7 +5,8 @@ const projects = [
   {
     title: 'Niagara POS',
     tagline: 'Offline-First Point of Sale',
-    description: 'Clean Architecture with bilateral SQLite-to-Supabase sync, FIFO transaction queues, and sub-20ms local write latency.',
+    description:
+      'Clean Architecture with bilateral SQLite-to-Supabase sync, FIFO transaction queues, and sub-20ms local write latency.',
     stack: ['Flutter', 'SQLite', 'Supabase'],
     stat: '<20ms Latency',
     darkCard: false,
@@ -14,7 +15,8 @@ const projects = [
   {
     title: 'Kaimify',
     tagline: 'Mindfulness & Habit App',
-    description: 'Harm-reduction platform with dual-currency transactional ledger, 2D room decorator, and AdMob server-side verification.',
+    description:
+      'Harm-reduction platform with dual-currency transactional ledger, 2D room decorator, and AdMob server-side verification.',
     stack: ['NestJS', 'PostgreSQL', 'Drizzle ORM'],
     stat: 'Dual-Currency ACID',
     darkCard: true,
@@ -23,7 +25,8 @@ const projects = [
   {
     title: 'Kelompok Setia Hati',
     tagline: 'Multi-Region Community',
-    description: '6-tier Spatie RBAC, automated serial PDF certificate generation, and regional donation ledger tracking.',
+    description:
+      '6-tier Spatie RBAC, automated serial PDF certificate generation, and regional donation ledger tracking.',
     stack: ['Next.js 15', 'Laravel 10', 'MySQL'],
     stat: '6-Tier RBAC',
     darkCard: false,
@@ -32,7 +35,8 @@ const projects = [
   {
     title: 'Memotions',
     tagline: 'AI Emotion Journal',
-    description: 'GCP Cloud Run backend with Pub/Sub ML inference pipelines. Ranked Top 50 out of 644 national teams.',
+    description:
+      'GCP Cloud Run backend with Pub/Sub ML inference pipelines. Ranked Top 50 out of 644 national teams.',
     stack: ['Express', 'GCP Run', 'Drizzle'],
     stat: 'Top 50 / 644 Teams',
     darkCard: false,
@@ -41,7 +45,8 @@ const projects = [
   {
     title: 'Moodyan',
     tagline: 'Web3 On-Chain Journal',
-    description: 'Decentralized wellness log on Internet Computer Protocol (ICP) with Motoko canisters, Internet Identity, and local LLM analysis.',
+    description:
+      'Decentralized wellness log on Internet Computer Protocol (ICP) with Motoko canisters, Internet Identity, and local LLM analysis.',
     stack: ['ICP', 'Motoko', 'React'],
     stat: '1st Place ICP Hub',
     darkCard: false,
@@ -50,7 +55,8 @@ const projects = [
   {
     title: 'TemanTaman',
     tagline: 'Agricultural Marketplace',
-    description: 'Real-time bidding and escrow settlement platform connecting ornamental plant growers directly to buyers.',
+    description:
+      'Real-time bidding and escrow settlement platform connecting ornamental plant growers directly to buyers.',
     stack: ['Laravel', 'MySQL', 'Tailwind'],
     stat: '3rd Place PNB #16',
     darkCard: false,
@@ -69,109 +75,135 @@ const projects = [
 >
   <div class="flex-1 flex flex-col justify-between overflow-hidden">
     <!-- Header -->
-    <div class="h-16 sm:h-[68px] flex items-center justify-between border-b-2 border-black dark:border-white bg-zinc-50 dark:bg-zinc-900 px-5 shrink-0">
+    <div
+      class="h-16 sm:h-[68px] flex items-center justify-between border-b-2 border-black dark:border-white bg-zinc-50 dark:bg-zinc-900 px-5 shrink-0"
+    >
       <div>
-        <span class="text-xs font-mono font-bold text-accent uppercase tracking-wider">02 • Selected Work</span>
-        <h1 class="text-xl sm:text-2xl font-heading font-black text-black dark:text-white leading-tight">Featured Projects</h1>
+        <span class="text-xs font-mono font-bold text-accent uppercase tracking-wider"
+          >02 • Selected Work</span
+        >
+        <h1
+          class="text-xl sm:text-2xl font-heading font-black text-black dark:text-white leading-tight"
+        >
+          Featured Projects
+        </h1>
       </div>
-      <a href="/projects" class="text-xs font-mono text-zinc-500 hover:text-black dark:hover:text-white transition-colors flex items-center gap-1">
+      <a
+        href="/projects"
+        class="text-xs font-mono text-zinc-500 hover:text-black dark:hover:text-white transition-colors flex items-center gap-1"
+      >
         All Work
-        <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+        <svg
+          class="w-3 h-3"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg
+        >
       </a>
     </div>
 
     <!-- 2x3 Bento Grid — varied visual treatment per card -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 flex-1 min-h-0">
-      {projects.map((p, idx) => {
-        const isRightCol = (idx + 1) % 3 === 0;
-        const isBottomRow = idx >= 3;
-        const borderClasses = [
-          !isRightCol ? 'lg:border-r-2' : '',
-          !isBottomRow ? 'border-b-2' : '',
-          idx % 2 === 0 ? 'md:border-r-2 lg:border-r-0' : '',
-          'border-black dark:border-white',
-        ].filter(Boolean).join(' ');
+      {
+        projects.map((p, idx) => {
+          const isRightCol = (idx + 1) % 3 === 0;
+          const isBottomRow = idx >= 3;
+          const borderClasses = [
+            !isRightCol ? 'lg:border-r-2' : '',
+            !isBottomRow ? 'border-b-2' : '',
+            idx % 2 === 0 ? 'md:border-r-2 lg:border-r-0' : '',
+            'border-black dark:border-white',
+          ]
+            .filter(Boolean)
+            .join(' ');
 
-        // Visual treatment based on card type
-        const bgClass = p.accentCard
-          ? 'bg-accent'
-          : p.darkCard
-          ? 'bg-zinc-900 dark:bg-black'
-          : 'bg-white dark:bg-zinc-900';
+          // Visual treatment based on card type
+          const bgClass = p.accentCard
+            ? 'bg-accent'
+            : p.darkCard
+              ? 'bg-zinc-900 dark:bg-black'
+              : 'bg-white dark:bg-zinc-900';
 
-        const titleColor = p.accentCard
-          ? 'text-black'
-          : p.darkCard
-          ? 'text-white'
-          : 'text-black dark:text-white';
+          const titleColor = p.accentCard
+            ? 'text-black'
+            : p.darkCard
+              ? 'text-white'
+              : 'text-black dark:text-white';
 
-        const descColor = p.accentCard
-          ? 'text-black/75'
-          : p.darkCard
-          ? 'text-zinc-400'
-          : 'text-zinc-700 dark:text-zinc-300';
+          const descColor = p.accentCard
+            ? 'text-black/75'
+            : p.darkCard
+              ? 'text-zinc-400'
+              : 'text-zinc-700 dark:text-zinc-300';
 
-        const tagColor = p.accentCard
-          ? 'text-black/60'
-          : p.darkCard
-          ? 'text-accent'
-          : 'text-accent';
+          const tagColor = p.accentCard
+            ? 'text-black/60'
+            : p.darkCard
+              ? 'text-accent'
+              : 'text-accent';
 
-        const stackColor = p.accentCard
-          ? 'text-black/70'
-          : p.darkCard
-          ? 'text-zinc-300'
-          : 'text-zinc-600 dark:text-zinc-400';
+          const stackColor = p.accentCard
+            ? 'text-black/70'
+            : p.darkCard
+              ? 'text-zinc-300'
+              : 'text-zinc-600 dark:text-zinc-400';
 
-        const stackBoldColor = p.accentCard
-          ? 'text-black'
-          : p.darkCard
-          ? 'text-white'
-          : 'text-black dark:text-white';
+          const stackBoldColor = p.accentCard
+            ? 'text-black'
+            : p.darkCard
+              ? 'text-white'
+              : 'text-black dark:text-white';
 
-        const borderDivider = p.accentCard
-          ? 'border-black/30'
-          : p.darkCard
-          ? 'border-white/20'
-          : 'border-black/10 dark:border-white/10';
+          const borderDivider = p.accentCard
+            ? 'border-black/30'
+            : p.darkCard
+              ? 'border-white/20'
+              : 'border-black/10 dark:border-white/10';
 
-        const statBg = p.accentCard
-          ? 'bg-black/15 text-black border border-black/30'
-          : p.darkCard
-          ? 'bg-white/15 text-white border border-white/30'
-          : 'bg-zinc-100 dark:bg-zinc-800 text-black dark:text-white border border-black/15 dark:border-white/15';
+          const statBg = p.accentCard
+            ? 'bg-black/15 text-black border border-black/30'
+            : p.darkCard
+              ? 'bg-white/15 text-white border border-white/30'
+              : 'bg-zinc-100 dark:bg-zinc-800 text-black dark:text-white border border-black/15 dark:border-white/15';
 
-        return (
-          <div class={`${bgClass} ${borderClasses} p-5 flex flex-col justify-between`}>
-            <div>
-              <div class="flex items-start justify-between gap-2 mb-2">
-                <div>
-                  <h2 class={`font-heading font-bold text-lg leading-tight ${titleColor}`}>
-                    {p.title}
-                  </h2>
-                  <p class={`text-xs font-mono font-semibold mt-0.5 ${tagColor}`}>{p.tagline}</p>
+          return (
+            <div class={`${bgClass} ${borderClasses} p-5 flex flex-col justify-between`}>
+              <div>
+                <div class="flex items-start justify-between gap-2 mb-2">
+                  <div>
+                    <h2 class={`font-heading font-bold text-lg leading-tight ${titleColor}`}>
+                      {p.title}
+                    </h2>
+                    <p class={`text-xs font-mono font-semibold mt-0.5 ${tagColor}`}>{p.tagline}</p>
+                  </div>
+                  <span
+                    class={`px-2 py-0.5 font-mono font-bold text-[10px] whitespace-nowrap ${statBg}`}
+                  >
+                    {p.stat}
+                  </span>
                 </div>
-                <span class={`px-2 py-0.5 font-mono font-bold text-[10px] whitespace-nowrap ${statBg}`}>
-                  {p.stat}
-                </span>
+
+                <p class={`text-xs sm:text-[13px] font-body leading-relaxed mt-2 ${descColor}`}>
+                  {p.description}
+                </p>
               </div>
 
-              <p class={`text-xs sm:text-[13px] font-body leading-relaxed mt-2 ${descColor}`}>
-                {p.description}
-              </p>
+              <div
+                class={`flex items-center gap-1.5 pt-3 mt-3 border-t font-mono text-[11px] ${borderDivider} ${stackColor}`}
+              >
+                {p.stack.map((tech, tIdx) => (
+                  <>
+                    <span class={`font-bold ${stackBoldColor}`}>{tech}</span>
+                    {tIdx < p.stack.length - 1 && <span>•</span>}
+                  </>
+                ))}
+              </div>
             </div>
-
-            <div class={`flex items-center gap-1.5 pt-3 mt-3 border-t font-mono text-[11px] ${borderDivider} ${stackColor}`}>
-              {p.stack.map((tech, tIdx) => (
-                <>
-                  <span class={`font-bold ${stackBoldColor}`}>{tech}</span>
-                  {tIdx < p.stack.length - 1 && <span>•</span>}
-                </>
-              ))}
-            </div>
-          </div>
-        );
-      })}
+          );
+        })
+      }
     </div>
   </div>
 </SummaryLayout>

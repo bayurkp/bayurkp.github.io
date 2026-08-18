@@ -1,7 +1,7 @@
 ---
 title: 'Programming Teacher'
 company: 'Timedoor Indonesia'
-location: 'Bali'
+location: 'Denpasar, Bali'
 startDate: 'Aug 2024'
 current: true
 description: 'Delivered bilingual programming instruction across Scratch, Roblox, Python, Machine Learning, Vue, and Laravel.'

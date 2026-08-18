@@ -23,11 +23,7 @@ const { title, description, thumbnail, tags, link, repo, slug } = Astro.props;
   >
     {
       thumbnail ? (
-        <img
-          src={thumbnail}
-          alt={title}
-          class="w-full h-full object-cover"
-        />
+        <img src={thumbnail} alt={title} class="w-full h-full object-cover" />
       ) : (
         <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-accent/20 to-transparent">
           <span class="font-heading font-bold text-4xl text-accent/50">{title.charAt(0)}</span>
@@ -37,7 +33,9 @@ const { title, description, thumbnail, tags, link, repo, slug } = Astro.props;
   </a>
   <div class="p-6 flex flex-col flex-grow">
     <a href={`/projects/${slug}`} class="block group">
-      <h3 class="font-heading font-bold text-xl mb-2 group-hover:text-accent transition-colors">{title}</h3>
+      <h3 class="font-heading font-bold text-xl mb-2 group-hover:text-accent transition-colors">
+        {title}
+      </h3>
     </a>
     <p class="font-body text-sm mb-4 opacity-80 line-clamp-2">{description}</p>
     <div class="flex flex-wrap gap-2 mb-4">

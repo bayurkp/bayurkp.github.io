@@ -90,16 +90,16 @@ const hasBlogPosts = (await getCollection('blog', ({ data }) => !data.draft)).le
             class="hidden md:block font-heading font-bold text-sm hover:text-accent transition-colors"
             >Experience</a
           >
-            {
-              hasBlogPosts && (
-                <a
-                  href="/#blog"
-                  class="hidden sm:block font-heading font-bold text-sm hover:text-accent transition-colors"
-                >
-                  Blog
-                </a>
-              )
-            }
+          {
+            hasBlogPosts && (
+              <a
+                href="/#blog"
+                class="hidden sm:block font-heading font-bold text-sm hover:text-accent transition-colors"
+              >
+                Blog
+              </a>
+            )
+          }
           <Button href="/#contact" variant="secondary" size="sm">Contact</Button>
           <button
             id="theme-toggle"
